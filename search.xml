@@ -3,12 +3,258 @@
   <entry>
     <title>Java学习</title>
     <url>/2021/09/30/Java%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<h1 id="Java学习之旅"><a href="#Java学习之旅" class="headerlink" title="Java学习之旅"></a>Java学习之旅</h1><hr>
-<h2 id="一些eclipse快捷键"><a href="#一些eclipse快捷键" class="headerlink" title="一些eclipse快捷键:"></a>一些eclipse快捷键:</h2><ul>
-<li><h4 id="Alt-显示出代码提示"><a href="#Alt-显示出代码提示" class="headerlink" title="Alt+/   :   显示出代码提示"></a>Alt+/   :   显示出代码提示</h4></li>
-<li><h4 id="Ctrl-可以进行多行的单行注释"><a href="#Ctrl-可以进行多行的单行注释" class="headerlink" title="Ctrl+/  :   可以进行多行的单行注释"></a>Ctrl+/  :   可以进行多行的单行注释<img src="C:\Users\陈文宇\AppData\Roaming\Typora\typora-user-images\image-20210929000401107.png" alt="image-20210929000401107" loading="lazy"></h4></li>
+    <content><![CDATA[<h3 id="1-一些计算机基础知识"><a href="#1-一些计算机基础知识" class="headerlink" title="1.一些计算机基础知识"></a>1.一些计算机基础知识</h3><ol>
+<li>硬件及冯·诺依曼结构</li>
+</ol>
+<p><img src="https://p1.ssl.qhimg.com/t017835188ec7e2f9b9.png" alt="结构图" loading="lazy"></p>
+<ol start="2">
+<li><p>计算机软件</p>
+</li>
+<li><p>计算机软件可以使计算机按照事先约定好的顺序完成特定的功能</p>
+<p>计算机软件是操作计算机硬件</p>
+<p>按功能可分为系统软件和应用软件</p>
+</li>
+</ol>
+<h3 id="2-计算机快捷键"><a href="#2-计算机快捷键" class="headerlink" title="2. 计算机快捷键"></a>2. 计算机快捷键</h3><p>CTRL + C ：复制</p>
+<p>CTRL + V ：粘贴</p>
+<p>CTRL + A ：全选</p>
+<p>CTRL + X ：剪切</p>
+<p>CTRL + X ：撤销</p>
+<p>CTRL + S ：保存</p>
+<p>Alt + F4 ：关闭当前窗口</p>
+<p>CTRL + shift + Esc ：打开任务管理器</p>
+<p>shift + delete ：删除文件</p>
+<p>Alt + tab ：切换界面</p>
+<h3 id="3-打开cmd"><a href="#3-打开cmd" class="headerlink" title="3. 打开cmd"></a>3. 打开cmd</h3><p>常用的dos命令</p>
+<figure class="highlight dos"><table><tr><td class="code"><pre><span class="line">通过/d实现跨盘符的切换</span><br><span class="line">#盘符切换					<span class="built_in">cd</span> D:	|| 	 <span class="built_in">cd</span> /d d:		(change directory)</span><br><span class="line">#查看当前目录下的所有文件	   <span class="built_in">dir</span></span><br><span class="line">#切换目录					<span class="built_in">cd</span>+当前目录下的文件路径</span><br><span class="line">#返回上一级目录			  <span class="built_in">cd</span> ..</span><br><span class="line">#清理屏幕					<span class="built_in">cls</span> (clear screen)</span><br><span class="line">#退出终端					<span class="keyword">exit</span></span><br><span class="line">#显示IP地址					<span class="built_in">ipconfig</span></span><br><span class="line"></span><br><span class="line">#打开应用</span><br><span class="line">	calc (打开计算器)</span><br><span class="line"></span><br><span class="line">    mspaint(打开画图软件)</span><br><span class="line"></span><br><span class="line">    notepad(打开记事本)</span><br><span class="line">    </span><br><span class="line">#<span class="built_in">ping</span> 命令</span><br><span class="line">	<span class="built_in">ping</span> www.baidu.com	得到百度的IP地址</span><br><span class="line">	</span><br><span class="line">#文件操作</span><br><span class="line">	<span class="built_in">md</span>(make directory) text		创建目录</span><br><span class="line">	<span class="built_in">rd</span>(remove diretory) text	移除目录</span><br><span class="line">	<span class="built_in">cd</span>&gt;文件名					  创建文件</span><br><span class="line">	<span class="built_in">del</span> 文件名 				  删除文件</span><br></pre></td></tr></table></figure>
+
+<h2 id="正式进入Java的学习"><a href="#正式进入Java的学习" class="headerlink" title="正式进入Java的学习"></a>正式进入Java的学习</h2><p>学习过程中推荐<a href="https://tool.oschina.net/">Java API文档</a></p>
+<h3 id="1-面向对象开发方法的一些核心思想与概念"><a href="#1-面向对象开发方法的一些核心思想与概念" class="headerlink" title="1. 面向对象开发方法的一些核心思想与概念"></a>1. 面向对象开发方法的一些核心思想与概念</h3><hr>
+<p>​    面向对象分析与设计</p>
+<ul>
+<li><p>建立模拟问题领域的对象模型</p>
+</li>
+<li><p>自底向上的抽象</p>
+<ol>
+<li>把问题领域中的事物抽象为具有特定<strong>属性</strong>和<strong>行为</strong>的对象</li>
+<li>把具有相同<strong>属性</strong>和<strong>行为</strong>的对象抽象为类</li>
+<li>将具有共性的类的共性抽象到父类</li>
+</ol>
+</li>
+<li><p>自顶向下的分解</p>
+<p>对象（Object）</p>
+<p>类（Class）和类型（Type）</p>
+<p>消息（Message）和服务（Service）</p>
+<p>接口（Interface）</p>
+<p>抽象（Abstract）</p>
+<p>封装（Encapsulation）</p>
+<p>继承（Inheritance）</p>
+<p>多态（Polymorphism）</p>
+</li>
 </ul>
-<h5 id="“-”号可以把字符串连接起来，如果其他不是字符串，会将其变成字符串，再连接起来"><a href="#“-”号可以把字符串连接起来，如果其他不是字符串，会将其变成字符串，再连接起来" class="headerlink" title="“+”号可以把字符串连接起来，如果其他不是字符串，会将其变成字符串，再连接起来"></a>“+”号可以把字符串连接起来，如果其他不是字符串，会将其变成字符串，再连接起来</h5>]]></content>
+<h3 id="2-java-入门"><a href="#2-java-入门" class="headerlink" title="2. java 入门"></a>2. java 入门</h3><hr>
+<h4 id="2-1-java注释"><a href="#2-1-java注释" class="headerlink" title="2.1 java注释"></a>2.1 java注释</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//注释内容			单行注释	ctrl+/ 可进行多行的单行注释</span></span><br><span class="line"><span class="comment">/*注释内容*/</span>		多行注释</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@auther</span> 	作者名</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@version</span>	版本号</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@since</span>	指明需要最早使用的jdk版本</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@param</span>	参数名</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@return</span>	返回值情况</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@throws</span>	异常抛出情况</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span>			JavaDoc:文档注释(<span class="comment">/**+回车)</span></span><br><span class="line"><span class="comment"> 加在类上面就是类的注释，加在方法上面就是方法的注释</span></span><br></pre></td></tr></table></figure>
+
+<p> 用命令行创建JavaDoc文件<br> javadoc -encoding(编码) UTF-8 -charset(字符集编码) UTF-8  java文件     //多显示一点中文</p>
+<blockquote>
+<p>tips:    使用IDEA生成<a href="https://www.cnblogs.com/orint/p/14452218.html#:~">javadoc文档</a></p>
+</blockquote>
+<h4 id="2-2-标识符"><a href="#2-2-标识符" class="headerlink" title="2.2 标识符"></a>2.2 标识符</h4><p>Java所有的组成部分都需要名字。类名，变量名以及方法名</p>
+<p>所有的标识符都应该以字母(A<del>Z或者a</del>z)，美元符($)，或者下划线(_)开始</p>
+<p>不能使用关键字作为变量名或者方法</p>
+<p>标识符是大小写敏感的</p>
+<h4 id="2-3-数据类型"><a href="#2-3-数据类型" class="headerlink" title="2.3 数据类型"></a>2.3 数据类型</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">定义字符串：String s = <span class="string">&quot;abc&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>基本数据类型</p>
+<p>1位(byte)=8字节(bit)</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span> bit表示<span class="number">1</span>位</span><br><span class="line"><span class="number">1</span> Byte表示一个字节 1B=8b</span><br><span class="line">1024B=1KB</span><br><span class="line">1024KB=1MB</span><br><span class="line">1024MB=1GB</span><br></pre></td></tr></table></figure>
+
+
+
+<table>
+<thead>
+<tr>
+<th align="center">数据类型</th>
+<th align="center">默认值</th>
+<th align="center">字节数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">byte</td>
+<td align="center">0</td>
+<td align="center">1byte</td>
+</tr>
+<tr>
+<td align="center">short</td>
+<td align="center">0</td>
+<td align="center">2byte</td>
+</tr>
+<tr>
+<td align="center">int</td>
+<td align="center">0</td>
+<td align="center">4byte</td>
+</tr>
+<tr>
+<td align="center">long</td>
+<td align="center">0L</td>
+<td align="center">8byte</td>
+</tr>
+<tr>
+<td align="center">float</td>
+<td align="center">0.0f</td>
+<td align="center">4byte</td>
+</tr>
+<tr>
+<td align="center">double</td>
+<td align="center">0.0d</td>
+<td align="center">8byte</td>
+</tr>
+<tr>
+<td align="center">char</td>
+<td align="center">‘\u0000’</td>
+<td align="center">2byte</td>
+</tr>
+<tr>
+<td align="center">boolean</td>
+<td align="center">false</td>
+<td align="center">1byte</td>
+</tr>
+</tbody></table>
+<p>long数据类型和float类型定义</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">long</span> i = <span class="number">1234L</span>;</span><br><span class="line"><span class="keyword">float</span> j = <span class="number">123.3f</span>;</span><br></pre></td></tr></table></figure>
+
+<p>数据类型扩展</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">整数：		进制		二进制0b		十进制		八进制<span class="number">0</span>	十六进制0x</span><br><span class="line"><span class="keyword">int</span> i=<span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> i=<span class="number">010</span>;	<span class="comment">//八进制0</span></span><br><span class="line"><span class="keyword">int</span> i=<span class="number">0x10</span>;	<span class="comment">//十六进制0x	0~9 A~F 16</span></span><br><span class="line"></span><br><span class="line">浮点数：有限		离散		舍入误差	大约		接近但不等于</span><br><span class="line">    (最好完全避免使用浮点数进行比较)</span><br><span class="line">    银行业务使用BigDecimal	数学工具类</span><br><span class="line">    </span><br><span class="line">字符类型	(所有的字符本质还是数字)(编码使用 Unicode <span class="number">2</span>字节 <span class="number">0</span>~<span class="number">65536</span>)</span><br><span class="line">  <span class="keyword">char</span> c1=<span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">  <span class="keyword">char</span> c2=<span class="string">&#x27;中&#x27;</span>;</span><br><span class="line">  System.out.println((<span class="keyword">int</span>)c1);  <span class="comment">//强制类型转换</span></span><br><span class="line"></span><br><span class="line">转移字符</span><br><span class="line">    <span class="comment">// \t 制表符</span></span><br><span class="line">    <span class="comment">// \n 换行符</span></span><br></pre></td></tr></table></figure></li>
+<li><p>引用数据类型</p>
+<ol>
+<li>类</li>
+<li>接口</li>
+<li>数组</li>
+</ol>
+</li>
+</ul>
+<h4 id="2-4-变量作用域"><a href="#2-4-变量作用域" class="headerlink" title="2.4 变量作用域"></a>2.4 变量作用域</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Variable</span></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> a=<span class="number">0</span>;					<span class="comment">//类变量   static；从属于类</span></span><br><span class="line">    String str = <span class="string">&quot;hello world&quot;</span>;		<span class="comment">//实例变量；从属于对象；如果不进行初始化，则变成这个类型的默认值；除了基本数据类型，其余的默认都是NULL</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i=<span class="number">0</span>;			<span class="comment">//局部变量；必须声明和初始化值</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>常量初始化后不能再改变的值</p>
+<p>常量名一般使用大写字母</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">final</span> 常量名=值；</span><br><span class="line"><span class="keyword">final</span> <span class="keyword">double</span> PI=<span class="number">3.14</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">final</span>在类加载时只进行一次初始化，在类内部的值也不再改变</span><br><span class="line"><span class="keyword">static</span>意思是静态，在类加载时完成，在一个类里面只有一个值，在类的内部可以修改多次</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-5-自增自减"><a href="#2-5-自增自减" class="headerlink" title="2.5 自增自减"></a>2.5 自增自减</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">int</span> b = a++;		执行完这行代码后，先给b赋值，再++</span><br><span class="line"><span class="keyword">int</span> c = ++a;		执行完这行代码前，先++，再给b赋值</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-6-位运算-了解"><a href="#2-6-位运算-了解" class="headerlink" title="2.6 位运算(了解)"></a>2.6 位运算(了解)</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">A = <span class="number">0011</span> <span class="number">1100</span></span><br><span class="line">B = <span class="number">0000</span> <span class="number">1101</span></span><br><span class="line">    </span><br><span class="line">A&amp;B = <span class="number">0000</span> <span class="number">1100</span>		(上下比较，两个都为<span class="number">1</span>，才为<span class="number">1</span>，否则为<span class="number">0</span>)</span><br><span class="line">A|B = <span class="number">0011</span> <span class="number">1101</span>		(上下比较，都为<span class="number">0</span>结果才为<span class="number">0</span>，否则为<span class="number">1</span>)</span><br><span class="line">A^B = <span class="number">0011</span> <span class="number">0001</span>		(相同为<span class="number">0</span>，否则为<span class="number">1</span>)</span><br><span class="line">~B  = <span class="number">1111</span> <span class="number">0010</span>		(与B完全相反)</span><br><span class="line">    </span><br><span class="line">&lt;&lt;  左移	*<span class="number">2</span>		<span class="number">2</span>&lt;&lt;<span class="number">3</span>	<span class="number">16</span></span><br><span class="line">&gt;&gt;  右移	/<span class="number">2</span></span><br><span class="line">    <span class="number">0000</span> <span class="number">0010</span>    <span class="number">2</span></span><br><span class="line">    <span class="number">0001</span> <span class="number">0000</span>    <span class="number">16</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-7-字符串连接符"><a href="#2-7-字符串连接符" class="headerlink" title="2.7 字符串连接符   (+)"></a>2.7 字符串连接符   (+)</h4><p>“+”号运算符两侧，只要出现String类型，如果另一侧不是字符串，则会将其转换为字符串再连接起来</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">System.out.println(<span class="string">&quot;&quot;</span>+a+b);		字符串在前面，直接进行拼接</span><br><span class="line">System.out.println(a+b+<span class="string">&quot;&quot;</span>);		字符串在后面，a+b先进行计算，再拼接</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-8-三元运算符"><a href="#2-8-三元运算符" class="headerlink" title="2.8 三元运算符"></a>2.8 三元运算符</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">x ? y : z 		<span class="comment">//如果x==true,则结果为y,否则为z</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-9-包机制"><a href="#2-9-包机制" class="headerlink" title="2.9 包机制"></a>2.9 包机制</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> pkg1.pkg2.pkg3</span><br><span class="line">一般利用公司域名的倒置作为包名</span><br><span class="line">such: <span class="keyword">package</span> com.baidu.www</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> 包的路径		<span class="comment">//导入包</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-类和对象"><a href="#3-类和对象" class="headerlink" title="3. 类和对象"></a>3. 类和对象</h3><hr>
+<h4 id="3-1-Scanner-对象"><a href="#3-1-Scanner-对象" class="headerlink" title="3.1 Scanner 对象"></a>3.1 Scanner 对象</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">需要导入包：</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line">基本语法：</span><br><span class="line">Scanner s = <span class="keyword">new</span> Scanner(System.in);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//创建一个扫描器对象，用于接收键盘数据</span></span><br><span class="line">Scanner s = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line"></span><br><span class="line"><span class="comment">//凡是属于IO流的类如果不关会一直占用资源</span></span><br><span class="line">S.close();</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Scanner类的next()与nextLine()方法</span><br><span class="line">next()方法：</span><br><span class="line">    对输入有效字符之前遇到的空白，next()方法会将其自动去掉</span><br><span class="line">    只有输入有效字符后才将后面输入的空白作为分隔符或者结束符</span><br><span class="line">    不能得到带有空格的字符串</span><br><span class="line">nextLine()方法: </span><br><span class="line">	该方法返回输入回车之前的所有字符，包括空格</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//循环输入数据</span></span><br><span class="line"><span class="keyword">while</span>(scanner.hasNextDouble())</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">double</span> x = scanner.nextDouble();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-switch多选择结构"><a href="#3-2-switch多选择结构" class="headerlink" title="3.2 switch多选择结构"></a>3.2 switch多选择结构</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">switch</span>(变量类型)		<span class="comment">//变量类型可以是byte,short,int,char,String类型</span></span><br><span class="line">&#123;</span><br><span class="line">        <span class="comment">//case穿透，不写case会一直执行下面的语句直到遇到case</span></span><br><span class="line">	<span class="keyword">case</span> value:			<span class="comment">//case标签必须是字符串常量或字面量</span></span><br><span class="line">	<span class="comment">//语句</span></span><br><span class="line">	<span class="keyword">break</span>;<span class="comment">//可选</span></span><br><span class="line">	<span class="keyword">case</span> value:</span><br><span class="line">	<span class="comment">//语句</span></span><br><span class="line">	<span class="keyword">break</span>;<span class="comment">//可选</span></span><br><span class="line">	<span class="keyword">default</span>：<span class="comment">//可选</span></span><br><span class="line">		<span class="comment">//语句</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-3-break和continue"><a href="#3-3-break和continue" class="headerlink" title="3.3 break和continue"></a>3.3 break和continue</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">break</span> ：强行退出循环，不执行循环中剩余的语句</span><br><span class="line"><span class="keyword">continue</span> ： 用于终止某次循环过程，跳过循环体中尚未执行的语句，接着进行下一次是否执行循环的判定</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-4-打印三角形"><a href="#3-4-打印三角形" class="headerlink" title="3.4 打印三角形"></a>3.4 打印三角形</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">5</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">5</span>;j&gt;i;j--)&#123;</span><br><span class="line">                System.out.print(<span class="string">&quot; &quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=i;j++)&#123;</span><br><span class="line">                System.out.print(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;i;j++)&#123;</span><br><span class="line">                System.out.print(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-5-方法"><a href="#3-5-方法" class="headerlink" title="3.5 方法"></a>3.5 方法</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">System.out.println()	<span class="comment">//调用系统类中标准输出对象out的println方法</span></span><br><span class="line">方法是语句的集合，它们在一起执行一个功能</span><br><span class="line">    <span class="number">1.</span> 方法包含于类或对象中</span><br><span class="line">    <span class="number">2.</span> 方法在程序中被创建，在其他地方被引用</span><br><span class="line">    </span><br><span class="line">方法的定义: </span><br><span class="line">	修饰符 返回类型 方法名 (参数类型 参数名)&#123;</span><br><span class="line">        ···</span><br><span class="line">        方法体</span><br><span class="line">        ···</span><br><span class="line">        <span class="keyword">return</span> 返回值;   <span class="comment">//返回值  , 终止方法</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">方法重载</span><br><span class="line">	方法名称必须相同</span><br><span class="line">    参数列表必须不同</span><br><span class="line">    方法的返回类型可以相同也可以不同</span><br><span class="line">    tips: 仅仅返回类型不同不足以成为方法的重载</span><br><span class="line">        </span><br><span class="line">方法名称相同时，编译器会根据调用方法的参数个数，参数类型等去逐个匹配对应的方法</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-6-命令行传递参数"><a href="#3-6-命令行传递参数" class="headerlink" title="3.6 命令行传递参数"></a>3.6 命令行传递参数</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;args.length;i++)</span><br><span class="line">		System.out.println(<span class="string">&quot;args[&quot;</span>+i+<span class="string">&quot;]: &quot;</span>+args[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">javac 路径名    <span class="comment">//编译为.class文件</span></span><br><span class="line">java 路径名 参数	 <span class="comment">//注意要加上包的路径	</span></span><br><span class="line">such:</span><br><span class="line">	java h1.Main <span class="keyword">this</span> is hh</span><br><span class="line">        </span><br><span class="line">result:</span><br><span class="line">args[<span class="number">0</span>]:<span class="keyword">this</span></span><br><span class="line">args[<span class="number">1</span>]:is</span><br><span class="line">args[<span class="number">2</span>]:hh</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+<h4 id="3-7-可变参数"><a href="#3-7-可变参数" class="headerlink" title="3.7 可变参数"></a>3.7 可变参数</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">在方法的声明中，可在指定参数类型后面加一个省略号(…)</span><br><span class="line">一个方法只能指定一个可变参数,它必须是方法的最后一个参数,任何普通参数必须在它之前声明</span><br><span class="line"><span class="comment">//本质上类似于命数组传参</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo04</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Demo04 demo04 = <span class="keyword">new</span> Demo04();</span><br><span class="line">        demo04.test(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span>... i)</span></span>&#123; 		<span class="comment">//类似于int类型的数组</span></span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-8-递归"><a href="#3-8-递归" class="headerlink" title="3.8 递归"></a>3.8 递归</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">递归结构包括两个部分：</span><br><span class="line">	递归头：什么时候不带哦一年自身的方法，如果没有头，将陷入死循环</span><br><span class="line">	递归体：什么时候需要调用自身的方法</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">理解：就是有个“递”和“归”的过程</span><br><span class="line">    important ：明确这个函数的功能是什么</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="4-常用类"><a href="#4-常用类" class="headerlink" title="4. 常用类"></a>4. 常用类</h3><hr>
+<h3 id="5-继承和多态"><a href="#5-继承和多态" class="headerlink" title="5. 继承和多态"></a>5. 继承和多态</h3><hr>
+]]></content>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2021/09/19/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>学习记录</title>
+    <url>/2021/09/22/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="学习笔记篇——HTML"><a href="#学习笔记篇——HTML" class="headerlink" title="学习笔记篇——HTML"></a>学习笔记篇——HTML</h2><h3 id="一-HTTP大概"><a href="#一-HTTP大概" class="headerlink" title="(一)HTTP大概"></a>(一)HTTP大概</h3><ol>
+<li><p>对于中文网页需要用<u><meta charset="utf-8" ></u>声明编码，否则会出现乱码，有些浏览器会设置GBK为默认编码，需设置<u><meta charest="gbk"></u>。</p>
+</li>
+<li><p>元素解析(起始标记为&lt;…&gt; 终止标志为&lt;/…&gt;)</p>
+<ul>
+<li><p>“<!DOCTYOE html>“声明为HTML5文档</p>
+</li>
+<li><p>“<html>“元素是HTML页面的根元素(详情了解根元素点击这-<a href="https://blog.csdn.net/ixygj197875/article/details/79737953">根元素</a>)</p>
+</li>
+<li><p>“<head>“ 元素包含文档元(meta)数据  </p>
+</li>
+<li><p>“<title>“ 元素描述文档标题</p>
+</li>
+<li><p>“<body>“ 元素包含可见页面的内容  </p>
+</li>
+<li><p>“<h1>“ 元素定义一个大标题</p>
+</li>
+<li><p>“<p>“ 元素是段落    </p>
+</li>
+</ul>
+</li>
+</ol>
+<p>3 . HTML意思是超文本<u>标记语言</u><br>    * <u>HTML标签通常成对出现</u>,(写的时候还是一对对的写好点)。<br>    * doctype是不区分大小写的<br>4 . 一个网页的大概框架为  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">&lt;title&gt;...&lt;title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;h1&gt;...&lt;/h1&gt;</span><br><span class="line">&lt;p&gt;...&lt;/p&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;  </span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>plus:<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">&lt;title&gt;...&lt;title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;header&gt;</span><br><span class="line">&lt;/header&gt;</span><br><span class="line">&lt;nav&gt;</span><br><span class="line">&lt;/nav&gt;</span><br><span class="line">&lt;h1&gt;...&lt;/h1&gt;</span><br><span class="line">&lt;p&gt;...&lt;/p&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;  </span><br></pre></td></tr></table></figure>
+6 . 头部信息放在<head></head>之间，这部分内容包括<title>,<base>,<link>,<style>,<script>,<meta>。设置网页定时跳转：<u><meta http-equiv="refresh" content="秒 "url="资源途径"/></u><br>7 . HTML图形是通过<img>定义,如<code loading="lazy">&lt;img loading=&quot;lazy&quot; src=&quot;/images/;ogo.png&quot; width=&quot;258&quot; height=&quot;39&quot;&gt;</code><br>8 . 注释的表达<code>&lt;!-- 这是一个注释 ---&gt;</code>  ,换行是<br /> , 水平线是<hr /><br>9 . <b>标记含义是加粗(感觉和<strong>也没什么区别),<i>标记意思是斜体(感觉和<em>也没什么区别)<br>10 . <small>标记将旁注呈现为小型文本，免责声明，注意事项均属于这<br>12 . 上标为<sup>，下标为<sub><br>13 . CSS背景色属性为(background-color),字体(font-family),颜色(color),字体大小(font-size)文字(text-align)<br>14 . </li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>网页制作</title>
+    <url>/2021/09/22/%E7%BD%91%E9%A1%B5%E5%88%B6%E4%BD%9C/</url>
+    <content><![CDATA[<h1 id="网页制作"><a href="#网页制作" class="headerlink" title="网页制作"></a>网页制作</h1><h2 id="第一章-网页设计基础知识"><a href="#第一章-网页设计基础知识" class="headerlink" title="第一章 网页设计基础知识"></a>第一章 网页设计基础知识</h2><ul>
+<li><p>第一项:网页相关知识简介  </p>
+<ul>
+<li><p>互联网、因特网和万维网<br>互联网指的是由<u>若干计算机网络相互连接而成的网络</u>，进一步说，凡是能彼此通信的设备组成的网络就叫互联网。  因特网是目前全球最大的一个电子计算机互联网，由美国ARPA网（军事网络）发展而来  </p>
+</li>
+<li><p>网站和网页<br>网站是多个网页的结合，网页是一HTML语言为基础编写的，能够通过网络传输，比如传送门 <a href="http://www.tiantanpark.com/">北京天坛</a>   </p>
+</li>
+<li><p>网页与HTML<br>HTML(超文本标记语言)</p>
+</li>
+<li><p>静态网页和动态网页<br>两者的区别在所采用的技术上，动态网页是运行于服务器端口的代码，它可实现的功能较多，如:用户注册、登录、在线调查(也可认为是与服务器后端进行交互)，且其通常有一个标志性”?”符号。</p>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
   </entry>
   <entry>
     <title>C语言的一些理解</title>
@@ -63,76 +309,6 @@
 <h4 id="命题"><a href="#命题" class="headerlink" title="命题"></a><strong>命题</strong></h4><p>1.做出判断的陈述句</p>
 <p>2.确定的对象</p>
 <p><strong>或为真或为假的陈述句，非真即假，不能兼有之，也不能不真不假(是否知道真值，能否知道真值是另一回事)</strong></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>网页制作</title>
-    <url>/2021/09/22/%E7%BD%91%E9%A1%B5%E5%88%B6%E4%BD%9C/</url>
-    <content><![CDATA[<h1 id="网页制作"><a href="#网页制作" class="headerlink" title="网页制作"></a>网页制作</h1><h2 id="第一章-网页设计基础知识"><a href="#第一章-网页设计基础知识" class="headerlink" title="第一章 网页设计基础知识"></a>第一章 网页设计基础知识</h2><ul>
-<li><p>第一项:网页相关知识简介  </p>
-<ul>
-<li><p>互联网、因特网和万维网<br>互联网指的是由<u>若干计算机网络相互连接而成的网络</u>，进一步说，凡是能彼此通信的设备组成的网络就叫互联网。  因特网是目前全球最大的一个电子计算机互联网，由美国ARPA网（军事网络）发展而来  </p>
-</li>
-<li><p>网站和网页<br>网站是多个网页的结合，网页是一HTML语言为基础编写的，能够通过网络传输，比如传送门 <a href="http://www.tiantanpark.com/">北京天坛</a>   </p>
-</li>
-<li><p>网页与HTML<br>HTML(超文本标记语言)</p>
-</li>
-<li><p>静态网页和动态网页<br>两者的区别在所采用的技术上，动态网页是运行于服务器端口的代码，它可实现的功能较多，如:用户注册、登录、在线调查(也可认为是与服务器后端进行交互)，且其通常有一个标志性”?”符号。</p>
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>学习记录</title>
-    <url>/2021/09/22/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="学习笔记篇——HTML"><a href="#学习笔记篇——HTML" class="headerlink" title="学习笔记篇——HTML"></a>学习笔记篇——HTML</h2><h3 id="一-HTTP大概"><a href="#一-HTTP大概" class="headerlink" title="(一)HTTP大概"></a>(一)HTTP大概</h3><ol>
-<li><p>对于中文网页需要用<u><meta charset="utf-8" ></u>声明编码，否则会出现乱码，有些浏览器会设置GBK为默认编码，需设置<u><meta charest="gbk"></u>。</p>
-</li>
-<li><p>元素解析(起始标记为&lt;…&gt; 终止标志为&lt;/…&gt;)</p>
-<ul>
-<li><p>“<!DOCTYOE html>“声明为HTML5文档</p>
-</li>
-<li><p>“<html>“元素是HTML页面的根元素(详情了解根元素点击这-<a href="https://blog.csdn.net/ixygj197875/article/details/79737953">根元素</a>)</p>
-</li>
-<li><p>“<head>“ 元素包含文档元(meta)数据  </p>
-</li>
-<li><p>“<title>“ 元素描述文档标题</p>
-</li>
-<li><p>“<body>“ 元素包含可见页面的内容  </p>
-</li>
-<li><p>“<h1>“ 元素定义一个大标题</p>
-</li>
-<li><p>“<p>“ 元素是段落    </p>
-</li>
-</ul>
-</li>
-</ol>
-<p>3 . HTML意思是超文本<u>标记语言</u><br>    * <u>HTML标签通常成对出现</u>,(写的时候还是一对对的写好点)。<br>    * doctype是不区分大小写的<br>4 . 一个网页的大概框架为  </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">&lt;title&gt;...&lt;title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;h1&gt;...&lt;/h1&gt;</span><br><span class="line">&lt;p&gt;...&lt;/p&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;  </span><br></pre></td></tr></table></figure>
-<ol start="5">
-<li>plus:<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">&lt;title&gt;...&lt;title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;header&gt;</span><br><span class="line">&lt;/header&gt;</span><br><span class="line">&lt;nav&gt;</span><br><span class="line">&lt;/nav&gt;</span><br><span class="line">&lt;h1&gt;...&lt;/h1&gt;</span><br><span class="line">&lt;p&gt;...&lt;/p&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;  </span><br></pre></td></tr></table></figure>
-6 . 头部信息放在<head></head>之间，这部分内容包括<title>,<base>,<link>,<style>,<script>,<meta>。设置网页定时跳转：<u><meta http-equiv="refresh" content="秒 "url="资源途径"/></u><br>7 . HTML图形是通过<img>定义,如<code loading="lazy">&lt;img loading=&quot;lazy&quot; src=&quot;/images/;ogo.png&quot; width=&quot;258&quot; height=&quot;39&quot;&gt;</code><br>8 . 注释的表达<code>&lt;!-- 这是一个注释 ---&gt;</code>  ,换行是<br /> , 水平线是<hr /><br>9 . <b>标记含义是加粗(感觉和<strong>也没什么区别),<i>标记意思是斜体(感觉和<em>也没什么区别)<br>10 . <small>标记将旁注呈现为小型文本，免责声明，注意事项均属于这<br>12 . 上标为<sup>，下标为<sub><br>13 . CSS背景色属性为(background-color),字体(font-family),颜色(color),字体大小(font-size)文字(text-align)<br>14 . </li>
-</ol>
-]]></content>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2021/09/19/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
   </entry>
 </search>
