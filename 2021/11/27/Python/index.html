@@ -1,0 +1,117 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="chenwenyu"><meta name="copyright" content="chenwenyu"><meta name="generator" content="Hexo 5.4.0"><meta name="theme" content="hexo-theme-yun"><title>Java学习 | WYsWeb</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.1.25/dist/yun/yun-markdown.min.css"><script src="//at.alicdn.com/t/font_1140697_dxory92pb0h.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>document.addEventListener("DOMContentLoaded", () => {
+  [".post-card",".post-content img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+});
+</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@latest/themes/prism.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@latest/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="icon" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#0078E7"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+    const Yun = window.Yun || {};
+    window.CONFIG = {"hostname":"avereed.github.io","root":"/","title":"文宇的小站","version":"1.6.2","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms"},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><meta name="description" content="人生苦短,我学Python   注意: ‘’&gt;&gt;&gt;’’后面表示代码内容  1. Python语法1.1 Hello World&gt;&gt;&gt; print(&#39;Hello World!&#39;) Hello World!  Python字符串以单引号&#39;&#39;括起来  tips: Python语句结束没有分号(把缩进和换行当成文法的有效部分,可以表达出完整的语义) 1.2 操作符括号			() 乘方">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java学习">
+<meta property="og:url" content="https://avereed.github.io/2021/11/27/Python/index.html">
+<meta property="og:site_name" content="WYsWeb">
+<meta property="og:description" content="人生苦短,我学Python   注意: ‘’&gt;&gt;&gt;’’后面表示代码内容  1. Python语法1.1 Hello World&gt;&gt;&gt; print(&#39;Hello World!&#39;) Hello World!  Python字符串以单引号&#39;&#39;括起来  tips: Python语句结束没有分号(把缩进和换行当成文法的有效部分,可以表达出完整的语义) 1.2 操作符括号			() 乘方">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-11-27T06:19:42.942Z">
+<meta property="article:modified_time" content="2021-11-20T09:37:45.921Z">
+<meta property="article:author" content="chenwenyu">
+<meta name="twitter:card" content="summary"><script src="/js/ui/mode.js"></script></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="Table of Contents"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="Overview"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="chenwenyu"><img width="96" loading="lazy" src="https://tse2-mm.cn.bing.net/th/id/OIP-C.7WA8Rz88PzA_2T7nZ834uwAAAA?w=171&amp;h=180&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.5&amp;pid=1.7" alt="chenwenyu"><span class="site-author-status" title="编程yyds">😊</span></a><div class="site-author-name"><a href="/about/">chenwenyu</a></div><span class="site-name">WYsWeb</span><sub class="site-subtitle"></sub><div class="site-desciption"></div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="Home"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/" title="Archives"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">6</span></a></div><div class="site-state-item"><a href="/categories/" title="Categories"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">0</span></a></div><div class="site-state-item"><a href="/tags/" title="Tags"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">0</span></a></div><a class="site-state-item hty-icon-button" target="_blank" rel="noopener" href="https://yun.yunyoujun.cn" title="文档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-settings-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="mailto:2216944468@qq.com" title="E-mail" target="_blank" style="color:#8E71C1"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-mail-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://weibo.com/u/7414235179/home" target="_blank" style="color:#E6162D"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-weibo-line"></use></svg></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="我的小伙伴们" style="color:dodgerblue"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-genderless-line"></use></svg></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-contrast-2-line"></use></svg></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Python%E8%AF%AD%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">1. Python语法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-Hello-World"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 Hello World</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 操作符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 字符串操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-%E6%B3%A8%E9%87%8A"><span class="toc-number">1.4.</span> <span class="toc-text">1.4  注释</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-%E6%A8%A1%E5%9D%97"><span class="toc-number">1.5.</span> <span class="toc-text">1.5 模块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-6-%E5%AE%9A%E4%B9%89%E6%96%B0%E5%87%BD%E6%95%B0"><span class="toc-number">1.6.</span> <span class="toc-text">1.6 定义新函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-7-%E6%B5%B7%E9%BE%9F%E7%BB%98%E5%9B%BE"><span class="toc-number">1.7.</span> <span class="toc-text">1.7 海龟绘图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-%E5%BC%95%E5%8F%B7%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">1.8.</span> <span class="toc-text">1.2 引号的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-1-%E5%8C%85%E5%90%AB%E5%8D%95%E5%BC%95%E5%8F%B7%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.8.1.</span> <span class="toc-text">1.2.1 包含单引号的字符串</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-2-%E5%8C%85%E5%90%AB%E5%8F%8C%E5%BC%95%E5%8F%B7%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.8.2.</span> <span class="toc-text">1.2.2 包含双引号的字符串</span></a></li></ol></li></ol></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article"><link itemprop="mainEntityOfPage" href="https://avereed.github.io/2021/11/27/Python/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="chenwenyu"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="WYsWeb"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">Java学习</h1><div class="post-meta"><div class="post-time" style="display:inline-block"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="Created: 2021-11-27 14:19:42" itemprop="dateCreated datePublished" datetime="2021-11-27T14:19:42+08:00">2021-11-27</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-2-line"></use></svg></span> <time title="Modified: 2021-11-20 17:37:45" itemprop="dateModified" datetime="2021-11-20T17:37:45+08:00">2021-11-20</time></div><div class="post-classify"></div><div class="post-author"><span class="author-name">陈文宇</span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body" style="--smc-primary:#0078E7;"><blockquote>
+<p>人生苦短,我学Python</p>
+</blockquote>
+<blockquote>
+<p>注意: ‘’&gt;&gt;&gt;’’后面表示代码内容</p>
+</blockquote>
+<h3 id="1-Python语法"><a href="#1-Python语法" class="headerlink" title="1. Python语法"></a>1. Python语法</h3><h4 id="1-1-Hello-World"><a href="#1-1-Hello-World" class="headerlink" title="1.1 Hello World"></a>1.1 Hello World</h4><pre class="language-python" data-language="python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Hello World!'</span><span class="token punctuation">)</span>
+Hello World!
+
+Python字符串以单引号<span class="token string">''</span>括起来</code></pre>
+
+<p>tips: Python语句结束没有分号(把缩进和换行当成文法的有效部分,可以表达出完整的语义)</p>
+<h4 id="1-2-操作符"><a href="#1-2-操作符" class="headerlink" title="1.2 操作符"></a>1.2 操作符</h4><pre class="language-python" data-language="python"><code class="language-python">括号			<span class="token punctuation">(</span><span class="token punctuation">)</span>
+乘方      	<span class="token operator">**</span>
+乘法<span class="token operator">/</span>除法  	   <span class="token operator">*</span> <span class="token operator">/</span>
+优先级相同的操作按照从左到右</code></pre>
+
+
+
+<h4 id="1-3-字符串操作"><a href="#1-3-字符串操作" class="headerlink" title="1.3 字符串操作"></a>1.3 字符串操作</h4><pre class="language-python" data-language="python"><code class="language-python"><span class="token operator">+</span> 
+	进行字符串的拼接<span class="token punctuation">,</span>将前后两个字符串首尾连接起来
+	
+<span class="token operator">*</span>
+	进行重复操作
+	<span class="token string">'Span'</span><span class="token operator">*</span><span class="token number">3</span>结果为<span class="token string">'SpanSpanSpan'</span></code></pre>
+
+
+
+<h4 id="1-4-注释"><a href="#1-4-注释" class="headerlink" title="1.4  注释"></a>1.4  注释</h4><pre class="language-python" data-language="python"><code class="language-python">注释以<span class="token comment">#开头</span>
+单行注释	<span class="token comment">#这是一个注释</span>
+多行注释	
+		使用ctrl<span class="token operator">+</span><span class="token operator">/</span>
+		输入<span class="token triple-quoted-string string">''''''</span>或者<span class="token triple-quoted-string string">""""""</span>，将要注释的代码插在中间</code></pre>
+
+
+
+<h4 id="1-5-模块"><a href="#1-5-模块" class="headerlink" title="1.5 模块"></a>1.5 模块</h4><pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> 模块对象</code></pre>
+
+
+
+<h4 id="1-6-定义新函数"><a href="#1-6-定义新函数" class="headerlink" title="1.6 定义新函数"></a>1.6 定义新函数</h4><pre class="language-python" data-language="python"><code class="language-python">使用<span class="token keyword">def</span>关键字<span class="token punctuation">,</span>表示接下来是一个函数定义
+<span class="token keyword">def</span> <span class="token function">print_lyrics</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"I'm a lum"</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"I sleep all night"</span><span class="token punctuation">)</span></code></pre>
+
+
+
+<h4 id="1-7-海龟绘图"><a href="#1-7-海龟绘图" class="headerlink" title="1.7 海龟绘图"></a>1.7 海龟绘图</h4><pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> turtle
+bob <span class="token operator">=</span> turtle<span class="token punctuation">.</span>Turtle<span class="token punctuation">(</span><span class="token punctuation">)</span>
+bob<span class="token punctuation">.</span>fd<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span>
+bob<span class="token punctuation">.</span>lt<span class="token punctuation">(</span><span class="token number">90</span><span class="token punctuation">)</span>
+bob<span class="token punctuation">.</span>fd<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span>
+bob<span class="token punctuation">.</span>lt<span class="token punctuation">(</span><span class="token number">90</span><span class="token punctuation">)</span>
+bob<span class="token punctuation">.</span>fd<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span>
+bob<span class="token punctuation">.</span>lt<span class="token punctuation">(</span><span class="token number">90</span><span class="token punctuation">)</span>
+bob<span class="token punctuation">.</span>fd<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span></code></pre>
+
+
+
+<h4 id="1-2-引号的使用"><a href="#1-2-引号的使用" class="headerlink" title="1.2 引号的使用"></a>1.2 引号的使用</h4><pre class="language-python" data-language="python"><code class="language-python">Python中使用单引号或双引号是没有区别的<span class="token punctuation">,</span>都可以来表示一个字符串
+好处：
+	<span class="token number">1</span><span class="token punctuation">.</span>简化程序员开发<span class="token punctuation">,</span>避免出错
+	<span class="token number">2</span><span class="token punctuation">.</span>减少转义字符的使用</code></pre>
+
+<h5 id="1-2-1-包含单引号的字符串"><a href="#1-2-1-包含单引号的字符串" class="headerlink" title="1.2.1 包含单引号的字符串"></a>1.2.1 包含单引号的字符串</h5><p>假如你想定义一个字符串my_str，其值为： I’m a student，则可以采用如下方式，通过转义字符 \ 进行定义</p>
+<pre class="language-python" data-language="python"><code class="language-python">my_str <span class="token operator">=</span> <span class="token string">'I\'m a student'</span></code></pre>
+
+<p>也可以不使用转义字符,利用双引号直接进行定义</p>
+<pre class="language-python" data-language="python"><code class="language-python">my_str <span class="token operator">=</span> <span class="token string">"I'm a student"</span></code></pre>
+
+
+
+<h5 id="1-2-2-包含双引号的字符串"><a href="#1-2-2-包含双引号的字符串" class="headerlink" title="1.2.2 包含双引号的字符串"></a>1.2.2 包含双引号的字符串</h5><p>假如你想定义一个字符串my_str，其值为： Jason said “I like you” ，则可以采用如下方式，通过转义字符 \ 进行定义</p>
+<pre class="language-python" data-language="python"><code class="language-python">my_ <span class="token builtin">str</span> <span class="token operator">=</span> <span class="token string">"Jason said \"I like you\""</span></code></pre>
+
+<p>也可以不使用转义字符，利用单引号直接进行定义</p>
+<pre class="language-none"><code class="language-none">my_str &#x3D; &#39;Jason said &quot;I like you&quot;&#39;</code></pre>
+
+</div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>陈文宇</li><li class="post-copyright-link"><strong>Post link: </strong><a href="https://avereed.github.io/2021/11/27/Python/" title="Java学习">https://avereed.github.io/2021/11/27/Python/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"></div><div class="post-nav-item"><a class="post-nav-next" href="/2021/09/30/c%E8%AF%AD%E8%A8%80/" rel="next" title="C语言的一些理解"><span class="post-nav-text">C语言的一些理解</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div class="hty-card" id="comment"><div class="comment-tooltip text-center"><span>要不要和我说些什么？</span><br></div></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> chenwenyu</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.4.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.6.2</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
+  setTimeout(blog_live_time, 1000);
+  const start = new Date('2021-09-19T00:00:00');
+  const now = new Date();
+  const timeDiff = (now.getTime() - start.getTime());
+  const msPerMinute = 60 * 1000;
+  const msPerHour = 60 * msPerMinute;
+  const msPerDay = 24 * msPerHour;
+  const passDay = Math.floor(timeDiff / msPerDay);
+  const passHour = Math.floor((timeDiff % msPerDay) / 60 / 60 / 1000);
+  const passMinute = Math.floor((timeDiff % msPerHour) / 60 / 1000);
+  const passSecond = Math.floor((timeDiff % msPerMinute) / 1000);
+  display_live_time.innerHTML = " " + passDay + " 天 " + passHour + " 小时 " + passMinute + " 分 " + passSecond + " 秒";
+}
+blog_live_time();
+</script></div></footer><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a><script>const date = new Date();
+const today = (date.getMonth() + 1) + "-" + date.getDate()
+const mourn_days = ["4-4"]
+if (mourn_days.includes(today)) {
+  document.documentElement.style.filter = "grayscale(1)";
+}</script></div></body></html>
