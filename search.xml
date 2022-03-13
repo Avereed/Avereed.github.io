@@ -1,6 +1,377 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>算法</title>
+    <url>/2022/03/13/%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="晋以次纪念我的算法学习"><a href="#晋以次纪念我的算法学习" class="headerlink" title="晋以次纪念我的算法学习"></a>晋以次纪念我的算法学习</h1><h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p><a href="https://regexlearn.com/">正则学习网站</a></p>
+<h3 id="基本通配符"><a href="#基本通配符" class="headerlink" title="基本通配符"></a>基本通配符</h3><table>
+<thead>
+<tr>
+<th align="center">符号</th>
+<th align="center">解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">.</td>
+<td align="center">任意字符</td>
+</tr>
+<tr>
+<td align="center">*</td>
+<td align="center">0个或多个</td>
+</tr>
+<tr>
+<td align="center">+</td>
+<td align="center">一个或多个</td>
+</tr>
+<tr>
+<td align="center">?</td>
+<td align="center">0个或1个</td>
+</tr>
+</tbody></table>
+<h3 id="字符集"><a href="#字符集" class="headerlink" title="字符集"></a>字符集</h3><table>
+<thead>
+<tr>
+<th align="center">表达式</th>
+<th align="center">解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">[bdf]eer(字符集中加入^表否定)</td>
+<td align="center">括号里其中一个字符与后面匹配</td>
+</tr>
+<tr>
+<td align="center">[a-z]</td>
+<td align="center">匹配a到z之间的所有字母</td>
+</tr>
+<tr>
+<td align="center">[0-9]</td>
+<td align="center">匹配0到9之间的所有数字</td>
+</tr>
+</tbody></table>
+<h3 id="大括号"><a href="#大括号" class="headerlink" title="大括号"></a>大括号</h3><table>
+<thead>
+<tr>
+<th align="center">表达式</th>
+<th align="center">解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">be{2}r</td>
+<td align="center">表示e只能出现两次</td>
+</tr>
+<tr>
+<td align="center">be{3,}r</td>
+<td align="center">表示e至少出现三次</td>
+</tr>
+<tr>
+<td align="center">be{1,3}r</td>
+<td align="center">表示e出现1到3次</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h3 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符\"></a>转义字符\</h3><table>
+<thead>
+<tr>
+<th align="center">表达式</th>
+<th align="center">解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">*</td>
+<td align="center">匹配*</td>
+</tr>
+<tr>
+<td align="center">^[0-9]</td>
+<td align="center">^匹配字符串的开始</td>
+</tr>
+<tr>
+<td align="center">html$</td>
+<td align="center">查找仅在末尾出现的html</td>
+</tr>
+<tr>
+<td align="center">\w</td>
+<td align="center">单词字符\w：字母,数字,下划线</td>
+</tr>
+<tr>
+<td align="center">\W</td>
+<td align="center">非单词字符</td>
+</tr>
+<tr>
+<td align="center">\d</td>
+<td align="center">数字字符</td>
+</tr>
+<tr>
+<td align="center">\D</td>
+<td align="center">非数字字符</td>
+</tr>
+<tr>
+<td align="center">\s</td>
+<td align="center">空白字符</td>
+</tr>
+<tr>
+<td align="center">\S</td>
+<td align="center">非空白字符</td>
+</tr>
+</tbody></table>
+<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><h3 id="01背包"><a href="#01背包" class="headerlink" title="01背包"></a>01背包</h3><h4 id="1-二维数组"><a href="#1-二维数组" class="headerlink" title="1.二维数组"></a>1.二维数组</h4><pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Scanner</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Scanner</span> scanner <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> <span class="token class-name">N</span> <span class="token operator">=</span> scanner<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> <span class="token class-name">V</span> <span class="token operator">=</span> scanner<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> v <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token class-name">N</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> w <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token class-name">N</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> dp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token class-name">N</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token class-name">V</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>		<span class="token comment">//前N个物品在背包体积为V时的最大价值</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token class-name">N</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            v<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> scanner<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            w<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> scanner<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token class-name">N</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> <span class="token class-name">V</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>v<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">></span> j<span class="token punctuation">)</span>
+                    dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> dp<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <span class="token keyword">else</span>
+                    dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span>dp<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token operator">-</span>v<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">+</span>w<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span><span class="token class-name">N</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token class-name">V</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        scanner<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+
+<h4 id="2-一维数组-滚动数组实现"><a href="#2-一维数组-滚动数组实现" class="headerlink" title="2.一维数组(滚动数组实现)"></a>2.一维数组(滚动数组实现)</h4><pre class="language-Java" data-language="Java"><code class="language-Java">import java.util.Scanner;
+
+
+public class Main &#123;
+    public static void main(String[] args) &#123;
+        Scanner scanner &#x3D; new Scanner(System.in);
+        int N &#x3D; scanner.nextInt();
+        int V &#x3D; scanner.nextInt();
+        int[] v &#x3D; new int[N + 1];
+        int[] w &#x3D; new int[N + 1];
+        int[] dp &#x3D; new int[V + 1];
+        for (int i &#x3D; 1; i &lt;&#x3D; N; i++) &#123;
+            v[i] &#x3D; scanner.nextInt();
+            w[i] &#x3D; scanner.nextInt();
+        &#125;
+        for (int i &#x3D; 1; i &lt;&#x3D; N; i++) &#123;
+            for (int j &#x3D; V; j &gt;&#x3D; v[i]; j--) &#123; 
+                dp[j] &#x3D; Math.max(dp[j],dp[j-v[i]]+w[i]);
+            &#125;
+        &#125;
+        System.out.println(dp[V]);
+        scanner.close();
+    &#125;
+&#125;</code></pre>
+
+
+
+<h3 id="完全背包"><a href="#完全背包" class="headerlink" title="完全背包"></a>完全背包</h3><h4 id="1-二维数组-1"><a href="#1-二维数组-1" class="headerlink" title="1.二维数组"></a>1.二维数组</h4><pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Scanner</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Scanner</span> scanner <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> <span class="token class-name">N</span> <span class="token operator">=</span> scanner<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> <span class="token class-name">V</span> <span class="token operator">=</span> scanner<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> v <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token class-name">N</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> w <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token class-name">N</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> dp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token class-name">N</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token class-name">V</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token class-name">N</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            v<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> scanner<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            w<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> scanner<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token class-name">N</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> <span class="token class-name">V</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>j <span class="token operator">&lt;</span> v<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+                    dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> dp<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <span class="token keyword">else</span>
+                    dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span>dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token operator">-</span>v<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">+</span>w<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span><span class="token class-name">N</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token class-name">V</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        scanner<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+
+<h4 id="2-一维数组-滚动数组实现-1"><a href="#2-一维数组-滚动数组实现-1" class="headerlink" title="2.一维数组(滚动数组实现)"></a>2.一维数组(滚动数组实现)</h4><p>​    通过覆盖原来的数组来实现更新</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Scanner</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Scanner</span> scanner <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> <span class="token class-name">N</span> <span class="token operator">=</span> scanner<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> <span class="token class-name">V</span> <span class="token operator">=</span> scanner<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> v <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token class-name">N</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> w <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token class-name">N</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> dp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token class-name">V</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token class-name">N</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            v<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> scanner<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            w<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> scanner<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token class-name">N</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> v<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> <span class="token class-name">V</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> 
+                dp<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span>dp<span class="token punctuation">[</span>j<span class="token operator">-</span>v<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">+</span>w<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span><span class="token class-name">V</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        scanner<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+
+
+
+<h2 id="数论"><a href="#数论" class="headerlink" title="数论"></a>数论</h2><h3 id="扩展欧几里得算法"><a href="#扩展欧几里得算法" class="headerlink" title="扩展欧几里得算法"></a>扩展欧几里得算法</h3><pre class="language-java" data-language="java"><code class="language-java">如果a，b是整数<span class="token punctuation">,</span>那么一定存在整数x<span class="token punctuation">,</span>y使得ax<span class="token operator">+</span>by<span class="token operator">=</span><span class="token function">gcd</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span>
+扩展欧几里得算法即是为了求出x<span class="token punctuation">,</span>y
+扩展欧几里得算法可以求同余方程以及逆元
+本例通过递归加以实现
+    根据欧几里得原理有 <span class="token function">gcd</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token operator">=</span><span class="token function">gcd</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span>a<span class="token operator">%</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	即ax1 <span class="token operator">+</span> by1 <span class="token operator">=</span> bx2 <span class="token operator">+</span> <span class="token punctuation">(</span>a <span class="token operator">%</span> b<span class="token punctuation">)</span>y2<span class="token punctuation">;</span>
+	又因为a <span class="token operator">%</span> b <span class="token operator">=</span> a <span class="token operator">-</span> <span class="token punctuation">(</span>a <span class="token operator">/</span> b<span class="token punctuation">)</span> <span class="token operator">*</span> b<span class="token punctuation">;</span>
+	<span class="token operator">-></span> ax1 <span class="token operator">+</span> by1 <span class="token operator">=</span> ay2 <span class="token operator">+</span> <span class="token function">b</span><span class="token punctuation">(</span>x2 <span class="token operator">-</span> <span class="token punctuation">(</span>a <span class="token operator">/</span> b<span class="token punctuation">)</span><span class="token operator">*</span>y2<span class="token punctuation">;</span>
+    <span class="token operator">-></span> x1 <span class="token operator">=</span> y2<span class="token punctuation">;</span>
+       y1 <span class="token operator">=</span> x2 <span class="token operator">-</span> <span class="token punctuation">(</span>a <span class="token operator">/</span> b<span class="token punctuation">)</span><span class="token operator">*</span>y2<span class="token punctuation">;</span></code></pre>
+
+
+
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">static</span> <span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">static</span> <span class="token keyword">int</span> y <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">ex_gcd</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span><span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>b <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            x <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            y <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> a<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">int</span> r <span class="token operator">=</span> <span class="token function">ex_gcd</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span>a<span class="token operator">%</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> temp <span class="token operator">=</span> x<span class="token punctuation">;</span>
+        x <span class="token operator">=</span> y<span class="token punctuation">;</span>                  <span class="token comment">//通过公式推导本层与下层之间的关系</span>
+        y <span class="token operator">=</span> temp <span class="token operator">-</span> a <span class="token operator">/</span> b <span class="token operator">*</span> y<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> r<span class="token punctuation">;</span>               <span class="token comment">//返回gcd</span>
+    <span class="token punctuation">&#125;</span></code></pre>
+
+
+
+<h2 id="树图"><a href="#树图" class="headerlink" title="树图"></a>树图</h2><h3 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h3><p><a href="https://www.luogu.com.cn/problem/P1551">题目链接,洛谷P1551</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/93647900">并查集</a></p>
+<pre class="language-java" data-language="java"><code class="language-java">对于一个集合，秩指的就是这个集合中元素的个数。在并查集的合并操作中，如果我们将秩较小的集合合并到秩更大的集合上，那么比起将秩较大的集合合并到秩更小的集合上，在每一次查询操作中，前者总能花费更少的时间。
+
+值得一提的是，按秩合并也被称为启发式合并。它是数据结构相关问题的一种重要思想，就是把“小的结构”合并到“大的结构”中，并且只增加“小的结构”的查询代价。所以在并查集中，我们把所有集合合并起来后，增加的总代价也不会超过<span class="token class-name">NlogN</span>。也就是说，单次查询的平均时间复杂度为<span class="token class-name">O</span><span class="token punctuation">(</span>logN<span class="token punctuation">)</span>。
+
+那么同时使用路径压缩和按秩合并的优化呢？如果我们这么做的话，单次查询操作的时间复杂度会变成一个奇怪的东西：<span class="token class-name">O</span><span class="token punctuation">(</span>α<span class="token punctuation">(</span><span class="token class-name">N</span><span class="token punctuation">)</span><span class="token punctuation">)</span>。其中α<span class="token punctuation">(</span><span class="token class-name">N</span><span class="token punctuation">)</span>为反阿克曼函数，它是一个比logN增长得还要慢的函数。</code></pre>
+
+
+
+<pre class="language-Java" data-language="Java"><code class="language-Java">import java.util.Scanner;
+
+public class Main &#123;
+    static int[] f &#x3D; new int[5005];
+    static int[] size &#x3D; new int[5005];
+    public static void main(String[] args)&#123;
+        Scanner scanner &#x3D; new Scanner(System.in);
+        int n &#x3D; scanner.nextInt();
+        int m &#x3D; scanner.nextInt();
+        int p &#x3D; scanner.nextInt();
+        for (int i &#x3D; 0; i &lt; n; i++) &#123;
+            f[i] &#x3D; i;
+            size[i] &#x3D; 1;
+        &#125;
+        for (int i &#x3D; 0; i &lt; m; i++) &#123;
+            merge(scanner.nextInt(),scanner.nextInt());
+        &#125;
+        for (int i &#x3D; 0; i &lt; p; i++) &#123;
+            if(find(scanner.nextInt()) !&#x3D; find(scanner.nextInt()))&#123;
+                System.out.println(&quot;No&quot;);
+            &#125;else&#123;
+                System.out.println(&quot;Yes&quot;);
+            &#125;
+        &#125;
+        scanner.close();
+    &#125;
+    static int find(int x)&#123;
+        if(x &#x3D;&#x3D; f[x])&#123;
+            return x;
+        &#125;
+        return f[x] &#x3D; find(f[x]);		 &#x2F;&#x2F;将每个元素都直接指向其父亲结点
+    &#125;
+    static void merge(int x,int y)&#123;      &#x2F;&#x2F;按秩合并
+        int a &#x3D; find(x);
+        int b &#x3D; find(y);
+        if(size[a] &lt;&#x3D; size[b])&#123;
+            f[a] &#x3D; b;
+            size[b] +&#x3D; size[a];
+        &#125;else&#123;
+            f[b] &#x3D; a;
+            size[a] +&#x3D; size[b];
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+
+<h3 id="链式前向星"><a href="#链式前向星" class="headerlink" title="链式前向星"></a>链式前向星</h3><p><a href="https://www.bilibili.com/video/BV1mJ411S7BB">视频推荐,讲的很好的up主</a></p>
+<pre class="language-Java" data-language="Java"><code class="language-Java">&#x2F;&#x2F;数组模拟链表
+static Node[] Edge &#x3D; new Node[10005];
+static int[] Head &#x3D; new int[100005];
+static int tot;
+
+class Node&#123;
+    int to;
+    int w;
+    int next;
+&#125;
+
+static void addEdge(int u,int v,int w)&#123;
+        Edge[tot].to &#x3D; v;
+        Edge[tot].w &#x3D; w;
+        Edge[tot].next &#x3D; Head[u];
+        Head[u] &#x3D; tot++;
+    &#125;</code></pre>
+
+
+
+<h3 id="多源最短路问题"><a href="#多源最短路问题" class="headerlink" title="多源最短路问题"></a>多源最短路问题</h3><h4 id="Floyd算法"><a href="#Floyd算法" class="headerlink" title="Floyd算法"></a>Floyd算法</h4><pre class="language-java" data-language="java"><code class="language-java">定义一个三维数组f<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> 表示从<span class="token number">1</span>到k这些点可以作为i到j的中间结点，选出一个k点作为i到j的中间结点<span class="token punctuation">,</span>也可以不经过，可推到出状态转移方程，可想为<span class="token number">01</span>背包问题
+    中间结点k选
+    f<span class="token punctuation">[</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token operator">+</span>f<span class="token punctuation">[</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span>
+    中间结点k不选
+    f<span class="token punctuation">[</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span>
+    
+状态转移方程为：
+    f<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">min</span><span class="token punctuation">(</span>f<span class="token punctuation">[</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span>f<span class="token punctuation">[</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token operator">+</span>f<span class="token punctuation">[</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+
+
+
+<pre class="language-Java" data-language="Java"><code class="language-Java">&#x2F;&#x2F;n个点,计算u到v的最短距离
+for (int k &#x3D; 1; k &lt;&#x3D; n; k++) &#123;
+    for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+        for (int j &#x3D; 1; j &lt;&#x3D; n; j++) &#123;
+            dp[k][i][j] &#x3D; Math.max(dp[k - 1][i][j], dp[k - 1][i][k] + dp[k - 1][k][j]);
+        &#125;
+    &#125;
+&#125;
+
+
+&#x2F;&#x2F;滚动数组优化
+for (int k &#x3D; 1; k &lt;&#x3D; n; k++) &#123;
+    for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+        for (int j &#x3D; 1; j &lt;&#x3D; n; j++) &#123;
+            dp[i][j] &#x3D; Math.max(dp[i][j], dp[i][k] + dp[k][j]);
+        &#125;
+    &#125;
+&#125;</code></pre>
+
+
+
+<h3 id="单源最短路问题"><a href="#单源最短路问题" class="headerlink" title="单源最短路问题"></a>单源最短路问题</h3><pre class="language-Java" data-language="Java"><code class="language-Java"></code></pre>
+
+]]></content>
+  </entry>
+  <entry>
     <title>Java学习</title>
     <url>/2021/11/27/Python/</url>
     <content><![CDATA[<blockquote>
@@ -84,6 +455,47 @@ bob<span class="token punctuation">.</span>fd<span class="token punctuation">(</
 ]]></content>
   </entry>
   <entry>
+    <title>网页制作</title>
+    <url>/2021/09/22/%E7%BD%91%E9%A1%B5%E5%88%B6%E4%BD%9C/</url>
+    <content><![CDATA[<h1 id="网页制作"><a href="#网页制作" class="headerlink" title="网页制作"></a>网页制作</h1><h2 id="第一章-网页设计基础知识"><a href="#第一章-网页设计基础知识" class="headerlink" title="第一章 网页设计基础知识"></a>第一章 网页设计基础知识</h2><ul>
+<li><p>第一项:网页相关知识简介  </p>
+<ul>
+<li><p>互联网、因特网和万维网<br>互联网指的是由<u>若干计算机网络相互连接而成的网络</u>，进一步说，凡是能彼此通信的设备组成的网络就叫互联网。  因特网是目前全球最大的一个电子计算机互联网，由美国ARPA网（军事网络）发展而来  </p>
+</li>
+<li><p>网站和网页<br>网站是多个网页的结合，网页是一HTML语言为基础编写的，能够通过网络传输，比如传送门 <a href="http://www.tiantanpark.com/">北京天坛</a>   </p>
+</li>
+<li><p>网页与HTML<br>HTML(超文本标记语言)</p>
+</li>
+<li><p>静态网页和动态网页<br>两者的区别在所采用的技术上，动态网页是运行于服务器端口的代码，它可实现的功能较多，如:用户注册、登录、在线调查(也可认为是与服务器后端进行交互)，且其通常有一个标志性”?”符号。</p>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>C语言的一些理解</title>
+    <url>/2021/09/30/c%E8%AF%AD%E8%A8%80/</url>
+    <content><![CDATA[<h2 id="对c语言scanf函数的一些理解"><a href="#对c语言scanf函数的一些理解" class="headerlink" title="对c语言scanf函数的一些理解"></a>对c语言scanf函数的一些理解</h2><p>空白符包括：空格，制表符，回车符，换行符，换页符</p>
+<p>scanf双引号括起来的即为格式化字符串，输入时应该严格执行格式 </p>
+<p>scanf函数中空白字符会使scanf()函数在读操作中略去输入中的一个或多个空白字符，空白符可以是space,tab,newline等等，直到第一个非空白符出现为止。(如果要输入空格，scanf函数中格式化说明符中间不能有空格)</p>
+<pre class="language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token keyword">int</span> a<span class="token punctuation">;</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"input the data\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>	<span class="token comment">//这里多了一个回车符\n</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+
+<p>需要输入两个数程序才结束</p>
+<p>because:用空白符结尾时，scanf会跳过空白符去读下一个字符，所以必须再输入一个数</p>
+<p>使用</p>
+<pre class="language-c" data-language="c"><code class="language-c"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d "</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>    也会出现同样问题</code></pre>
+
+]]></content>
+  </entry>
+  <entry>
     <title>学习记录</title>
     <url>/2021/09/22/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h2 id="学习笔记篇——HTML"><a href="#学习笔记篇——HTML" class="headerlink" title="学习笔记篇——HTML"></a>学习笔记篇——HTML</h2><h3 id="一-HTTP大概"><a href="#一-HTTP大概" class="headerlink" title="(一)HTTP大概"></a>(一)HTTP大概</h3><ol>
@@ -135,90 +547,15 @@ bob<span class="token punctuation">.</span>fd<span class="token punctuation">(</
 ]]></content>
   </entry>
   <entry>
-    <title>C语言的一些理解</title>
-    <url>/2021/09/30/c%E8%AF%AD%E8%A8%80/</url>
-    <content><![CDATA[<h2 id="对c语言scanf函数的一些理解"><a href="#对c语言scanf函数的一些理解" class="headerlink" title="对c语言scanf函数的一些理解"></a>对c语言scanf函数的一些理解</h2><p>空白符包括：空格，制表符，回车符，换行符，换页符</p>
-<p>scanf双引号括起来的即为格式化字符串，输入时应该严格执行格式 </p>
-<p>scanf函数中空白字符会使scanf()函数在读操作中略去输入中的一个或多个空白字符，空白符可以是space,tab,newline等等，直到第一个非空白符出现为止。(如果要输入空格，scanf函数中格式化说明符中间不能有空格)</p>
-<pre class="language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
-<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#123;</span>
-	<span class="token keyword">int</span> a<span class="token punctuation">;</span>
-	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"input the data\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>	<span class="token comment">//这里多了一个回车符\n</span>
-	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span></code></pre>
-
-<p>需要输入两个数程序才结束</p>
-<p>because:用空白符结尾时，scanf会跳过空白符去读下一个字符，所以必须再输入一个数</p>
-<p>使用</p>
-<pre class="language-c" data-language="c"><code class="language-c"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d "</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>    也会出现同样问题</code></pre>
-
-]]></content>
-  </entry>
-  <entry>
-    <title>网页制作</title>
-    <url>/2021/09/22/%E7%BD%91%E9%A1%B5%E5%88%B6%E4%BD%9C/</url>
-    <content><![CDATA[<h1 id="网页制作"><a href="#网页制作" class="headerlink" title="网页制作"></a>网页制作</h1><h2 id="第一章-网页设计基础知识"><a href="#第一章-网页设计基础知识" class="headerlink" title="第一章 网页设计基础知识"></a>第一章 网页设计基础知识</h2><ul>
-<li><p>第一项:网页相关知识简介  </p>
-<ul>
-<li><p>互联网、因特网和万维网<br>互联网指的是由<u>若干计算机网络相互连接而成的网络</u>，进一步说，凡是能彼此通信的设备组成的网络就叫互联网。  因特网是目前全球最大的一个电子计算机互联网，由美国ARPA网（军事网络）发展而来  </p>
-</li>
-<li><p>网站和网页<br>网站是多个网页的结合，网页是一HTML语言为基础编写的，能够通过网络传输，比如传送门 <a href="http://www.tiantanpark.com/">北京天坛</a>   </p>
-</li>
-<li><p>网页与HTML<br>HTML(超文本标记语言)</p>
-</li>
-<li><p>静态网页和动态网页<br>两者的区别在所采用的技术上，动态网页是运行于服务器端口的代码，它可实现的功能较多，如:用户注册、登录、在线调查(也可认为是与服务器后端进行交互)，且其通常有一个标志性”?”符号。</p>
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>离散数学</title>
-    <url>/2021/09/22/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/</url>
-    <content><![CDATA[<h3 id="逻辑学三大基本定律"><a href="#逻辑学三大基本定律" class="headerlink" title="逻辑学三大基本定律"></a>逻辑学三大基本定律</h3><p><a href="http://www.bjnewtalent.com/yanjiu/content/details179_16803.html#:~:">文章链接</a></p>
-<p><a href="https://www.zhihu.com/question/20544085/answer/540824856">矛盾律和排中律的区别</a></p>
-<h4 id="1-同一律："><a href="#1-同一律：" class="headerlink" title="1. 同一律："></a>1. 同一律：</h4><ul>
-<li>概念：要人们自觉地保持同一思维过程中<u>概念判断的确定性</u>，避免混淆概念、<strong>偷换概念而导致思维混乱</strong>。     </li>
-<li>概念由两部分组成，一是内涵，二是外延。</li>
-</ul>
-<h4 id="2-矛盾律-："><a href="#2-矛盾律-：" class="headerlink" title="2. 矛盾律 ："></a>2. 矛盾律 ：</h4><ul>
-<li><p>两个互相矛盾或者具有上反对关系的命题，不可能同时为真，必有一假。</p>
-</li>
-<li><p>明确自相矛盾的概念和判断</p>
-</li>
-<li><p>不断地重复尝试矛盾思考。当拿到一个概念的时候，不要过于武断的就认为是对还是错，要不断尝试矛盾思考，反复从对立面入手。</p>
-</li>
-<li><p>不能同时是真的(如果同时是真的，则会如矛盾问题一样，必定有一个是假)</p>
-</li>
-</ul>
-<h4 id="3-排中律-："><a href="#3-排中律-：" class="headerlink" title="3. 排中律 ："></a>3. 排中律 ：</h4><ul>
-<li><p>两个互相矛盾或者具有下反对关系的命题，不可能同时为假，必有一真</p>
-</li>
-<li><p>两个自相矛盾的观点，一定有一个是对的，没有“都不对”这种中间状态。</p>
-</li>
-<li><p>寻找正确且具有影响力的观点。</p>
-</li>
-<li><p>必是一真一假的，可用反证法</p>
-</li>
-</ul>
-<h2 id="数理逻辑"><a href="#数理逻辑" class="headerlink" title="数理逻辑"></a>数理逻辑</h2><h4 id="四大分支："><a href="#四大分支：" class="headerlink" title="四大分支："></a>四大分支：</h4><ul>
-<li><h5 id="悖论的提出，促使了–公理化集合论"><a href="#悖论的提出，促使了–公理化集合论" class="headerlink" title="悖论的提出，促使了–公理化集合论"></a>悖论的提出，促使了–公理化集合论</h5></li>
-<li><h5 id="为了证明数学的无矛盾行问题–证明论"><a href="#为了证明数学的无矛盾行问题–证明论" class="headerlink" title="为了证明数学的无矛盾行问题–证明论"></a>为了证明数学的无矛盾行问题–证明论</h5></li>
-<li><h5 id="递归论"><a href="#递归论" class="headerlink" title="递归论"></a>递归论</h5></li>
-<li><h5 id="模型论"><a href="#模型论" class="headerlink" title="模型论"></a>模型论</h5></li>
-</ul>
-<h4 id="命题"><a href="#命题" class="headerlink" title="命题"></a><strong>命题</strong></h4><p>1.做出判断的陈述句</p>
-<p>2.确定的对象</p>
-<p><strong>或为真或为假的陈述句，非真即假，不能兼有之，也不能不真不假(是否知道真值，能否知道真值是另一回事)</strong></p>
-]]></content>
-  </entry>
-  <entry>
     <title>Java学习</title>
     <url>/2021/09/30/Java%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>[API文档](<a href="https://www.matools.com/api/java8">Java 8 中文版 - 在线API中文手册 - 码工具 (matools.com)</a>)</p>
+    <content><![CDATA[<h1 id="Java学习日志"><a href="#Java学习日志" class="headerlink" title="Java学习日志"></a>Java学习日志</h1><hr>
+<pre class="language-Java" data-language="Java"><code class="language-Java">begin：
+	以下为我对于Java的一些见解，供日常复习而用</code></pre>
+
+
+
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>[API文档](<a href="https://www.matools.com/api/java8">Java 8 中文版 - 在线API中文手册 - 码工具 (matools.com)</a>)</p>
 <h3 id="1-关于计算机的基础知识"><a href="#1-关于计算机的基础知识" class="headerlink" title="1.关于计算机的基础知识"></a>1.关于计算机的基础知识</h3><ol>
 <li>硬件及冯·诺依曼结构</li>
 </ol>
@@ -1841,6 +2178,21 @@ class SyContainer&#123;
 
 <pre class="language-Java" data-language="Java"><code class="language-Java">信号灯法
     </code></pre>
+
+
+
+
+
+<h3 id="3-Java-I-O流"><a href="#3-Java-I-O流" class="headerlink" title="3. Java I/O流"></a>3. Java I/O流</h3><hr>
+<h4 id="3-1-输入流和输出流"><a href="#3-1-输入流和输出流" class="headerlink" title="3.1 输入流和输出流"></a>3.1 输入流和输出流</h4><pre class="language-Java" data-language="Java"><code class="language-Java">四大输入输出流(抽象类,使用时使用其子类)：  
+	InputStream(字节输入流)：
+ 	    所有字节输入流的超类，提供从一个字节输入流读取数据的基本方法
+	OuputStream(字节输出流)：
+    	所有字节输出流的超类，提供向一个字节输出流写入数据的基本方法
+	Reader(字符输入流)：
+    	所有字符输入流的超类，提供从一个字符输入流读取数据的基本方法
+	Writer(字符输出流)：
+   		所有字符输出流的超类，提供向一个字符输出流写入数据的基本方法</code></pre>
 
 ]]></content>
   </entry>
