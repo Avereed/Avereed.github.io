@@ -1,6 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>C语言的一些理解</title>
+    <url>/2021/09/30/c%E8%AF%AD%E8%A8%80/</url>
+    <content><![CDATA[<h2 id="对c语言scanf函数的一些理解"><a href="#对c语言scanf函数的一些理解" class="headerlink" title="对c语言scanf函数的一些理解"></a>对c语言scanf函数的一些理解</h2><p>空白符包括：空格，制表符，回车符，换行符，换页符</p>
+<p>scanf双引号括起来的即为格式化字符串，输入时应该严格执行格式 </p>
+<p>scanf函数中空白字符会使scanf()函数在读操作中略去输入中的一个或多个空白字符，空白符可以是space,tab,newline等等，直到第一个非空白符出现为止。(如果要输入空格，scanf函数中格式化说明符中间不能有空格)</p>
+<pre class="language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token keyword">int</span> a<span class="token punctuation">;</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"input the data\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>	<span class="token comment">//这里多了一个回车符\n</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+
+<p>需要输入两个数程序才结束</p>
+<p>because:用空白符结尾时，scanf会跳过空白符去读下一个字符，所以必须再输入一个数</p>
+<p>使用</p>
+<pre class="language-c" data-language="c"><code class="language-c"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d "</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>    也会出现同样问题</code></pre>
+
+]]></content>
+  </entry>
+  <entry>
+    <title>学习记录</title>
+    <url>/2021/09/22/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="学习笔记篇——HTML"><a href="#学习笔记篇——HTML" class="headerlink" title="学习笔记篇——HTML"></a>学习笔记篇——HTML</h2><h3 id="一-HTTP大概"><a href="#一-HTTP大概" class="headerlink" title="(一)HTTP大概"></a>(一)HTTP大概</h3><ol>
+<li><p>对于中文网页需要用<u><meta charset="utf-8" ></u>声明编码，否则会出现乱码，有些浏览器会设置GBK为默认编码，需设置<u><meta charest="gbk"></u>。</p>
+</li>
+<li><p>元素解析(起始标记为&lt;…&gt; 终止标志为&lt;/…&gt;)</p>
+<ul>
+<li><p>“<!DOCTYOE html>“声明为HTML5文档</p>
+</li>
+<li><p>“<html>“元素是HTML页面的根元素(详情了解根元素点击这-<a href="https://blog.csdn.net/ixygj197875/article/details/79737953">根元素</a>)</p>
+</li>
+<li><p>“<head>“ 元素包含文档元(meta)数据  </p>
+</li>
+<li><p>“<title>“ 元素描述文档标题</p>
+</li>
+<li><p>“<body>“ 元素包含可见页面的内容  </p>
+</li>
+<li><p>“<h1>“ 元素定义一个大标题</p>
+</li>
+<li><p>“<p>“ 元素是段落    </p>
+</li>
+</ul>
+</li>
+</ol>
+<p>3 . HTML意思是超文本<u>标记语言</u><br>    * <u>HTML标签通常成对出现</u>,(写的时候还是一对对的写好点)。<br>    * doctype是不区分大小写的<br>4 . 一个网页的大概框架为  </p>
+<pre class="language-<html>" data-language="<html>"><code class="language-<html>">&lt;head&gt;
+&lt;title&gt;...&lt;title&gt;
+&lt;&#x2F;head&gt;
+&lt;body&gt;
+&lt;h1&gt;...&lt;&#x2F;h1&gt;
+&lt;p&gt;...&lt;&#x2F;p&gt;
+&lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;  </code></pre>
+<ol start="5">
+<li>plus:<pre class="language-<html>" data-language="<html>"><code class="language-<html>">&lt;head&gt;
+&lt;title&gt;...&lt;title&gt;
+&lt;&#x2F;head&gt;
+&lt;body&gt;
+&lt;header&gt;
+&lt;&#x2F;header&gt;
+&lt;nav&gt;
+&lt;&#x2F;nav&gt;
+&lt;h1&gt;...&lt;&#x2F;h1&gt;
+&lt;p&gt;...&lt;&#x2F;p&gt;
+&lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;  </code></pre>
+6 . 头部信息放在<head></head>之间，这部分内容包括<title>,<base>,<link>,<style>,<script>,<meta>。设置网页定时跳转：<u><meta http-equiv="refresh" content="秒 "url="资源途径"/></u><br>7 . HTML图形是通过<img>定义,如<code loading="lazy">&lt;img loading=&quot;lazy&quot; src=&quot;/images/;ogo.png&quot; width=&quot;258&quot; height=&quot;39&quot;&gt;</code><br>8 . 注释的表达<code>&lt;!-- 这是一个注释 ---&gt;</code>  ,换行是<br /> , 水平线是<hr /><br>9 . <b>标记含义是加粗(感觉和<strong>也没什么区别),<i>标记意思是斜体(感觉和<em>也没什么区别)<br>10 . <small>标记将旁注呈现为小型文本，免责声明，注意事项均属于这<br>12 . 上标为<sup>，下标为<sub><br>13 . CSS背景色属性为(background-color),字体(font-family),颜色(color),字体大小(font-size)文字(text-align)<br>14 . </li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
     <title>Python</title>
     <url>/2021/11/27/Python/</url>
     <content><![CDATA[<blockquote>
@@ -84,82 +157,28 @@ bob<span class="token punctuation">.</span>fd<span class="token punctuation">(</
 ]]></content>
   </entry>
   <entry>
-    <title>C语言的一些理解</title>
-    <url>/2021/09/30/c%E8%AF%AD%E8%A8%80/</url>
-    <content><![CDATA[<h2 id="对c语言scanf函数的一些理解"><a href="#对c语言scanf函数的一些理解" class="headerlink" title="对c语言scanf函数的一些理解"></a>对c语言scanf函数的一些理解</h2><p>空白符包括：空格，制表符，回车符，换行符，换页符</p>
-<p>scanf双引号括起来的即为格式化字符串，输入时应该严格执行格式 </p>
-<p>scanf函数中空白字符会使scanf()函数在读操作中略去输入中的一个或多个空白字符，空白符可以是space,tab,newline等等，直到第一个非空白符出现为止。(如果要输入空格，scanf函数中格式化说明符中间不能有空格)</p>
-<pre class="language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
-<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#123;</span>
-	<span class="token keyword">int</span> a<span class="token punctuation">;</span>
-	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"input the data\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>	<span class="token comment">//这里多了一个回车符\n</span>
-	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span></code></pre>
-
-<p>需要输入两个数程序才结束</p>
-<p>because:用空白符结尾时，scanf会跳过空白符去读下一个字符，所以必须再输入一个数</p>
-<p>使用</p>
-<pre class="language-c" data-language="c"><code class="language-c"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d "</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>    也会出现同样问题</code></pre>
-
-]]></content>
-  </entry>
-  <entry>
-    <title>学习记录</title>
-    <url>/2021/09/22/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="学习笔记篇——HTML"><a href="#学习笔记篇——HTML" class="headerlink" title="学习笔记篇——HTML"></a>学习笔记篇——HTML</h2><h3 id="一-HTTP大概"><a href="#一-HTTP大概" class="headerlink" title="(一)HTTP大概"></a>(一)HTTP大概</h3><ol>
-<li><p>对于中文网页需要用<u><meta charset="utf-8" ></u>声明编码，否则会出现乱码，有些浏览器会设置GBK为默认编码，需设置<u><meta charest="gbk"></u>。</p>
-</li>
-<li><p>元素解析(起始标记为&lt;…&gt; 终止标志为&lt;/…&gt;)</p>
+    <title>网页制作</title>
+    <url>/2021/09/22/%E7%BD%91%E9%A1%B5%E5%88%B6%E4%BD%9C/</url>
+    <content><![CDATA[<h1 id="网页制作"><a href="#网页制作" class="headerlink" title="网页制作"></a>网页制作</h1><h2 id="第一章-网页设计基础知识"><a href="#第一章-网页设计基础知识" class="headerlink" title="第一章 网页设计基础知识"></a>第一章 网页设计基础知识</h2><ul>
+<li><p>第一项:网页相关知识简介  </p>
 <ul>
-<li><p>“<!DOCTYOE html>“声明为HTML5文档</p>
+<li><p>互联网、因特网和万维网<br>互联网指的是由<u>若干计算机网络相互连接而成的网络</u>，进一步说，凡是能彼此通信的设备组成的网络就叫互联网。  因特网是目前全球最大的一个电子计算机互联网，由美国ARPA网（军事网络）发展而来  </p>
 </li>
-<li><p>“<html>“元素是HTML页面的根元素(详情了解根元素点击这-<a href="https://blog.csdn.net/ixygj197875/article/details/79737953">根元素</a>)</p>
+<li><p>网站和网页<br>网站是多个网页的结合，网页是一HTML语言为基础编写的，能够通过网络传输，比如传送门 <a href="http://www.tiantanpark.com/">北京天坛</a>   </p>
 </li>
-<li><p>“<head>“ 元素包含文档元(meta)数据  </p>
+<li><p>网页与HTML<br>HTML(超文本标记语言)</p>
 </li>
-<li><p>“<title>“ 元素描述文档标题</p>
-</li>
-<li><p>“<body>“ 元素包含可见页面的内容  </p>
-</li>
-<li><p>“<h1>“ 元素定义一个大标题</p>
-</li>
-<li><p>“<p>“ 元素是段落    </p>
+<li><p>静态网页和动态网页<br>两者的区别在所采用的技术上，动态网页是运行于服务器端口的代码，它可实现的功能较多，如:用户注册、登录、在线调查(也可认为是与服务器后端进行交互)，且其通常有一个标志性”?”符号。</p>
 </li>
 </ul>
 </li>
-</ol>
-<p>3 . HTML意思是超文本<u>标记语言</u><br>    * <u>HTML标签通常成对出现</u>,(写的时候还是一对对的写好点)。<br>    * doctype是不区分大小写的<br>4 . 一个网页的大概框架为  </p>
-<pre class="language-<html>" data-language="<html>"><code class="language-<html>">&lt;head&gt;
-&lt;title&gt;...&lt;title&gt;
-&lt;&#x2F;head&gt;
-&lt;body&gt;
-&lt;h1&gt;...&lt;&#x2F;h1&gt;
-&lt;p&gt;...&lt;&#x2F;p&gt;
-&lt;&#x2F;body&gt;
-&lt;&#x2F;html&gt;  </code></pre>
-<ol start="5">
-<li>plus:<pre class="language-<html>" data-language="<html>"><code class="language-<html>">&lt;head&gt;
-&lt;title&gt;...&lt;title&gt;
-&lt;&#x2F;head&gt;
-&lt;body&gt;
-&lt;header&gt;
-&lt;&#x2F;header&gt;
-&lt;nav&gt;
-&lt;&#x2F;nav&gt;
-&lt;h1&gt;...&lt;&#x2F;h1&gt;
-&lt;p&gt;...&lt;&#x2F;p&gt;
-&lt;&#x2F;body&gt;
-&lt;&#x2F;html&gt;  </code></pre>
-6 . 头部信息放在<head></head>之间，这部分内容包括<title>,<base>,<link>,<style>,<script>,<meta>。设置网页定时跳转：<u><meta http-equiv="refresh" content="秒 "url="资源途径"/></u><br>7 . HTML图形是通过<img>定义,如<code loading="lazy">&lt;img loading=&quot;lazy&quot; src=&quot;/images/;ogo.png&quot; width=&quot;258&quot; height=&quot;39&quot;&gt;</code><br>8 . 注释的表达<code>&lt;!-- 这是一个注释 ---&gt;</code>  ,换行是<br /> , 水平线是<hr /><br>9 . <b>标记含义是加粗(感觉和<strong>也没什么区别),<i>标记意思是斜体(感觉和<em>也没什么区别)<br>10 . <small>标记将旁注呈现为小型文本，免责声明，注意事项均属于这<br>12 . 上标为<sup>，下标为<sub><br>13 . CSS背景色属性为(background-color),字体(font-family),颜色(color),字体大小(font-size)文字(text-align)<br>14 . </li>
-</ol>
+</ul>
 ]]></content>
   </entry>
   <entry>
     <title>算法</title>
     <url>/2022/03/13/%E7%AE%97%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="晋以次纪念我的算法学习"><a href="#晋以次纪念我的算法学习" class="headerlink" title="晋以次纪念我的算法学习"></a>晋以次纪念我的算法学习</h1><h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p><a href="https://regexlearn.com/">正则学习网站</a></p>
+    <content><![CDATA[<h1 id="晋以次纪念我的算法学习"><a href="#晋以次纪念我的算法学习" class="headerlink" title="晋以次纪念我的算法学习"></a>晋以次纪念我的算法学习</h1><h2 id="正则表达"><a href="#正则表达" class="headerlink" title="正则表达"></a>正则表达</h2><p><a href="https://regexlearn.com/">正则学习网站</a></p>
 <h3 id="基本通配符"><a href="#基本通配符" class="headerlink" title="基本通配符"></a>基本通配符</h3><table>
 <thead>
 <tr>
@@ -272,7 +291,132 @@ bob<span class="token punctuation">.</span>fd<span class="token punctuation">(</
 <td align="center">非空白字符</td>
 </tr>
 </tbody></table>
-<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><h3 id="01背包"><a href="#01背包" class="headerlink" title="01背包"></a>01背包</h3><h4 id="1-二维数组"><a href="#1-二维数组" class="headerlink" title="1.二维数组"></a>1.二维数组</h4><pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Scanner</span><span class="token punctuation">;</span>
+<h2 id="基础算法"><a href="#基础算法" class="headerlink" title="基础算法"></a>基础算法</h2><h3 id="单调栈"><a href="#单调栈" class="headerlink" title="单调栈"></a>单调栈</h3><p><a href="https://www.luogu.com.cn/problem/P5788">P5788 【模板】单调栈 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p>
+<pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
+
+using namespace std;
+const int N &#x3D; 3e6 + 5;
+int a[N];
+int b[N];
+
+int main() &#123;
+	int n;
+	scanf(&quot;%d&quot;, &amp;n);
+	for (int i &#x3D; 0; i &lt; n; i++) &#123;
+		scanf(&quot;%d&quot;, &amp;a[i]);
+	&#125;
+	stack&lt;int&gt; st;
+	for (int i &#x3D; 0; i &lt; n; i++) &#123;
+		while (!st.empty() &amp;&amp; a[i] &gt; a[st.top()]) &#123;    &#x2F;&#x2F;当前数字比栈顶元素大，下标加入b数组，弹出栈顶元素
+			b[st.top()] &#x3D; i + 1;
+			st.pop();
+		&#125;
+		st.push(i);
+	&#125;
+	for (int i &#x3D; 0; i &lt; n; i++) &#123;
+		printf(&quot;%d &quot;, b[i]);
+	&#125;
+	return 0;
+&#125;</code></pre>
+
+
+
+<p>例题</p>
+<pre class="language-c++" data-language="c++"><code class="language-c++">描述：有n个人站队，所有的人全部向右看，个子高的可以看到个子低的发型，给出每个人的身高，问所有人能看到其他人发现总和是多少。
+输入：4 3 7 1
+输出：2</code></pre>
+
+<pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
+using namespace std;
+
+const int N &#x3D; 3e6 + 5;
+int a[N];
+
+int main() &#123;
+	int n;
+	cin &gt;&gt; n;
+	for (int i &#x3D; 0; i &lt; n; i++) &#123;
+		cin &gt;&gt; a[i];
+	&#125;
+	a[n] &#x3D; 0x7fffffff;	&#x2F;&#x2F;保证最后的人数被加上
+	int sum &#x3D; 0;
+	stack&lt;int&gt; st;
+	for (int i &#x3D; 0; i &lt;&#x3D; n; i++) &#123;
+		while (!st.empty() &amp;&amp; a[i] &gt; a[st.top()]) &#123;
+			sum +&#x3D; i - st.top() - 1;
+			st.pop();
+		&#125;
+		st.push(i);
+	&#125;
+	cout &lt;&lt; sum;
+&#125;</code></pre>
+
+
+
+<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><h3 id="普通动态规划"><a href="#普通动态规划" class="headerlink" title="普通动态规划"></a>普通动态规划</h3><p>[P1002 <a href="https://www.luogu.com.cn/problem/P1002">NOIP2002 普及组] 过河卒 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p>
+<pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
+using namespace std;
+
+int dx[8] &#x3D; &#123; -2,-1,1,2,2,1,-1,-2 &#125;;
+int dy[8] &#x3D; &#123; -1,-2,-2,-1,1,2,2,1 &#125;;
+int vis[25][25];
+long long int dp[25][25];
+
+int main() &#123;
+	int n, m, x, y;
+	cin &gt;&gt; n &gt;&gt; m &gt;&gt; x &gt;&gt; y;
+    &#x2F;&#x2F;防止数组越界,tips：马那有2
+	n +&#x3D; 2;
+	m +&#x3D; 2;
+	x +&#x3D; 2;
+	y +&#x3D; 2;
+    &#x2F;&#x2F;马控制的地方标记为1
+	for (int i &#x3D; 0; i &lt; 8; i++) &#123;
+		vis[x + dx[i]][y + dy[i]] &#x3D; 1;
+	&#125;
+	vis[x][y] &#x3D; 1;
+	dp[2][1] &#x3D; 1;
+	for (int i &#x3D; 2; i &lt;&#x3D; n; i++) &#123;
+		for (int j &#x3D; 2; j &lt;&#x3D; m; j++) &#123;
+			if (!vis[i][j])
+				dp[i][j] &#x3D; dp[i - 1][j] + dp[i][j - 1];
+			else
+			    dp[i][j] &#x3D; 0;
+		&#125;
+	&#125;
+	cout &lt;&lt; dp[n][m];
+	return 0;
+&#125;</code></pre>
+
+
+
+<p><a href="https://www.luogu.com.cn/problem/P2028">P2028 龙兄摘苹果 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p>
+<pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
+
+using namespace std;
+typedef unsigned long long ll;
+const int N &#x3D; 10005;
+ll dp[N][1005];
+
+int main() &#123;
+	ios::sync_with_stdio(false);
+	ll n, k, p;
+	cin &gt;&gt; n &gt;&gt; k &gt;&gt; p;
+    &#x2F;&#x2F;前i-1个苹果放在前j个盘中，此时有：dp[i-1][j] * j种方案
+    &#x2F;&#x2F;前i-1个苹果放在前j-1个盘中，此时有：dp[i-1][j-1]种方案
+	for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+		dp[i][1] &#x3D; 1;
+		for (int j &#x3D; 2; j &lt;&#x3D; k; j++) &#123;
+			dp[i][j] &#x3D; (((dp[i - 1][j] % p) * (j % p)) % p + (dp[i - 1][j - 1] % p)) % p;
+		&#125;
+	&#125;
+	cout &lt;&lt; dp[n][k] % p;
+	return 0;
+&#125;</code></pre>
+
+
+
+<h3 id="01背包"><a href="#01背包" class="headerlink" title="01背包"></a>01背包</h3><h4 id="1-二维数组"><a href="#1-二维数组" class="headerlink" title="1.二维数组"></a>1.二维数组</h4><pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Scanner</span><span class="token punctuation">;</span>
 
 
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">&#123;</span>
@@ -342,6 +486,8 @@ public class Main &#123;
             v<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> scanner<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             w<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> scanner<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">&#125;</span>
+        <span class="token comment">//不取：dp[i-1][j]</span>
+        <span class="token comment">//取：dp[i][j-v[i]+w[i]]   物品数量是无限的</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token class-name">N</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
             <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> <span class="token class-name">V</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
                 <span class="token keyword">if</span><span class="token punctuation">(</span>j <span class="token operator">&lt;</span> v<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
@@ -380,6 +526,125 @@ public class Main &#123;
         scanner<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span></code></pre>
+
+
+
+<h3 id="LIS-最长上升子序列"><a href="#LIS-最长上升子序列" class="headerlink" title="LIS(最长上升子序列)"></a>LIS(最长上升子序列)</h3><p>[P1091 <a href="https://www.luogu.com.cn/problem/P1091">NOIP2004 提高组] 合唱队形 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p>
+<h4 id="1-普通方法，使用动态规划，时间复杂度n²"><a href="#1-普通方法，使用动态规划，时间复杂度n²" class="headerlink" title="1.普通方法，使用动态规划，时间复杂度n²"></a>1.普通方法，使用动态规划，时间复杂度n²</h4><pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
+
+using namespace std;
+int t[105];
+int dp[2][105];
+int main() &#123;
+	int n;
+	cin &gt;&gt; n;
+	for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+		cin &gt;&gt; t[i];
+	&#125;
+    &#x2F;&#x2F;正向求最长上升子序列
+	for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+	    dp[0][i] &#x3D; 1;
+		for (int j &#x3D; 1; j &lt; i; j++) &#123;
+			if (t[j] &lt; t[i]) &#123;
+				dp[0][i] &#x3D; max(dp[0][i], dp[0][j] + 1);
+			&#125;
+		&#125;
+	&#125;
+    &#x2F;&#x2F;反向求最长上升子序列
+	for (int i &#x3D; n; i &gt;&#x3D; 1; i--) &#123;
+	    dp[1][i] &#x3D; 1;
+		for (int j &#x3D; n; j &gt; i; j--) &#123;
+			if (t[j] &lt; t[i]) &#123;
+				dp[1][i] &#x3D; max(dp[1][i], dp[1][j] + 1);
+			&#125;
+		&#125;
+	&#125;
+	int maxx &#x3D; -1;
+    &#x2F;&#x2F;以i为切割点求答案
+	for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+		maxx &#x3D; max(dp[0][i] + dp[1][i], maxx);
+	&#125;
+	cout &lt;&lt; n - maxx + 1;	&#x2F;&#x2F;重复减，应该加1
+	return 0;
+&#125;</code></pre>
+
+<h4 id="2-使用贪心-二分，时间复杂度nlogn"><a href="#2-使用贪心-二分，时间复杂度nlogn" class="headerlink" title="2.使用贪心+二分，时间复杂度nlogn"></a>2.使用贪心+二分，时间复杂度nlogn</h4><pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
+
+using namespace std;
+const int N &#x3D; 1e5 + 5;
+
+int a[N];
+int low[N];
+int len;
+
+int binary_search(int x) &#123;
+	int l &#x3D; 1, r &#x3D; len;
+	while (l &lt; r) &#123;
+		int mid &#x3D; (l + r) &gt;&gt; 1;
+        &#x2F;&#x2F;尽量往左边找
+		if (low[mid] &gt;&#x3D; x) &#123;
+			r &#x3D; mid;
+		&#125;
+		else &#123;
+			l &#x3D; mid + 1;
+		&#125;
+	&#125;
+	return l;
+&#125;
+
+int main() &#123;
+	int n;
+	cin &gt;&gt; n;
+	for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+		cin &gt;&gt; a[i];
+		low[i] &#x3D; 0x7f7f7f7f;
+	&#125;
+	low[1] &#x3D; a[1];
+	len &#x3D; 1;
+	for (int i &#x3D; 2; i &lt;&#x3D; n; i++) &#123;
+		if (a[i] &gt; low[len]) &#123;
+			low[++len] &#x3D; a[i]; 
+		&#125;
+		else &#123;
+			&#x2F;&#x2F;找出上升子序列第一个&gt;&#x3D;a[i]的数，用a[i]将其替换
+			low[binary_search(a[i])] &#x3D; a[i];
+		&#125;
+	&#125;
+	cout &lt;&lt; len;
+	return 0;
+&#125;</code></pre>
+
+
+
+<h3 id="LCS-最长公共子序列"><a href="#LCS-最长公共子序列" class="headerlink" title="LCS(最长公共子序列)"></a>LCS(最长公共子序列)</h3><p>[P2543 <a href="https://www.luogu.com.cn/problem/P2543">AHOI2004]奇怪的字符串 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p>
+<pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
+
+using namespace std;
+
+const int N &#x3D; 10005;
+int dp[N][N];
+
+int main() &#123;
+	string s1, s2;
+	cin &gt;&gt; s1 &gt;&gt; s2;
+	
+	for (int i &#x3D; 1; i &lt;&#x3D; s1.length(); i++) &#123;
+		for (int j &#x3D; 1; j &lt;&#x3D; s2.length(); j++) &#123;
+			if (s1[i - 1] &#x3D;&#x3D; s2[j - 1])
+				dp[i][j] &#x3D; dp[i - 1][j - 1] + 1;
+			else
+				dp[i][j] &#x3D; max(dp[i - 1][j], dp[i][j - 1]);
+		&#125;
+	&#125;
+	cout &lt;&lt; dp[s1.length()][s2.length()];
+	return 0;
+&#125;</code></pre>
+
+
+
+<h3 id="区间dp"><a href="#区间dp" class="headerlink" title="区间dp"></a>区间dp</h3><pre class="language-c++" data-language="c++"><code class="language-c++"></code></pre>
+
+
 
 
 
@@ -506,7 +771,7 @@ static void addEdge(int u,int v,int w)&#123;
 for (int k &#x3D; 1; k &lt;&#x3D; n; k++) &#123;
     for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
         for (int j &#x3D; 1; j &lt;&#x3D; n; j++) &#123;
-            dp[k][i][j] &#x3D; Math.max(dp[k - 1][i][j], dp[k - 1][i][k] + dp[k - 1][k][j]);
+            dp[k][i][j] &#x3D; Math.min(dp[k - 1][i][j], dp[k - 1][i][k] + dp[k - 1][k][j]);
         &#125;
     &#125;
 &#125;
@@ -516,34 +781,35 @@ for (int k &#x3D; 1; k &lt;&#x3D; n; k++) &#123;
 for (int k &#x3D; 1; k &lt;&#x3D; n; k++) &#123;
     for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
         for (int j &#x3D; 1; j &lt;&#x3D; n; j++) &#123;
-            dp[i][j] &#x3D; Math.max(dp[i][j], dp[i][k] + dp[k][j]);
+            dp[i][j] &#x3D; Math.min(dp[i][j], dp[i][k] + dp[k][j]);
         &#125;
     &#125;
 &#125;</code></pre>
 
 
 
-<h3 id="单源最短路问题"><a href="#单源最短路问题" class="headerlink" title="单源最短路问题"></a>单源最短路问题</h3><pre class="language-Java" data-language="Java"><code class="language-Java"></code></pre>
+<h3 id="单源最短路问题"><a href="#单源最短路问题" class="headerlink" title="单源最短路问题"></a>单源最短路问题</h3><p><a href="https://www.zhihu.com/question/306895915/answer/559361032">松弛的含义可以看看这个的回答</a></p>
+<p>存在负权边</p>
+<h4 id="1-Bellman-Ford"><a href="#1-Bellman-Ford" class="headerlink" title="1.Bellman-Ford"></a>1.Bellman-Ford</h4><pre class="language-Java" data-language="Java"><code class="language-Java">&#x2F;&#x2F;n表示结点数，m为总边数
+class Node&#123;
+    int u;
+    int v;
+    int w;
+&#125;
+&#x2F;&#x2F;第一次松弛操作经过一条边
+&#x2F;&#x2F;一次松弛,从源点不一定只经过一条边
+&#x2F;&#x2F;dis数组初始化为正无穷大
+for (int i &#x3D; 1; i &lt; n; i++) &#123;       &#x2F;&#x2F;表示n-1个结点
+        for (int j &#x3D; 0; j &lt; m; j++) &#123;
+            if(dis[v[j]] &gt; dis[u[j]] + w[j])
+                dis[v[j]] &#x3D; dis[u[j]] + w[j]
+        &#125;
+&#125;
 
-]]></content>
-  </entry>
-  <entry>
-    <title>网页制作</title>
-    <url>/2021/09/22/%E7%BD%91%E9%A1%B5%E5%88%B6%E4%BD%9C/</url>
-    <content><![CDATA[<h1 id="网页制作"><a href="#网页制作" class="headerlink" title="网页制作"></a>网页制作</h1><h2 id="第一章-网页设计基础知识"><a href="#第一章-网页设计基础知识" class="headerlink" title="第一章 网页设计基础知识"></a>第一章 网页设计基础知识</h2><ul>
-<li><p>第一项:网页相关知识简介  </p>
-<ul>
-<li><p>互联网、因特网和万维网<br>互联网指的是由<u>若干计算机网络相互连接而成的网络</u>，进一步说，凡是能彼此通信的设备组成的网络就叫互联网。  因特网是目前全球最大的一个电子计算机互联网，由美国ARPA网（军事网络）发展而来  </p>
-</li>
-<li><p>网站和网页<br>网站是多个网页的结合，网页是一HTML语言为基础编写的，能够通过网络传输，比如传送门 <a href="http://www.tiantanpark.com/">北京天坛</a>   </p>
-</li>
-<li><p>网页与HTML<br>HTML(超文本标记语言)</p>
-</li>
-<li><p>静态网页和动态网页<br>两者的区别在所采用的技术上，动态网页是运行于服务器端口的代码，它可实现的功能较多，如:用户注册、登录、在线调查(也可认为是与服务器后端进行交互)，且其通常有一个标志性”?”符号。</p>
-</li>
-</ul>
-</li>
-</ul>
+&#x2F;&#x2F;tips:如果出现了负环,我们在第N轮操作的时候也会更新</code></pre>
+
+<h4 id="2-SPFA"><a href="#2-SPFA" class="headerlink" title="2.SPFA"></a>2.SPFA</h4><pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">//关于SPFA，它死了</span></code></pre>
+
 ]]></content>
   </entry>
   <entry>
