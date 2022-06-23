@@ -603,7 +603,7 @@ f[i,j-v[i]] &#x3D; max(	  f[i-1][j-v[i]],     f[i-1][j-2v[i]]+w[i],···, f[i-1
 
 <p>模板题</p>
 <p><a href="https://www.acwing.com/problem/content/4/">4. 多重背包问题 I - AcWing题库</a></p>
-<pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
+<h4 id="1-二维数组实现"><a href="#1-二维数组实现" class="headerlink" title="1.二维数组实现"></a>1.二维数组实现</h4><pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
 using namespace std;
 
 const int N &#x3D; 1e3 + 5;
@@ -628,8 +628,47 @@ int main() &#123;
 
 
 
+<p><a href="https://www.acwing.com/problem/content/5/">5. 多重背包问题 II - AcWing题库</a></p>
+<h4 id="2-一维数组-使用二进制进行优化"><a href="#2-一维数组-使用二进制进行优化" class="headerlink" title="2.一维数组(使用二进制进行优化)"></a>2.一维数组(使用二进制进行优化)</h4><pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
+using namespace std;
+
+const int N &#x3D; 12005;
+int v[N], w[N];
+int dp[N];
+
+int main() &#123;
+	int n, V;
+	cin &gt;&gt; n &gt;&gt; V;
+	int ans &#x3D; 0;
+	for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+		int a, b, c;
+		cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;
+		int k &#x3D; 1;
+		while (k &lt;&#x3D; c) &#123;
+			v[++ans] &#x3D; k * a;
+			w[ans] &#x3D; k * b;
+			c -&#x3D; k;
+			k *&#x3D; 2;
+		&#125;
+		if (c) &#123;
+			v[++ans] &#x3D; c * a;
+			w[ans] &#x3D; c * b;
+		&#125;
+	&#125;
+	n &#x3D; ans;
+	for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+		for (int j &#x3D; V; j &gt;&#x3D; v[i]; j--) &#123;
+			dp[j] &#x3D; max(dp[j], dp[j - v[i]] + w[i]);
+		&#125;
+	&#125;
+	cout &lt;&lt; dp[V];
+	return 0;
+&#125;</code></pre>
+
+
+
 <h3 id="分组背包"><a href="#分组背包" class="headerlink" title="分组背包"></a>分组背包</h3><p><img src="https://wx2.sinaimg.cn/mw2000/0085Lngnly1h3i5ye056bj30ig0aodib.jpg" alt="分组背包分析法" loading="lazy"></p>
-<pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
+<h4 id="1-二维数组-2"><a href="#1-二维数组-2" class="headerlink" title="1.二维数组"></a>1.二维数组</h4><pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
 
 using namespace std;
 const int N &#x3D; 105;
@@ -649,11 +688,44 @@ int main() &#123;
 		    dp[i][j] &#x3D; dp[i-1][j];
 			for (int k &#x3D; 0; k &lt; s[i]; k++) &#123;
 				if(v[i][k] &lt;&#x3D; j)
+                    &#x2F;&#x2F;要么都不选，要么就选其中的一个max
 					dp[i][j] &#x3D; max(dp[i][j], dp[i - 1][j - v[i][k]] + w[i][k]);
 			&#125;
 		&#125;
 	&#125;
 	cout &lt;&lt; dp[n][V];
+	return 0;
+&#125;
+</code></pre>
+
+
+
+<h4 id="2-优化到一维数组-滚动数组"><a href="#2-优化到一维数组-滚动数组" class="headerlink" title="2.优化到一维数组(滚动数组)"></a>2.优化到一维数组(滚动数组)</h4><pre class="language-c++" data-language="c++"><code class="language-c++">和01背包一样，为从后往前遍历，防止选重
+    
+#include&lt;bits&#x2F;stdc++.h&gt;
+
+using namespace std;
+const int N &#x3D; 105;
+int v[N][N], w[N][N], s[N], dp[N];
+
+int main() &#123;
+	int n, V;
+	cin &gt;&gt; n &gt;&gt; V;
+	for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+		cin &gt;&gt; s[i];
+		for (int j &#x3D; 0; j &lt; s[i]; j++) &#123;
+			cin &gt;&gt; v[i][j] &gt;&gt; w[i][j];
+		&#125;
+	&#125;
+	for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+		for (int j &#x3D; V; j &gt;&#x3D; 0; j--) &#123;
+			for (int k &#x3D; 0; k &lt; s[i]; k++) &#123;
+				if(v[i][k] &lt;&#x3D; j)
+					dp[j] &#x3D; max(dp[j], dp[j - v[i][k]] + w[i][k]);
+			&#125;
+		&#125;
+	&#125;
+	cout &lt;&lt; dp[V];
 	return 0;
 &#125;
 </code></pre>
