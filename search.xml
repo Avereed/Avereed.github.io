@@ -354,6 +354,7 @@ int main() &#123;
 
 
 <h3 id="单调队列"><a href="#单调队列" class="headerlink" title="单调队列"></a>单调队列</h3><p><em><strong>“如果一个选手比你小还比你强，你就可以退役了。”</strong>——单调队列的原理</em></p>
+<p>主要用于解决滑动窗口类问题</p>
 <p>可以参考知乎上的解答：<a href="https://zhuanlan.zhihu.com/p/346354943">算法学习笔记(66): 单调队列 - 知乎 (zhihu.com)</a></p>
 <p><a href="https://www.luogu.com.cn/problem/P1886">P1886 滑动窗口 /【模板】单调队列 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p>
 <pre class="language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F;滑动窗口左边为队头，右边为队尾
@@ -371,9 +372,9 @@ ll a[N];
 &#x2F;&#x2F;滑动窗口最小值
 void min_de() &#123;
 	for (int i &#x3D; 0; i &lt; n; i++) &#123;
-		if (!dq.empty() &amp;&amp; i - dq.front() &gt;&#x3D; k)  &#x2F;&#x2F;窗口的左边没在窗口后，将其弹出
+		if (!dq.empty() &amp;&amp; i - dq.front() &gt;&#x3D; k)  &#x2F;&#x2F;窗口的左边没在窗口后，将队头弹出
 			dq.pop_front();
-		while (!dq.empty() &amp;&amp; a[i] &lt; a[dq.back()])	&#x2F;&#x2F;当前数比队列的最后一位小的时候，弹出队头元素
+		while (!dq.empty() &amp;&amp; a[i] &lt; a[dq.back()])	&#x2F;&#x2F;当前数比队列的最后一位小的时候，弹出队尾元素
 			dq.pop_back();
 		dq.push_back(i);
 		if (i &gt;&#x3D; k - 1)		&#x2F;&#x2F;只有当滑动窗口在第k个才输出最小值
@@ -526,7 +527,15 @@ public class Main &#123;
 
 
 
-<h3 id="完全背包"><a href="#完全背包" class="headerlink" title="完全背包"></a>完全背包</h3><h4 id="1-二维数组-1"><a href="#1-二维数组-1" class="headerlink" title="1.二维数组"></a>1.二维数组</h4><pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Scanner</span><span class="token punctuation">;</span>
+<h3 id="完全背包"><a href="#完全背包" class="headerlink" title="完全背包"></a>完全背包</h3><p>可以理解成第i层的结果，因为每个物品都是无限的，所以要用第i层的结果使值最大，要使用前面更新的状态，前面的状态可能是选了的，也可能没选第i个物品</p>
+<pre class="language-c++" data-language="c++"><code class="language-c++">f[i,j] &#x3D; max(f[i-1,j],  f[i-1][j-v[i]]+w[i],f[i-1][j-2v[i]]+2w[i],f[i-1][j-3v[i]]+3w[i]······)
+f[i,j-v[i]] &#x3D; max(		f[i-1][j-v[i]],     f[i-1][j-2v[i]]+w[i], f[i-1][j-3v[i]]+2w[i]······)
+    
+f[i,j] &#x3D; max(f[i-1,j],f[i][j-v[i]+w[i]]);</code></pre>
+
+
+
+<h4 id="1-二维数组-1"><a href="#1-二维数组-1" class="headerlink" title="1.二维数组"></a>1.二维数组</h4><pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Scanner</span><span class="token punctuation">;</span>
 
 
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">&#123;</span>
@@ -581,6 +590,73 @@ public class Main &#123;
         scanner<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span></code></pre>
+
+
+
+<h3 id="多重背包"><a href="#多重背包" class="headerlink" title="多重背包"></a>多重背包</h3><pre class="language-c++" data-language="c++"><code class="language-c++">第i个物品数量为s[i]
+
+f[i,j] &#x3D; max(f[i-1,j],f[i-1][j-v[i]]+w[i],f[i-1][j-2v[i]]+2w[i],···,f[i-1][j-sv[i]]+sw[i])
+    
+f[i,j-v[i]] &#x3D; max(	  f[i-1][j-v[i]],     f[i-1][j-2v[i]]+w[i],···, f[i-1][j-sv[i]]+sw[i],f[i-1][j-(s+1)v[i]+(s+1)w[i]])</code></pre>
+
+
+
+<p>模板题</p>
+<p><a href="https://www.acwing.com/problem/content/4/">4. 多重背包问题 I - AcWing题库</a></p>
+<pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
+using namespace std;
+
+const int N &#x3D; 1e3 + 5;
+int v[N], w[N], s[N], dp[N][N];
+int main() &#123;
+	int n, V;
+	cin &gt;&gt; n &gt;&gt; V;
+	for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+		cin &gt;&gt; v[i] &gt;&gt; w[i] &gt;&gt; s[i];
+	&#125;
+	for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+		for (int j &#x3D; 0; j &lt;&#x3D; V; j++) &#123;
+			for (int k &#x3D; 0; k &lt;&#x3D; s[i] &amp;&amp; k * v[i] &lt;&#x3D; j; k++) &#123;
+				dp[i][j] &#x3D; max(dp[i][j], dp[i - 1][j - k * v[i]] + k * w[i]);
+                			&#x2F;&#x2F;取k个之间一直循环比较大小     &#x2F;&#x2F;相当于取0个，取1个···取k个
+			&#125;
+		&#125;
+	&#125;
+	cout &lt;&lt; dp[n][V];
+	return 0;
+&#125;</code></pre>
+
+
+
+<h3 id="分组背包"><a href="#分组背包" class="headerlink" title="分组背包"></a>分组背包</h3><p><img src="https://wx2.sinaimg.cn/mw2000/0085Lngnly1h3i5ye056bj30ig0aodib.jpg" alt="分组背包分析法" loading="lazy"></p>
+<pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
+
+using namespace std;
+const int N &#x3D; 105;
+int v[N][N], w[N][N], s[N], dp[N][N];
+
+int main() &#123;
+	int n, V;
+	cin &gt;&gt; n &gt;&gt; V;
+	for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+		cin &gt;&gt; s[i];
+		for (int j &#x3D; 0; j &lt; s[i]; j++) &#123;
+			cin &gt;&gt; v[i][j] &gt;&gt; w[i][j];
+		&#125;
+	&#125;
+	for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+		for (int j &#x3D; 0; j &lt;&#x3D; V; j++) &#123;
+		    dp[i][j] &#x3D; dp[i-1][j];
+			for (int k &#x3D; 0; k &lt; s[i]; k++) &#123;
+				if(v[i][k] &lt;&#x3D; j)
+					dp[i][j] &#x3D; max(dp[i][j], dp[i - 1][j - v[i][k]] + w[i][k]);
+			&#125;
+		&#125;
+	&#125;
+	cout &lt;&lt; dp[n][V];
+	return 0;
+&#125;
+</code></pre>
 
 
 
