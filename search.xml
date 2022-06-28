@@ -1,6 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>学习记录</title>
+    <url>/2021/09/22/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="学习笔记篇——HTML"><a href="#学习笔记篇——HTML" class="headerlink" title="学习笔记篇——HTML"></a>学习笔记篇——HTML</h2><h3 id="一-HTTP大概"><a href="#一-HTTP大概" class="headerlink" title="(一)HTTP大概"></a>(一)HTTP大概</h3><ol>
+<li><p>对于中文网页需要用<u><meta charset="utf-8" ></u>声明编码，否则会出现乱码，有些浏览器会设置GBK为默认编码，需设置<u><meta charest="gbk"></u>。</p>
+</li>
+<li><p>元素解析(起始标记为&lt;…&gt; 终止标志为&lt;/…&gt;)</p>
+<ul>
+<li><p>“<!DOCTYOE html>“声明为HTML5文档</p>
+</li>
+<li><p>“<html>“元素是HTML页面的根元素(详情了解根元素点击这-<a href="https://blog.csdn.net/ixygj197875/article/details/79737953">根元素</a>)</p>
+</li>
+<li><p>“<head>“ 元素包含文档元(meta)数据  </p>
+</li>
+<li><p>“<title>“ 元素描述文档标题</p>
+</li>
+<li><p>“<body>“ 元素包含可见页面的内容  </p>
+</li>
+<li><p>“<h1>“ 元素定义一个大标题</p>
+</li>
+<li><p>“<p>“ 元素是段落    </p>
+</li>
+</ul>
+</li>
+</ol>
+<p>3 . HTML意思是超文本<u>标记语言</u><br>    * <u>HTML标签通常成对出现</u>,(写的时候还是一对对的写好点)。<br>    * doctype是不区分大小写的<br>4 . 一个网页的大概框架为  </p>
+<pre class="language-<html>" data-language="<html>"><code class="language-<html>">&lt;head&gt;
+&lt;title&gt;...&lt;title&gt;
+&lt;&#x2F;head&gt;
+&lt;body&gt;
+&lt;h1&gt;...&lt;&#x2F;h1&gt;
+&lt;p&gt;...&lt;&#x2F;p&gt;
+&lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;  </code></pre>
+<ol start="5">
+<li>plus:<pre class="language-<html>" data-language="<html>"><code class="language-<html>">&lt;head&gt;
+&lt;title&gt;...&lt;title&gt;
+&lt;&#x2F;head&gt;
+&lt;body&gt;
+&lt;header&gt;
+&lt;&#x2F;header&gt;
+&lt;nav&gt;
+&lt;&#x2F;nav&gt;
+&lt;h1&gt;...&lt;&#x2F;h1&gt;
+&lt;p&gt;...&lt;&#x2F;p&gt;
+&lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;  </code></pre>
+6 . 头部信息放在<head></head>之间，这部分内容包括<title>,<base>,<link>,<style>,<script>,<meta>。设置网页定时跳转：<u><meta http-equiv="refresh" content="秒 "url="资源途径"/></u><br>7 . HTML图形是通过<img>定义,如<code loading="lazy">&lt;img loading=&quot;lazy&quot; src=&quot;/images/;ogo.png&quot; width=&quot;258&quot; height=&quot;39&quot;&gt;</code><br>8 . 注释的表达<code>&lt;!-- 这是一个注释 ---&gt;</code>  ,换行是<br /> , 水平线是<hr /><br>9 . <b>标记含义是加粗(感觉和<strong>也没什么区别),<i>标记意思是斜体(感觉和<em>也没什么区别)<br>10 . <small>标记将旁注呈现为小型文本，免责声明，注意事项均属于这<br>12 . 上标为<sup>，下标为<sub><br>13 . CSS背景色属性为(background-color),字体(font-family),颜色(color),字体大小(font-size)文字(text-align)<br>14 . </li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
     <title>Python</title>
     <url>/2021/11/27/Python/</url>
     <content><![CDATA[<blockquote>
@@ -122,57 +173,6 @@ bob<span class="token punctuation">.</span>fd<span class="token punctuation">(</
 </ul>
 </li>
 </ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>学习记录</title>
-    <url>/2021/09/22/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="学习笔记篇——HTML"><a href="#学习笔记篇——HTML" class="headerlink" title="学习笔记篇——HTML"></a>学习笔记篇——HTML</h2><h3 id="一-HTTP大概"><a href="#一-HTTP大概" class="headerlink" title="(一)HTTP大概"></a>(一)HTTP大概</h3><ol>
-<li><p>对于中文网页需要用<u><meta charset="utf-8" ></u>声明编码，否则会出现乱码，有些浏览器会设置GBK为默认编码，需设置<u><meta charest="gbk"></u>。</p>
-</li>
-<li><p>元素解析(起始标记为&lt;…&gt; 终止标志为&lt;/…&gt;)</p>
-<ul>
-<li><p>“<!DOCTYOE html>“声明为HTML5文档</p>
-</li>
-<li><p>“<html>“元素是HTML页面的根元素(详情了解根元素点击这-<a href="https://blog.csdn.net/ixygj197875/article/details/79737953">根元素</a>)</p>
-</li>
-<li><p>“<head>“ 元素包含文档元(meta)数据  </p>
-</li>
-<li><p>“<title>“ 元素描述文档标题</p>
-</li>
-<li><p>“<body>“ 元素包含可见页面的内容  </p>
-</li>
-<li><p>“<h1>“ 元素定义一个大标题</p>
-</li>
-<li><p>“<p>“ 元素是段落    </p>
-</li>
-</ul>
-</li>
-</ol>
-<p>3 . HTML意思是超文本<u>标记语言</u><br>    * <u>HTML标签通常成对出现</u>,(写的时候还是一对对的写好点)。<br>    * doctype是不区分大小写的<br>4 . 一个网页的大概框架为  </p>
-<pre class="language-<html>" data-language="<html>"><code class="language-<html>">&lt;head&gt;
-&lt;title&gt;...&lt;title&gt;
-&lt;&#x2F;head&gt;
-&lt;body&gt;
-&lt;h1&gt;...&lt;&#x2F;h1&gt;
-&lt;p&gt;...&lt;&#x2F;p&gt;
-&lt;&#x2F;body&gt;
-&lt;&#x2F;html&gt;  </code></pre>
-<ol start="5">
-<li>plus:<pre class="language-<html>" data-language="<html>"><code class="language-<html>">&lt;head&gt;
-&lt;title&gt;...&lt;title&gt;
-&lt;&#x2F;head&gt;
-&lt;body&gt;
-&lt;header&gt;
-&lt;&#x2F;header&gt;
-&lt;nav&gt;
-&lt;&#x2F;nav&gt;
-&lt;h1&gt;...&lt;&#x2F;h1&gt;
-&lt;p&gt;...&lt;&#x2F;p&gt;
-&lt;&#x2F;body&gt;
-&lt;&#x2F;html&gt;  </code></pre>
-6 . 头部信息放在<head></head>之间，这部分内容包括<title>,<base>,<link>,<style>,<script>,<meta>。设置网页定时跳转：<u><meta http-equiv="refresh" content="秒 "url="资源途径"/></u><br>7 . HTML图形是通过<img>定义,如<code loading="lazy">&lt;img loading=&quot;lazy&quot; src=&quot;/images/;ogo.png&quot; width=&quot;258&quot; height=&quot;39&quot;&gt;</code><br>8 . 注释的表达<code>&lt;!-- 这是一个注释 ---&gt;</code>  ,换行是<br /> , 水平线是<hr /><br>9 . <b>标记含义是加粗(感觉和<strong>也没什么区别),<i>标记意思是斜体(感觉和<em>也没什么区别)<br>10 . <small>标记将旁注呈现为小型文本，免责声明，注意事项均属于这<br>12 . 上标为<sup>，下标为<sub><br>13 . CSS背景色属性为(background-color),字体(font-family),颜色(color),字体大小(font-size)文字(text-align)<br>14 . </li>
-</ol>
 ]]></content>
   </entry>
   <entry>
@@ -409,7 +409,57 @@ int main() &#123;
 
 
 
-<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><h3 id="普通动态规划"><a href="#普通动态规划" class="headerlink" title="普通动态规划"></a>普通动态规划</h3><p>[P1002 <a href="https://www.luogu.com.cn/problem/P1002">NOIP2002 普及组] 过河卒 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p>
+<p>使用数组来模拟</p>
+<pre class="language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F;认为 head &lt;&#x3D; tail 时，队列不为空，head初始化为0，tail初始化为-1
+&#x2F;&#x2F;左为head,右为tail
+
+#include&lt;bits&#x2F;stdc++.h&gt;
+using namespace std;
+const int N &#x3D; 1e6 + 5;
+int a[N];
+int que[N], head, tail &#x3D; -1;
+int main() &#123;
+	int n, k;
+	cin &gt;&gt; n &gt;&gt; k;
+	for (int i &#x3D; 0; i &lt; n; i++) &#123;
+		cin &gt;&gt; a[i];
+	&#125;
+    &#x2F;&#x2F;最小
+	for (int i &#x3D; 0; i &lt; n; i++) &#123;
+		if (head &lt;&#x3D; tail &amp;&amp; i - que[head] &gt;&#x3D; k) &#123; &#x2F;&#x2F;不在窗口内的弹出，队头指针++
+			head++;
+		&#125;
+		while (head &lt;&#x3D; tail &amp;&amp; a[que[tail]] &gt; a[i]) &#123;  &#x2F;&#x2F;a[i] 比队列尾小，把队列尾弹出,队尾指针--
+			tail--;
+		&#125;
+		que[++tail] &#x3D; i;
+		if (i &gt;&#x3D; k - 1) &#123;
+			cout &lt;&lt; a[que[head]] &lt;&lt; &quot; &quot;;
+		&#125;
+	&#125;
+	cout &lt;&lt; endl;
+	memset(que, 0, sizeof(que));
+	head &#x3D; 0;
+	tail &#x3D; -1;
+    &#x2F;&#x2F;最大
+	for (int i &#x3D; 0; i &lt; n; i++) &#123;
+		if (head &lt;&#x3D; tail &amp;&amp; i - que[head] &gt;&#x3D; k) &#123;
+			head++;
+		&#125;
+		while (head &lt;&#x3D; tail &amp;&amp; a[que[tail]] &lt; a[i]) &#123;
+			tail--;
+		&#125;
+		que[++tail] &#x3D; i;
+		if (i &gt;&#x3D; k - 1) &#123;
+			cout &lt;&lt; a[que[head]] &lt;&lt; &quot; &quot;;
+		&#125;
+	&#125;
+	return 0;
+&#125;</code></pre>
+
+
+
+<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><h3 id="线性dp"><a href="#线性dp" class="headerlink" title="线性dp"></a>线性dp</h3><h4 id="普通dp"><a href="#普通dp" class="headerlink" title="普通dp"></a>普通dp</h4><p><a href="https://www.luogu.com.cn/problem/P1002">P1002 过河卒 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p>
 <pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
 using namespace std;
 
@@ -469,6 +519,151 @@ int main() &#123;
 	cout &lt;&lt; dp[n][k] % p;
 	return 0;
 &#125;</code></pre>
+
+
+
+<p><a href="https://www.acwing.com/problem/content/description/900/">898. 数字三角形 - AcWing题库</a></p>
+<pre class="language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F;可以从下往上思考，过程中一直选出最大的dp[i][j]，最终答案即为dp[1][1]
+
+#include&lt;bits&#x2F;stdc++.h&gt;
+using namespace std;
+
+const int N &#x3D; 505;
+int dp[N][N];
+
+int main() &#123;
+	int n;
+	cin &gt;&gt; n;
+	for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+		for (int j &#x3D; 1; j &lt;&#x3D; i; j++) &#123;
+			cin &gt;&gt; dp[i][j];
+		&#125;
+	&#125;
+	for (int i &#x3D; n; i &gt;&#x3D; 1; i--) &#123;
+		for (int j &#x3D; 1; j &lt;&#x3D; i; j++) &#123;
+			dp[i][j] +&#x3D; max(dp[i + 1][j], dp[i + 1][j + 1]);
+		&#125;
+	&#125;
+	cout &lt;&lt; dp[1][1];
+	return 0;
+&#125;</code></pre>
+
+
+
+<h4 id="LIS-最长上升子序列"><a href="#LIS-最长上升子序列" class="headerlink" title="LIS(最长上升子序列)"></a>LIS(最长上升子序列)</h4><pre class="language-c++" data-language="c++"><code class="language-c++">dp[i]：所有以第i个数结尾的上升子序列</code></pre>
+
+<p>[P1091 <a href="https://www.luogu.com.cn/problem/P1091">NOIP2004 提高组] 合唱队形 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p>
+<h5 id="1-普通方法，使用动态规划，时间复杂度n²"><a href="#1-普通方法，使用动态规划，时间复杂度n²" class="headerlink" title="1.普通方法，使用动态规划，时间复杂度n²"></a>1.普通方法，使用动态规划，时间复杂度n²</h5><pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
+
+using namespace std;
+int t[105];
+int dp[2][105];
+int main() &#123;
+	int n;
+	cin &gt;&gt; n;
+	for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+		cin &gt;&gt; t[i];
+	&#125;
+    &#x2F;&#x2F;正向求最长上升子序列
+	for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+	    dp[0][i] &#x3D; 1;
+		for (int j &#x3D; 1; j &lt; i; j++) &#123;
+			if (t[j] &lt; t[i]) &#123;
+				dp[0][i] &#x3D; max(dp[0][i], dp[0][j] + 1);
+			&#125;
+		&#125;
+	&#125;
+    &#x2F;&#x2F;反向求最长上升子序列
+	for (int i &#x3D; n; i &gt;&#x3D; 1; i--) &#123;
+	    dp[1][i] &#x3D; 1;
+		for (int j &#x3D; n; j &gt; i; j--) &#123;
+			if (t[j] &lt; t[i]) &#123;
+				dp[1][i] &#x3D; max(dp[1][i], dp[1][j] + 1);
+			&#125;
+		&#125;
+	&#125;
+	int maxx &#x3D; -1;
+    &#x2F;&#x2F;以i为切割点求答案
+	for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+		maxx &#x3D; max(dp[0][i] + dp[1][i], maxx);
+	&#125;
+	cout &lt;&lt; n - maxx + 1;	&#x2F;&#x2F;重复减，应该加1
+	return 0;
+&#125;</code></pre>
+
+<h5 id="2-使用贪心-二分，时间复杂度nlogn"><a href="#2-使用贪心-二分，时间复杂度nlogn" class="headerlink" title="2.使用贪心+二分，时间复杂度nlogn"></a>2.使用贪心+二分，时间复杂度nlogn</h5><pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
+
+using namespace std;
+const int N &#x3D; 1e5 + 5;
+
+int a[N];
+int low[N];
+int len;
+
+int binary_search(int x) &#123;
+	int l &#x3D; 1, r &#x3D; len;
+	while (l &lt; r) &#123;
+		int mid &#x3D; (l + r) &gt;&gt; 1;
+        &#x2F;&#x2F;尽量往左边找
+		if (low[mid] &gt;&#x3D; x) &#123;
+			r &#x3D; mid;
+		&#125;
+		else &#123;
+			l &#x3D; mid + 1;
+		&#125;
+	&#125;
+	return l;
+&#125;
+
+int main() &#123;
+	int n;
+	cin &gt;&gt; n;
+	for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+		cin &gt;&gt; a[i];
+		low[i] &#x3D; 0x7f7f7f7f;
+	&#125;
+	low[1] &#x3D; a[1];
+	len &#x3D; 1;
+	for (int i &#x3D; 2; i &lt;&#x3D; n; i++) &#123;
+		if (a[i] &gt; low[len]) &#123;
+			low[++len] &#x3D; a[i]; 
+		&#125;
+		else &#123;
+			&#x2F;&#x2F;找出上升子序列第一个&gt;&#x3D;a[i]的数，用a[i]将其替换
+			low[binary_search(a[i])] &#x3D; a[i];
+		&#125;
+	&#125;
+	cout &lt;&lt; len;
+	return 0;
+&#125;</code></pre>
+
+
+
+<h4 id="LCS-最长公共子序列"><a href="#LCS-最长公共子序列" class="headerlink" title="LCS(最长公共子序列)"></a>LCS(最长公共子序列)</h4><p>[P2543 <a href="https://www.luogu.com.cn/problem/P2543">AHOI2004]奇怪的字符串 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p>
+<pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
+
+using namespace std;
+
+const int N &#x3D; 10005;
+int dp[N][N];
+
+int main() &#123;
+	string s1, s2;
+	cin &gt;&gt; s1 &gt;&gt; s2;
+	
+	for (int i &#x3D; 1; i &lt;&#x3D; s1.length(); i++) &#123;
+		for (int j &#x3D; 1; j &lt;&#x3D; s2.length(); j++) &#123;
+			if (s1[i - 1] &#x3D;&#x3D; s2[j - 1])
+				dp[i][j] &#x3D; dp[i - 1][j - 1] + 1;
+			else
+				dp[i][j] &#x3D; max(dp[i - 1][j], dp[i][j - 1]);
+		&#125;
+	&#125;
+	cout &lt;&lt; dp[s1.length()][s2.length()];
+	return 0;
+&#125;</code></pre>
+
+
 
 
 
@@ -603,7 +798,7 @@ f[i,j-v[i]] &#x3D; max(	  f[i-1][j-v[i]],     f[i-1][j-2v[i]]+w[i],···, f[i-1
 
 <p>模板题</p>
 <p><a href="https://www.acwing.com/problem/content/4/">4. 多重背包问题 I - AcWing题库</a></p>
-<h4 id="1-二维数组实现"><a href="#1-二维数组实现" class="headerlink" title="1.二维数组实现"></a>1.二维数组实现</h4><pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
+<h4 id="1-三重循环实现"><a href="#1-三重循环实现" class="headerlink" title="1.三重循环实现"></a>1.三重循环实现</h4><pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
 using namespace std;
 
 const int N &#x3D; 1e3 + 5;
@@ -629,7 +824,7 @@ int main() &#123;
 
 
 <p><a href="https://www.acwing.com/problem/content/5/">5. 多重背包问题 II - AcWing题库</a></p>
-<h4 id="2-一维数组-使用二进制进行优化"><a href="#2-一维数组-使用二进制进行优化" class="headerlink" title="2.一维数组(使用二进制进行优化)"></a>2.一维数组(使用二进制进行优化)</h4><pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
+<h4 id="2-使用二进制进行优化"><a href="#2-使用二进制进行优化" class="headerlink" title="2.使用二进制进行优化"></a>2.使用二进制进行优化</h4><pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
 using namespace std;
 
 const int N &#x3D; 12005;
@@ -662,6 +857,55 @@ int main() &#123;
 		&#125;
 	&#125;
 	cout &lt;&lt; dp[V];
+	return 0;
+&#125;</code></pre>
+
+
+
+<h4 id="3-使用单调队列进行优化"><a href="#3-使用单调队列进行优化" class="headerlink" title="3.使用单调队列进行优化"></a>3.使用单调队列进行优化</h4><p><a href="https://www.acwing.com/problem/content/description/6/">6. 多重背包问题 III - AcWing题库</a></p>
+<p><a href="https://www.bilibili.com/video/BV1354y1C7SF?spm_id_from=333.337.search-card.all.click&vd_source=22aa3aaec95356c8f9cc134a80e7eb2b">9.76 多重背包 单调队列优化——信息学竞赛培训课程_哔哩哔哩</a></p>
+<p><a href="https://wx3.sinaimg.cn/orj360/0085Lngnly1h3o19oan0lj319j0xr1kx.jpg">图片</a></p>
+<pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
+using namespace std;
+const int N &#x3D; 1e3 + 5;
+const int M &#x3D; 2e4 + 5;
+
+int dp[N][M];
+int que[M];
+
+int main() &#123;
+	int n, V;
+	cin &gt;&gt; n &gt;&gt; V;
+	for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+		int v, w, s;
+		cin &gt;&gt; v &gt;&gt; w &gt;&gt; s;
+		&#x2F;&#x2F;对物品体积求完全剩余系
+		&#x2F;*
+		* 假设 v w s
+		*      2 4 3
+		*	   背包体积为9
+		* 
+		* f数组是由对v取余相同的转换来的
+		* 滑动窗口大小为s + 1,因为我们是拿窗口的下一个数来进行分析的
+		*&#x2F;
+		for (int j &#x3D; 0; j &lt; v; j++) &#123;  &#x2F;&#x2F;分成v个不同余数的类
+			int head &#x3D; 0, tail &#x3D; -1;
+			for (int k &#x3D; j; k &lt;&#x3D; V; k +&#x3D; v) &#123;  &#x2F;&#x2F;每个类使用单调队列
+				&#x2F;&#x2F;不在窗口(k-s*v,k-v)内，注意此时窗口大小实际为s+1,此时的k要比滑动窗口最右边大v个体积
+				if (head &lt;&#x3D; tail &amp;&amp; k - que[head] &gt; s * v) &#123;
+					head++;
+				&#125;
+				&#x2F;&#x2F;比较是否比tail位置的大，tail的最大值应该为i-1个物品的最大加上此时第i个物品
+				&#x2F;&#x2F;dp[i - 1][que[tail]] + (k - que[tail]) &#x2F; v * w
+				while (head &lt;&#x3D; tail &amp;&amp; dp[i - 1][k] &gt; dp[i - 1][que[tail]] + (k - que[tail]) &#x2F; v * w) &#123;
+					tail--;
+				&#125;
+				que[++tail] &#x3D; k;
+				dp[i][k] &#x3D; dp[i - 1][que[head]] + (k - que[head]) &#x2F; v * w;
+			&#125;
+		&#125;
+	&#125;
+	cout &lt;&lt; dp[n][V];
 	return 0;
 &#125;</code></pre>
 
@@ -731,117 +975,6 @@ int main() &#123;
 </code></pre>
 
 
-
-<h3 id="LIS-最长上升子序列"><a href="#LIS-最长上升子序列" class="headerlink" title="LIS(最长上升子序列)"></a>LIS(最长上升子序列)</h3><p>[P1091 <a href="https://www.luogu.com.cn/problem/P1091">NOIP2004 提高组] 合唱队形 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p>
-<h4 id="1-普通方法，使用动态规划，时间复杂度n²"><a href="#1-普通方法，使用动态规划，时间复杂度n²" class="headerlink" title="1.普通方法，使用动态规划，时间复杂度n²"></a>1.普通方法，使用动态规划，时间复杂度n²</h4><pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
-
-using namespace std;
-int t[105];
-int dp[2][105];
-int main() &#123;
-	int n;
-	cin &gt;&gt; n;
-	for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
-		cin &gt;&gt; t[i];
-	&#125;
-    &#x2F;&#x2F;正向求最长上升子序列
-	for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
-	    dp[0][i] &#x3D; 1;
-		for (int j &#x3D; 1; j &lt; i; j++) &#123;
-			if (t[j] &lt; t[i]) &#123;
-				dp[0][i] &#x3D; max(dp[0][i], dp[0][j] + 1);
-			&#125;
-		&#125;
-	&#125;
-    &#x2F;&#x2F;反向求最长上升子序列
-	for (int i &#x3D; n; i &gt;&#x3D; 1; i--) &#123;
-	    dp[1][i] &#x3D; 1;
-		for (int j &#x3D; n; j &gt; i; j--) &#123;
-			if (t[j] &lt; t[i]) &#123;
-				dp[1][i] &#x3D; max(dp[1][i], dp[1][j] + 1);
-			&#125;
-		&#125;
-	&#125;
-	int maxx &#x3D; -1;
-    &#x2F;&#x2F;以i为切割点求答案
-	for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
-		maxx &#x3D; max(dp[0][i] + dp[1][i], maxx);
-	&#125;
-	cout &lt;&lt; n - maxx + 1;	&#x2F;&#x2F;重复减，应该加1
-	return 0;
-&#125;</code></pre>
-
-<h4 id="2-使用贪心-二分，时间复杂度nlogn"><a href="#2-使用贪心-二分，时间复杂度nlogn" class="headerlink" title="2.使用贪心+二分，时间复杂度nlogn"></a>2.使用贪心+二分，时间复杂度nlogn</h4><pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
-
-using namespace std;
-const int N &#x3D; 1e5 + 5;
-
-int a[N];
-int low[N];
-int len;
-
-int binary_search(int x) &#123;
-	int l &#x3D; 1, r &#x3D; len;
-	while (l &lt; r) &#123;
-		int mid &#x3D; (l + r) &gt;&gt; 1;
-        &#x2F;&#x2F;尽量往左边找
-		if (low[mid] &gt;&#x3D; x) &#123;
-			r &#x3D; mid;
-		&#125;
-		else &#123;
-			l &#x3D; mid + 1;
-		&#125;
-	&#125;
-	return l;
-&#125;
-
-int main() &#123;
-	int n;
-	cin &gt;&gt; n;
-	for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
-		cin &gt;&gt; a[i];
-		low[i] &#x3D; 0x7f7f7f7f;
-	&#125;
-	low[1] &#x3D; a[1];
-	len &#x3D; 1;
-	for (int i &#x3D; 2; i &lt;&#x3D; n; i++) &#123;
-		if (a[i] &gt; low[len]) &#123;
-			low[++len] &#x3D; a[i]; 
-		&#125;
-		else &#123;
-			&#x2F;&#x2F;找出上升子序列第一个&gt;&#x3D;a[i]的数，用a[i]将其替换
-			low[binary_search(a[i])] &#x3D; a[i];
-		&#125;
-	&#125;
-	cout &lt;&lt; len;
-	return 0;
-&#125;</code></pre>
-
-
-
-<h3 id="LCS-最长公共子序列"><a href="#LCS-最长公共子序列" class="headerlink" title="LCS(最长公共子序列)"></a>LCS(最长公共子序列)</h3><p>[P2543 <a href="https://www.luogu.com.cn/problem/P2543">AHOI2004]奇怪的字符串 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p>
-<pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
-
-using namespace std;
-
-const int N &#x3D; 10005;
-int dp[N][N];
-
-int main() &#123;
-	string s1, s2;
-	cin &gt;&gt; s1 &gt;&gt; s2;
-	
-	for (int i &#x3D; 1; i &lt;&#x3D; s1.length(); i++) &#123;
-		for (int j &#x3D; 1; j &lt;&#x3D; s2.length(); j++) &#123;
-			if (s1[i - 1] &#x3D;&#x3D; s2[j - 1])
-				dp[i][j] &#x3D; dp[i - 1][j - 1] + 1;
-			else
-				dp[i][j] &#x3D; max(dp[i - 1][j], dp[i][j - 1]);
-		&#125;
-	&#125;
-	cout &lt;&lt; dp[s1.length()][s2.length()];
-	return 0;
-&#125;</code></pre>
 
 
 
