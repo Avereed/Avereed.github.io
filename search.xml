@@ -1,57 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>学习记录</title>
-    <url>/2021/09/22/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="学习笔记篇——HTML"><a href="#学习笔记篇——HTML" class="headerlink" title="学习笔记篇——HTML"></a>学习笔记篇——HTML</h2><h3 id="一-HTTP大概"><a href="#一-HTTP大概" class="headerlink" title="(一)HTTP大概"></a>(一)HTTP大概</h3><ol>
-<li><p>对于中文网页需要用<u><meta charset="utf-8" ></u>声明编码，否则会出现乱码，有些浏览器会设置GBK为默认编码，需设置<u><meta charest="gbk"></u>。</p>
-</li>
-<li><p>元素解析(起始标记为&lt;…&gt; 终止标志为&lt;/…&gt;)</p>
-<ul>
-<li><p>“<!DOCTYOE html>“声明为HTML5文档</p>
-</li>
-<li><p>“<html>“元素是HTML页面的根元素(详情了解根元素点击这-<a href="https://blog.csdn.net/ixygj197875/article/details/79737953">根元素</a>)</p>
-</li>
-<li><p>“<head>“ 元素包含文档元(meta)数据  </p>
-</li>
-<li><p>“<title>“ 元素描述文档标题</p>
-</li>
-<li><p>“<body>“ 元素包含可见页面的内容  </p>
-</li>
-<li><p>“<h1>“ 元素定义一个大标题</p>
-</li>
-<li><p>“<p>“ 元素是段落    </p>
-</li>
-</ul>
-</li>
-</ol>
-<p>3 . HTML意思是超文本<u>标记语言</u><br>    * <u>HTML标签通常成对出现</u>,(写的时候还是一对对的写好点)。<br>    * doctype是不区分大小写的<br>4 . 一个网页的大概框架为  </p>
-<pre class="language-<html>" data-language="<html>"><code class="language-<html>">&lt;head&gt;
-&lt;title&gt;...&lt;title&gt;
-&lt;&#x2F;head&gt;
-&lt;body&gt;
-&lt;h1&gt;...&lt;&#x2F;h1&gt;
-&lt;p&gt;...&lt;&#x2F;p&gt;
-&lt;&#x2F;body&gt;
-&lt;&#x2F;html&gt;  </code></pre>
-<ol start="5">
-<li>plus:<pre class="language-<html>" data-language="<html>"><code class="language-<html>">&lt;head&gt;
-&lt;title&gt;...&lt;title&gt;
-&lt;&#x2F;head&gt;
-&lt;body&gt;
-&lt;header&gt;
-&lt;&#x2F;header&gt;
-&lt;nav&gt;
-&lt;&#x2F;nav&gt;
-&lt;h1&gt;...&lt;&#x2F;h1&gt;
-&lt;p&gt;...&lt;&#x2F;p&gt;
-&lt;&#x2F;body&gt;
-&lt;&#x2F;html&gt;  </code></pre>
-6 . 头部信息放在<head></head>之间，这部分内容包括<title>,<base>,<link>,<style>,<script>,<meta>。设置网页定时跳转：<u><meta http-equiv="refresh" content="秒 "url="资源途径"/></u><br>7 . HTML图形是通过<img>定义,如<code loading="lazy">&lt;img loading=&quot;lazy&quot; src=&quot;/images/;ogo.png&quot; width=&quot;258&quot; height=&quot;39&quot;&gt;</code><br>8 . 注释的表达<code>&lt;!-- 这是一个注释 ---&gt;</code>  ,换行是<br /> , 水平线是<hr /><br>9 . <b>标记含义是加粗(感觉和<strong>也没什么区别),<i>标记意思是斜体(感觉和<em>也没什么区别)<br>10 . <small>标记将旁注呈现为小型文本，免责声明，注意事项均属于这<br>12 . 上标为<sup>，下标为<sub><br>13 . CSS背景色属性为(background-color),字体(font-family),颜色(color),字体大小(font-size)文字(text-align)<br>14 . </li>
-</ol>
-]]></content>
-  </entry>
-  <entry>
     <title>Python</title>
     <url>/2021/11/27/Python/</url>
     <content><![CDATA[<blockquote>
@@ -154,6 +103,57 @@ bob<span class="token punctuation">.</span>fd<span class="token punctuation">(</
 <p>使用</p>
 <pre class="language-c" data-language="c"><code class="language-c"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d "</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>    也会出现同样问题</code></pre>
 
+]]></content>
+  </entry>
+  <entry>
+    <title>学习记录</title>
+    <url>/2021/09/22/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="学习笔记篇——HTML"><a href="#学习笔记篇——HTML" class="headerlink" title="学习笔记篇——HTML"></a>学习笔记篇——HTML</h2><h3 id="一-HTTP大概"><a href="#一-HTTP大概" class="headerlink" title="(一)HTTP大概"></a>(一)HTTP大概</h3><ol>
+<li><p>对于中文网页需要用<u><meta charset="utf-8" ></u>声明编码，否则会出现乱码，有些浏览器会设置GBK为默认编码，需设置<u><meta charest="gbk"></u>。</p>
+</li>
+<li><p>元素解析(起始标记为&lt;…&gt; 终止标志为&lt;/…&gt;)</p>
+<ul>
+<li><p>“<!DOCTYOE html>“声明为HTML5文档</p>
+</li>
+<li><p>“<html>“元素是HTML页面的根元素(详情了解根元素点击这-<a href="https://blog.csdn.net/ixygj197875/article/details/79737953">根元素</a>)</p>
+</li>
+<li><p>“<head>“ 元素包含文档元(meta)数据  </p>
+</li>
+<li><p>“<title>“ 元素描述文档标题</p>
+</li>
+<li><p>“<body>“ 元素包含可见页面的内容  </p>
+</li>
+<li><p>“<h1>“ 元素定义一个大标题</p>
+</li>
+<li><p>“<p>“ 元素是段落    </p>
+</li>
+</ul>
+</li>
+</ol>
+<p>3 . HTML意思是超文本<u>标记语言</u><br>    * <u>HTML标签通常成对出现</u>,(写的时候还是一对对的写好点)。<br>    * doctype是不区分大小写的<br>4 . 一个网页的大概框架为  </p>
+<pre class="language-<html>" data-language="<html>"><code class="language-<html>">&lt;head&gt;
+&lt;title&gt;...&lt;title&gt;
+&lt;&#x2F;head&gt;
+&lt;body&gt;
+&lt;h1&gt;...&lt;&#x2F;h1&gt;
+&lt;p&gt;...&lt;&#x2F;p&gt;
+&lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;  </code></pre>
+<ol start="5">
+<li>plus:<pre class="language-<html>" data-language="<html>"><code class="language-<html>">&lt;head&gt;
+&lt;title&gt;...&lt;title&gt;
+&lt;&#x2F;head&gt;
+&lt;body&gt;
+&lt;header&gt;
+&lt;&#x2F;header&gt;
+&lt;nav&gt;
+&lt;&#x2F;nav&gt;
+&lt;h1&gt;...&lt;&#x2F;h1&gt;
+&lt;p&gt;...&lt;&#x2F;p&gt;
+&lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;  </code></pre>
+6 . 头部信息放在<head></head>之间，这部分内容包括<title>,<base>,<link>,<style>,<script>,<meta>。设置网页定时跳转：<u><meta http-equiv="refresh" content="秒 "url="资源途径"/></u><br>7 . HTML图形是通过<img>定义,如<code loading="lazy">&lt;img loading=&quot;lazy&quot; src=&quot;/images/;ogo.png&quot; width=&quot;258&quot; height=&quot;39&quot;&gt;</code><br>8 . 注释的表达<code>&lt;!-- 这是一个注释 ---&gt;</code>  ,换行是<br /> , 水平线是<hr /><br>9 . <b>标记含义是加粗(感觉和<strong>也没什么区别),<i>标记意思是斜体(感觉和<em>也没什么区别)<br>10 . <small>标记将旁注呈现为小型文本，免责声明，注意事项均属于这<br>12 . 上标为<sup>，下标为<sub><br>13 . CSS背景色属性为(background-color),字体(font-family),颜色(color),字体大小(font-size)文字(text-align)<br>14 . </li>
+</ol>
 ]]></content>
   </entry>
   <entry>
@@ -864,7 +864,6 @@ int main() &#123;
 
 <h4 id="3-使用单调队列进行优化"><a href="#3-使用单调队列进行优化" class="headerlink" title="3.使用单调队列进行优化"></a>3.使用单调队列进行优化</h4><p><a href="https://www.acwing.com/problem/content/description/6/">6. 多重背包问题 III - AcWing题库</a></p>
 <p><a href="https://www.bilibili.com/video/BV1354y1C7SF?spm_id_from=333.337.search-card.all.click&vd_source=22aa3aaec95356c8f9cc134a80e7eb2b">9.76 多重背包 单调队列优化——信息学竞赛培训课程_哔哩哔哩</a></p>
-<p><a href="https://wx3.sinaimg.cn/orj360/0085Lngnly1h3o19oan0lj319j0xr1kx.jpg">图片</a></p>
 <pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
 using namespace std;
 const int N &#x3D; 1e3 + 5;
@@ -884,8 +883,20 @@ int main() &#123;
 		* 假设 v w s
 		*      2 4 3
 		*	   背包体积为9
-		* 
+		*  假设：
+		* 		f[9] &#x3D; 14 f[7]+4 &#x3D; 14
+		*		f[9] &#x3D; 14 f[5]+8 &#x3D; 13
+		*		f[9] &#x3D; 17 f[3]+12 &#x3D;17
+		* &#x2F;&#x2F;一个窗口
+		*		f[8] &#x3D; 14 f[6]+4 &#x3D; 14
+		*		f[8] &#x3D; 14 f[4]+8 &#x3D; 13
+		*		f[8] &#x3D; 14 f[2]+12 &#x3D;12
+		* &#x2F;&#x2F;一个窗口
+		*		f[7] &#x3D; 10 f[5]+4 &#x3D; 9
+		*		f[7] &#x3D; 13 f[3]+8 &#x3D; 13
+		*		f[7] &#x3D; 13 f[1]+12 &#x3D;12
 		* f数组是由对v取余相同的转换来的
+		* f[j]  f[j+v]	f[j+2v] ...
 		* 滑动窗口大小为s + 1,因为我们是拿窗口的下一个数来进行分析的
 		*&#x2F;
 		for (int j &#x3D; 0; j &lt; v; j++) &#123;  &#x2F;&#x2F;分成v个不同余数的类
