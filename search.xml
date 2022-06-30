@@ -550,7 +550,7 @@ int main() &#123;
 
 
 
-<h4 id="LIS-最长上升子序列"><a href="#LIS-最长上升子序列" class="headerlink" title="LIS(最长上升子序列)"></a>LIS(最长上升子序列)</h4><pre class="language-c++" data-language="c++"><code class="language-c++">dp[i]：所有以第i个数结尾的上升子序列</code></pre>
+<h4 id="LIS-最长上升子序列"><a href="#LIS-最长上升子序列" class="headerlink" title="LIS(最长上升子序列)"></a>LIS(最长上升子序列)</h4><pre class="language-c++" data-language="c++"><code class="language-c++">dp[i]：所有以第i个数为止，最长上升子序列的长度</code></pre>
 
 <p>[P1091 <a href="https://www.luogu.com.cn/problem/P1091">NOIP2004 提高组] 合唱队形 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p>
 <h5 id="1-普通方法，使用动态规划，时间复杂度n²"><a href="#1-普通方法，使用动态规划，时间复杂度n²" class="headerlink" title="1.普通方法，使用动态规划，时间复杂度n²"></a>1.普通方法，使用动态规划，时间复杂度n²</h5><pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
@@ -667,7 +667,11 @@ int main() &#123;
 
 
 
-<h3 id="01背包"><a href="#01背包" class="headerlink" title="01背包"></a>01背包</h3><h4 id="1-二维数组"><a href="#1-二维数组" class="headerlink" title="1.二维数组"></a>1.二维数组</h4><pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Scanner</span><span class="token punctuation">;</span>
+<h3 id="01背包"><a href="#01背包" class="headerlink" title="01背包"></a>01背包</h3><pre class="language-c++" data-language="c++"><code class="language-c++">如果除0外初始化为负无穷，那么仅刚好装下的位置是正数(从0加)，其余位置为负数(从负无穷加)，故需要枚举</code></pre>
+
+
+
+<h4 id="1-二维数组"><a href="#1-二维数组" class="headerlink" title="1.二维数组"></a>1.二维数组</h4><pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Scanner</span><span class="token punctuation">;</span>
 
 
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">&#123;</span>
@@ -864,7 +868,12 @@ int main() &#123;
 
 <h4 id="3-使用单调队列进行优化"><a href="#3-使用单调队列进行优化" class="headerlink" title="3.使用单调队列进行优化"></a>3.使用单调队列进行优化</h4><p><a href="https://www.acwing.com/problem/content/description/6/">6. 多重背包问题 III - AcWing题库</a></p>
 <p><a href="https://www.bilibili.com/video/BV1354y1C7SF?spm_id_from=333.337.search-card.all.click&vd_source=22aa3aaec95356c8f9cc134a80e7eb2b">9.76 多重背包 单调队列优化——信息学竞赛培训课程_哔哩哔哩</a></p>
-<pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
+<p>这篇题解推荐一下</p>
+<p><a href="https://www.acwing.com/solution/content/53507/">AcWing 6. 多重背包问题 III【单调队列优化+图示】 - AcWing</a></p>
+<pre class="language-c++" data-language="c++"><code class="language-c++">key:当k&#x3D;j时为不取，只有当k&#x3D;j+sv之后，滑动窗口才满，下一轮就开始滑动
+
+
+#include&lt;bits&#x2F;stdc++.h&gt;
 using namespace std;
 const int N &#x3D; 1e3 + 5;
 const int M &#x3D; 2e4 + 5;
@@ -903,6 +912,7 @@ int main() &#123;
 			int head &#x3D; 0, tail &#x3D; -1;
 			for (int k &#x3D; j; k &lt;&#x3D; V; k +&#x3D; v) &#123;  &#x2F;&#x2F;每个类使用单调队列
 				&#x2F;&#x2F;不在窗口(k-s*v,k-v)内，注意此时窗口大小实际为s+1,此时的k要比滑动窗口最右边大v个体积
+                &#x2F;&#x2F;不使用&gt;&#x3D;而使用&gt;的理解：k&#x3D;j时，是为不取第i个物品
 				if (head &lt;&#x3D; tail &amp;&amp; k - que[head] &gt; s * v) &#123;
 					head++;
 				&#125;
@@ -986,6 +996,75 @@ int main() &#123;
 </code></pre>
 
 
+
+<h3 id="混合背包"><a href="#混合背包" class="headerlink" title="混合背包"></a>混合背包</h3><p><a href="https://www.acwing.com/problem/content/7/">7. 混合背包问题 - AcWing题库</a></p>
+<pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
+using namespace std;
+const int N &#x3D; 1005;
+int dp[N];
+
+int main() &#123;
+	int n, m;
+	cin &gt;&gt; n &gt;&gt; m;
+	for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+		int v, w, s;
+		cin &gt;&gt; v &gt;&gt; w &gt;&gt; s;
+        &#x2F;&#x2F;01背包
+		if (s &#x3D;&#x3D; -1) &#123;
+			for (int j &#x3D; m; j &gt;&#x3D; v; j--) &#123;
+				dp[j] &#x3D; max(dp[j], dp[j - v] + w);
+			&#125;
+		&#125;
+        &#x2F;&#x2F;完全背包
+		else if (s &#x3D;&#x3D; 0) &#123;
+			for (int j &#x3D; v; j &lt;&#x3D; m; j++) &#123;
+				dp[j] &#x3D; max(dp[j], dp[j - v] + w);
+			&#125;
+		&#125;
+        &#x2F;&#x2F;多重背包，使用二进制进行优化
+		else &#123;
+			int k &#x3D; 1;
+			while (k &lt;&#x3D; s) &#123;
+				for (int j &#x3D; m; j &gt;&#x3D; k * v; j--) &#123;
+					dp[j] &#x3D; max(dp[j], dp[j - k * v] + k * w);
+				&#125;
+				s -&#x3D; k;
+				k *&#x3D; 2;
+			&#125;
+			if (s) &#123;
+				for (int j &#x3D; m; j &gt;&#x3D; s * v; j--) &#123;
+					dp[j] &#x3D; max(dp[j], dp[j - s * v] + s * w);
+				&#125;
+			&#125;
+		&#125;
+	&#125;
+	cout &lt;&lt; dp[m];
+	return 0;
+&#125;</code></pre>
+
+
+
+<h3 id="二维费用的背包"><a href="#二维费用的背包" class="headerlink" title="二维费用的背包"></a>二维费用的背包</h3><p><a href="https://www.acwing.com/problem/content/8/">8. 二维费用的背包问题 - AcWing题库</a></p>
+<pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
+using namespace std;
+const int N &#x3D; 1005;
+int dp[N][N];
+
+int main() &#123;
+	int n, m, c;
+	cin &gt;&gt; n &gt;&gt; m &gt;&gt; c;
+	for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+		int a, b, t;
+		cin &gt;&gt; a &gt;&gt; b &gt;&gt; t;
+		for (int j &#x3D; m; j &gt;&#x3D; a; j--) &#123;
+			for (int k &#x3D; c; k &gt;&#x3D; b; k--) &#123;
+				dp[j][k] &#x3D; max(dp[j][k], dp[j - a][k - b] + t);
+			&#125;
+		&#125;
+	&#125;
+	cout &lt;&lt; dp[m][c];
+	return 0;
+&#125;</code></pre>
 
 
 
