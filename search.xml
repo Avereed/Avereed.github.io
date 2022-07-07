@@ -84,28 +84,6 @@ bob<span class="token punctuation">.</span>fd<span class="token punctuation">(</
 ]]></content>
   </entry>
   <entry>
-    <title>C语言的一些理解</title>
-    <url>/2021/09/30/c%E8%AF%AD%E8%A8%80/</url>
-    <content><![CDATA[<h2 id="对c语言scanf函数的一些理解"><a href="#对c语言scanf函数的一些理解" class="headerlink" title="对c语言scanf函数的一些理解"></a>对c语言scanf函数的一些理解</h2><p>空白符包括：空格，制表符，回车符，换行符，换页符</p>
-<p>scanf双引号括起来的即为格式化字符串，输入时应该严格执行格式 </p>
-<p>scanf函数中空白字符会使scanf()函数在读操作中略去输入中的一个或多个空白字符，空白符可以是space,tab,newline等等，直到第一个非空白符出现为止。(如果要输入空格，scanf函数中格式化说明符中间不能有空格)</p>
-<pre class="language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
-<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#123;</span>
-	<span class="token keyword">int</span> a<span class="token punctuation">;</span>
-	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"input the data\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>	<span class="token comment">//这里多了一个回车符\n</span>
-	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span></code></pre>
-
-<p>需要输入两个数程序才结束</p>
-<p>because:用空白符结尾时，scanf会跳过空白符去读下一个字符，所以必须再输入一个数</p>
-<p>使用</p>
-<pre class="language-c" data-language="c"><code class="language-c"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d "</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>    也会出现同样问题</code></pre>
-
-]]></content>
-  </entry>
-  <entry>
     <title>学习记录</title>
     <url>/2021/09/22/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h2 id="学习笔记篇——HTML"><a href="#学习笔记篇——HTML" class="headerlink" title="学习笔记篇——HTML"></a>学习笔记篇——HTML</h2><h3 id="一-HTTP大概"><a href="#一-HTTP大概" class="headerlink" title="(一)HTTP大概"></a>(一)HTTP大概</h3><ol>
@@ -154,6 +132,28 @@ bob<span class="token punctuation">.</span>fd<span class="token punctuation">(</
 &lt;&#x2F;html&gt;  </code></pre>
 6 . 头部信息放在<head></head>之间，这部分内容包括<title>,<base>,<link>,<style>,<script>,<meta>。设置网页定时跳转：<u><meta http-equiv="refresh" content="秒 "url="资源途径"/></u><br>7 . HTML图形是通过<img>定义,如<code loading="lazy">&lt;img loading=&quot;lazy&quot; src=&quot;/images/;ogo.png&quot; width=&quot;258&quot; height=&quot;39&quot;&gt;</code><br>8 . 注释的表达<code>&lt;!-- 这是一个注释 ---&gt;</code>  ,换行是<br /> , 水平线是<hr /><br>9 . <b>标记含义是加粗(感觉和<strong>也没什么区别),<i>标记意思是斜体(感觉和<em>也没什么区别)<br>10 . <small>标记将旁注呈现为小型文本，免责声明，注意事项均属于这<br>12 . 上标为<sup>，下标为<sub><br>13 . CSS背景色属性为(background-color),字体(font-family),颜色(color),字体大小(font-size)文字(text-align)<br>14 . </li>
 </ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>C语言的一些理解</title>
+    <url>/2021/09/30/c%E8%AF%AD%E8%A8%80/</url>
+    <content><![CDATA[<h2 id="对c语言scanf函数的一些理解"><a href="#对c语言scanf函数的一些理解" class="headerlink" title="对c语言scanf函数的一些理解"></a>对c语言scanf函数的一些理解</h2><p>空白符包括：空格，制表符，回车符，换行符，换页符</p>
+<p>scanf双引号括起来的即为格式化字符串，输入时应该严格执行格式 </p>
+<p>scanf函数中空白字符会使scanf()函数在读操作中略去输入中的一个或多个空白字符，空白符可以是space,tab,newline等等，直到第一个非空白符出现为止。(如果要输入空格，scanf函数中格式化说明符中间不能有空格)</p>
+<pre class="language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token keyword">int</span> a<span class="token punctuation">;</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"input the data\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>	<span class="token comment">//这里多了一个回车符\n</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+
+<p>需要输入两个数程序才结束</p>
+<p>because:用空白符结尾时，scanf会跳过空白符去读下一个字符，所以必须再输入一个数</p>
+<p>使用</p>
+<pre class="language-c" data-language="c"><code class="language-c"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d "</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>    也会出现同样问题</code></pre>
+
 ]]></content>
   </entry>
   <entry>
@@ -1444,6 +1444,83 @@ public class Main &#123;
 
 
 
+<p><a href="https://pintia.cn/problem-sets/994805046380707840/problems/994805063963230208">题目详情 - L2-013 红色警报 (pintia.cn)</a></p>
+<pre class="language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F;并查集的一个妙用，可以用来求联通区域的个数
+
+#include&lt;bits&#x2F;stdc++.h&gt;
+using namespace std;
+const int N &#x3D; 505, M &#x3D; 5005;
+bool vis[N];
+int e[M], ne[M];
+int f[N];
+int n, m;
+
+int find(int x) &#123;
+	if (x &#x3D;&#x3D; f[x]) &#123;
+		return x;
+	&#125;
+	return f[x] &#x3D; find(f[x]);
+&#125;
+
+void merge(int x, int y) &#123;
+	int m &#x3D; find(x);
+	int n &#x3D; find(y);
+	f[m] &#x3D; n;
+&#125;
+
+void init() &#123;
+	for (int i &#x3D; 0; i &lt; n; i++) &#123;
+		f[i] &#x3D; i;
+	&#125;
+&#125;
+
+int count() &#123;
+	int counts &#x3D; 0;
+	for (int i &#x3D; 0; i &lt; n; i++) &#123;
+		if (find(i) &#x3D;&#x3D; i) &#123;
+			counts++;
+		&#125;
+	&#125;
+	return counts;
+&#125;
+
+int main() &#123;
+	cin &gt;&gt; n &gt;&gt; m;
+	init();
+	for (int i &#x3D; 0; i &lt; m; i++) &#123;
+		cin &gt;&gt; e[i] &gt;&gt; ne[i];
+		merge(e[i], ne[i]);
+	&#125;
+	int k1 &#x3D; count();
+	int k;
+	cin &gt;&gt; k;
+	while (k--) &#123;
+		int t;
+		cin &gt;&gt; t;
+		vis[t] &#x3D; true;
+		init();
+		for (int i &#x3D; 0; i &lt; m; i++) &#123;
+			if (!vis[e[i]] &amp;&amp; !vis[ne[i]]) &#123;
+				merge(e[i], ne[i]);
+			&#125;
+		&#125;
+		int k2 &#x3D; count();
+		if (k1 + 1 &#x3D;&#x3D; k2 || k1 &#x3D;&#x3D; k2) &#123;
+			cout &lt;&lt; &quot;City &quot; &lt;&lt; t &lt;&lt; &quot; is lost.&quot; &lt;&lt; endl;
+		&#125;
+		else &#123;
+			cout &lt;&lt; &quot;Red Alert: City &quot; &lt;&lt; t &lt;&lt; &quot; is lost!&quot; &lt;&lt; endl;
+		&#125;
+		k1 &#x3D; k2;
+	&#125;
+	if (k1 &#x3D;&#x3D; n) &#123;
+		cout &lt;&lt; &quot;Game Over.&quot;;
+	&#125;
+	return 0;
+&#125;</code></pre>
+
+
+
 <h3 id="单源最短路问题"><a href="#单源最短路问题" class="headerlink" title="单源最短路问题"></a>单源最短路问题</h3><h4 id="1-所有边权都是正数"><a href="#1-所有边权都是正数" class="headerlink" title="1.所有边权都是正数"></a>1.所有边权都是正数</h4><h5 id="1-朴素Dijkstra"><a href="#1-朴素Dijkstra" class="headerlink" title="1.朴素Dijkstra"></a>1.朴素Dijkstra</h5><p><a href="https://www.acwing.com/problem/content/851/">849. Dijkstra求最短路 I - AcWing题库</a></p>
 <pre class="language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F;因为所有边权为正，若有自环的话,假设第t个点有自环，dis[t]一定是小于dist[t]+g[t][t]的
 
@@ -1771,6 +1848,59 @@ int main() &#123;
 	&#125;
 	return 0;
 &#125;</code></pre>
+
+
+
+
+
+<h2 id="数学"><a href="#数学" class="headerlink" title="数学"></a>数学</h2><h3 id="博弈论"><a href="#博弈论" class="headerlink" title="博弈论"></a>博弈论</h3><h4 id="Nim游戏"><a href="#Nim游戏" class="headerlink" title="Nim游戏"></a>Nim游戏</h4><p><a href="https://www.acwing.com/problem/content/893/">891. Nim游戏 - AcWing题库</a></p>
+<pre class="language-c++" data-language="c++"><code class="language-c++">先手制造一个相同的局面，让后手先动手，先手跟着他必胜
+    
+先手必胜状态：可以走到某一个后手必败的状态
+先手必败状态：走不到任何一个后手必败的状态
+    
+a1^a2^···^an &#x3D; 0  先手必败
+    		 !&#x3D;0  先手必胜
+    
+    
+找到x的二进制表示中最高位的1，
+假设它就存在于第i堆石子的二进制表示中。
+那么我们只需要从第i堆石子中拿走A[i]-A[i]^x个石子
+异或值就会变成A[1]^A[2]^……^(A[i]-(A[i]-A[i]^x))^……^A[n],&#x3D;A[1]^A[2]^……^A[i]^x^……^A[n]
+
+A[1]^A[2]^……^A[n]是等于x的。
+所以上述的式子就等于x^x&#x3D;0
+
+所以当x≠0，该谁走了，这个人就一定可以把x变成0，再推给对手
+对手不管怎么取，一定会再次把x变成非0（这个很好理解）
+最后因为0^0^……^0&#x3D;0，所以输掉的一定是对手。</code></pre>
+
+<pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+
+int main()&#123;
+    int n;
+    int res &#x3D; 0;
+    cin&gt;&gt;n;
+    while(n--)&#123;
+        int x;
+        cin&gt;&gt;x;
+        res^&#x3D;x;
+    &#125;
+    if(res)&#123;
+        cout &lt;&lt; &quot;Yes&quot;;
+    &#125;else&#123;
+        cout &lt;&lt; &quot;No&quot;;
+    &#125;
+    return 0;
+&#125;</code></pre>
+
+
+
+<h4 id="集合-Nim游戏"><a href="#集合-Nim游戏" class="headerlink" title="集合-Nim游戏"></a>集合-Nim游戏</h4><p><a href="https://www.acwing.com/problem/content/895/">893. 集合-Nim游戏 - AcWing题库</a></p>
+<p><a href="https://www.acwing.com/solution/content/119461/">AcWing 893. 集合-Nim游戏——有图有思路 - AcWing</a></p>
+<pre class="language-c++" data-language="c++"><code class="language-c++"></code></pre>
 
 ]]></content>
   </entry>
