@@ -84,6 +84,28 @@ bob<span class="token punctuation">.</span>fd<span class="token punctuation">(</
 ]]></content>
   </entry>
   <entry>
+    <title>C语言的一些理解</title>
+    <url>/2021/09/30/c%E8%AF%AD%E8%A8%80/</url>
+    <content><![CDATA[<h2 id="对c语言scanf函数的一些理解"><a href="#对c语言scanf函数的一些理解" class="headerlink" title="对c语言scanf函数的一些理解"></a>对c语言scanf函数的一些理解</h2><p>空白符包括：空格，制表符，回车符，换行符，换页符</p>
+<p>scanf双引号括起来的即为格式化字符串，输入时应该严格执行格式 </p>
+<p>scanf函数中空白字符会使scanf()函数在读操作中略去输入中的一个或多个空白字符，空白符可以是space,tab,newline等等，直到第一个非空白符出现为止。(如果要输入空格，scanf函数中格式化说明符中间不能有空格)</p>
+<pre class="language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token keyword">int</span> a<span class="token punctuation">;</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"input the data\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>	<span class="token comment">//这里多了一个回车符\n</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+
+<p>需要输入两个数程序才结束</p>
+<p>because:用空白符结尾时，scanf会跳过空白符去读下一个字符，所以必须再输入一个数</p>
+<p>使用</p>
+<pre class="language-c" data-language="c"><code class="language-c"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d "</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>    也会出现同样问题</code></pre>
+
+]]></content>
+  </entry>
+  <entry>
     <title>学习记录</title>
     <url>/2021/09/22/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h2 id="学习笔记篇——HTML"><a href="#学习笔记篇——HTML" class="headerlink" title="学习笔记篇——HTML"></a>学习笔记篇——HTML</h2><h3 id="一-HTTP大概"><a href="#一-HTTP大概" class="headerlink" title="(一)HTTP大概"></a>(一)HTTP大概</h3><ol>
@@ -132,28 +154,6 @@ bob<span class="token punctuation">.</span>fd<span class="token punctuation">(</
 &lt;&#x2F;html&gt;  </code></pre>
 6 . 头部信息放在<head></head>之间，这部分内容包括<title>,<base>,<link>,<style>,<script>,<meta>。设置网页定时跳转：<u><meta http-equiv="refresh" content="秒 "url="资源途径"/></u><br>7 . HTML图形是通过<img>定义,如<code loading="lazy">&lt;img loading=&quot;lazy&quot; src=&quot;/images/;ogo.png&quot; width=&quot;258&quot; height=&quot;39&quot;&gt;</code><br>8 . 注释的表达<code>&lt;!-- 这是一个注释 ---&gt;</code>  ,换行是<br /> , 水平线是<hr /><br>9 . <b>标记含义是加粗(感觉和<strong>也没什么区别),<i>标记意思是斜体(感觉和<em>也没什么区别)<br>10 . <small>标记将旁注呈现为小型文本，免责声明，注意事项均属于这<br>12 . 上标为<sup>，下标为<sub><br>13 . CSS背景色属性为(background-color),字体(font-family),颜色(color),字体大小(font-size)文字(text-align)<br>14 . </li>
 </ol>
-]]></content>
-  </entry>
-  <entry>
-    <title>C语言的一些理解</title>
-    <url>/2021/09/30/c%E8%AF%AD%E8%A8%80/</url>
-    <content><![CDATA[<h2 id="对c语言scanf函数的一些理解"><a href="#对c语言scanf函数的一些理解" class="headerlink" title="对c语言scanf函数的一些理解"></a>对c语言scanf函数的一些理解</h2><p>空白符包括：空格，制表符，回车符，换行符，换页符</p>
-<p>scanf双引号括起来的即为格式化字符串，输入时应该严格执行格式 </p>
-<p>scanf函数中空白字符会使scanf()函数在读操作中略去输入中的一个或多个空白字符，空白符可以是space,tab,newline等等，直到第一个非空白符出现为止。(如果要输入空格，scanf函数中格式化说明符中间不能有空格)</p>
-<pre class="language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
-<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#123;</span>
-	<span class="token keyword">int</span> a<span class="token punctuation">;</span>
-	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"input the data\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>	<span class="token comment">//这里多了一个回车符\n</span>
-	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span></code></pre>
-
-<p>需要输入两个数程序才结束</p>
-<p>because:用空白符结尾时，scanf会跳过空白符去读下一个字符，所以必须再输入一个数</p>
-<p>使用</p>
-<pre class="language-c" data-language="c"><code class="language-c"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d "</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>    也会出现同样问题</code></pre>
-
 ]]></content>
   </entry>
   <entry>
@@ -291,7 +291,306 @@ bob<span class="token punctuation">.</span>fd<span class="token punctuation">(</
 <td align="center">非空白字符</td>
 </tr>
 </tbody></table>
-<h2 id="基础算法"><a href="#基础算法" class="headerlink" title="基础算法"></a>基础算法</h2><h3 id="单调栈"><a href="#单调栈" class="headerlink" title="单调栈"></a>单调栈</h3><p><a href="https://www.luogu.com.cn/problem/P5788">P5788 【模板】单调栈 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p>
+<h2 id="基础算法"><a href="#基础算法" class="headerlink" title="基础算法"></a>基础算法</h2><h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><p>不稳定的排序</p>
+<p><a href="https://www.luogu.com.cn/problem/P1177">P1177 【模板】快速排序 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p>
+<pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+using namespace std;
+const int N &#x3D; 1e5 + 5;
+int a[N];
+
+void quick_sort(int l, int r) &#123;
+	if (l &gt;&#x3D; r) &#123;
+		return;
+	&#125;
+	int left &#x3D; l;
+	int right &#x3D; r;
+	int mid &#x3D; a[l + (r - l) &#x2F; 2];	&#x2F;&#x2F;这里一定要取的当前区间数组的中点对应的值
+	while (left &lt;&#x3D; right) &#123;
+		while (a[left] &lt; mid) &#123;	&#x2F;&#x2F;找比中点值大的数,不能取&#x3D;，假如要排序的数有相同的话,会浪费时间,不取&#x3D;不影响最后的结果
+			left++;				&#x2F;&#x2F;mid左边的数都&lt;&#x3D;mid
+		&#125;
+		while (a[right] &gt; mid) &#123;&#x2F;&#x2F;找比中点值小的数,不能取&#x3D;，假如要排序的数有相同的话，会浪费时间,不取&#x3D;不影响最后的结果
+			right--;			&#x2F;&#x2F;mid右边的数都&gt;&#x3D;mid
+		&#125;
+		if (left &lt;&#x3D; right) &#123;
+			swap(a[left], a[right]);
+			left++;
+			right--;
+		&#125;
+	&#125;
+    &#x2F;&#x2F;最后的结果为0·····right left·····n-1
+    &#x2F;&#x2F;递归左半部分
+	quick_sort(l, right);
+    &#x2F;&#x2F;递归右半部分
+	quick_sort(left, r);
+&#125;
+
+int main() &#123;
+	int n;
+	cin &gt;&gt; n;
+	for (int i &#x3D; 0; i &lt; n; i++) &#123;
+		cin &gt;&gt; a[i];
+	&#125;
+	quick_sort(0, n - 1);
+	for (int i &#x3D; 0; i &lt; n; i++) &#123;
+		if (i &#x3D;&#x3D; 0) &#123;
+			cout &lt;&lt; a[i];
+		&#125;
+		else &#123;
+			cout &lt;&lt; &quot; &quot; &lt;&lt; a[i];
+		&#125;
+	&#125;
+	return 0;
+&#125;</code></pre>
+
+
+
+<h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><p><a href="https://www.luogu.com.cn/problem/P1908">P1908 逆序对 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p>
+<pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+using namespace std;
+const int N &#x3D; 5e5 + 5;
+int a[N], temp[N];
+long long ans;
+
+void merge_sort(int l, int r) &#123;
+	if (l &gt;&#x3D; r) &#123;
+		return;
+	&#125;
+	int mid &#x3D; l + r &gt;&gt; 1;
+	int left &#x3D; l;
+	int right &#x3D; mid + 1;
+	int res &#x3D; l;
+	merge_sort(l, mid);
+	merge_sort(mid + 1, r);
+	while (left &lt;&#x3D; mid &amp;&amp; right &lt;&#x3D; r) &#123;
+		if (a[left] &lt;&#x3D; a[right]) &#123;
+			temp[res++] &#x3D; a[left++];
+		&#125;
+		else &#123;
+			ans +&#x3D; mid - left + 1;		&#x2F;&#x2F;关键位置
+			temp[res++] &#x3D; a[right++];
+		&#125;
+	&#125;
+	while (left &lt;&#x3D; mid) &#123;
+		temp[res++] &#x3D; a[left++];
+	&#125;
+	while (right &lt;&#x3D; r) &#123;
+		temp[res++] &#x3D; a[right++];
+	&#125;
+	for (int i &#x3D; l; i &lt;&#x3D; r; i++) &#123;
+		a[i] &#x3D; temp[i];
+	&#125;
+&#125;
+
+int main() &#123;
+	int n;
+	cin &gt;&gt; n;
+	for (int i &#x3D; 0; i &lt; n; i++) &#123;
+		cin &gt;&gt; a[i];
+	&#125;
+	merge_sort(0, n - 1);
+	cout &lt;&lt; ans;
+	return 0;
+&#125;</code></pre>
+
+
+
+<h3 id="二分"><a href="#二分" class="headerlink" title="二分"></a>二分</h3><h4 id="整数二分"><a href="#整数二分" class="headerlink" title="整数二分"></a>整数二分</h4><p>模板</p>
+<pre class="language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F;最后的答案要往左边找时
+int bsearch_1(int l, int r)
+&#123;
+    while (l &lt; r)
+    &#123;
+        int mid &#x3D; l + r &gt;&gt; 1;
+        if (check(mid)) r &#x3D; mid;    &#x2F;&#x2F;向左边找 &#x2F;&#x2F;if判断mid是否满足性质，注意该性质会划分数组的右边部分
+        else l &#x3D; mid + 1;           &#x2F;&#x2F;向右边找
+    &#125;
+    return l;   &#x2F;&#x2F;最后的l和r的值是相同的
+&#125;
+
+&#x2F;&#x2F;最后的答案要往右边找时
+int bsearch_2(int l, int r)
+&#123;
+    while (l &lt; r)
+    &#123;
+        int mid &#x3D; l + r + 1 &gt;&gt; 1;   &#x2F;&#x2F; mid 向上取整
+        if (check(mid)) l &#x3D; mid;
+        else r &#x3D; mid - 1;
+    &#125;
+    return l;
+&#125;</code></pre>
+
+
+
+<p><a href="https://www.acwing.com/problem/content/791/">789. 数的范围 - AcWing题库</a></p>
+<pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+using namespace std;
+const int N &#x3D; 1e5 + 5;
+int a[N];
+int main() &#123;
+	int n, q;
+	cin &gt;&gt; n &gt;&gt; q;
+	for (int i &#x3D; 0; i &lt; n; i++) &#123;
+		cin &gt;&gt; a[i];
+	&#125;
+	while (q--) &#123;
+		int x;
+		cin &gt;&gt; x;
+		int l &#x3D; 0;
+		int r &#x3D; n - 1;
+		while (l &lt; r) &#123;
+			int mid &#x3D; l + r &gt;&gt; 1;
+			if (a[mid] &gt;&#x3D; x) &#123;
+				r &#x3D; mid;
+			&#125;
+			else &#123;
+				l &#x3D; mid + 1;
+			&#125;
+		&#125;
+		if (a[l] !&#x3D; x) &#123;
+			cout &lt;&lt; &quot;-1 -1&quot; &lt;&lt; endl;
+		&#125;
+		else &#123;
+			cout &lt;&lt; l &lt;&lt; &quot; &quot;;
+			int l &#x3D; 0;
+			int r &#x3D; n - 1;
+			while (l &lt; r) &#123;
+				int mid &#x3D; l + r + 1 &gt;&gt; 1;
+				if (a[mid] &lt;&#x3D; x) &#123;
+					l &#x3D; mid;
+				&#125;
+				else &#123;
+					r &#x3D; mid - 1;
+				&#125;
+			&#125;
+			cout &lt;&lt; l &lt;&lt; endl;
+		&#125;
+	&#125;
+	return 0;
+&#125;</code></pre>
+
+
+
+<h4 id="浮点数二分"><a href="#浮点数二分" class="headerlink" title="浮点数二分"></a>浮点数二分</h4><p><a href="https://www.acwing.com/problem/content/792/">790. 数的三次方根 - AcWing题库</a></p>
+<pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+using namespace std;
+
+int main() &#123;
+	double x;
+	scanf(&quot;%lf&quot;, &amp;x);
+	double l &#x3D; -1e4, r &#x3D; 1e4;
+	while (r - l &gt; 1e-8) &#123;
+		double mid &#x3D; (l + r) &#x2F; 2;
+		if (mid * mid * mid &gt;&#x3D; x) &#123;
+			r &#x3D; mid;
+		&#125;
+		else &#123;
+			l &#x3D; mid;
+		&#125;
+	&#125;
+	printf(&quot;%.6f&quot;, l);
+	return 0;
+&#125;</code></pre>
+
+
+
+
+
+<h3 id="前缀和"><a href="#前缀和" class="headerlink" title="前缀和"></a>前缀和</h3><h4 id="一维前缀和"><a href="#一维前缀和" class="headerlink" title="一维前缀和"></a>一维前缀和</h4><p><a href="https://www.acwing.com/problem/content/797/">795. 前缀和 - AcWing题库</a></p>
+<pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+using namespace std;
+const int N &#x3D; 1e5 + 5;
+int a[N];
+int main() &#123;
+	int n, m;
+	cin &gt;&gt; n &gt;&gt; m;
+	for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+		cin &gt;&gt; a[i];
+	&#125;
+	for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+		a[i] &#x3D; a[i - 1] + a[i];
+	&#125;
+	while (m--) &#123;
+		int l, r;
+		cin &gt;&gt; l &gt;&gt; r;
+		cout &lt;&lt; a[r] - a[l - 1] &lt;&lt; endl;
+	&#125;
+	return 0;
+&#125;</code></pre>
+
+
+
+<h4 id="二维前缀和"><a href="#二维前缀和" class="headerlink" title="二维前缀和"></a>二维前缀和</h4><p><img src="https://wx4.sinaimg.cn/mw2000/0085Lngnly1h4aw61p9exj30ts0m1tdv.jpg" loading="lazy"></p>
+<p><a href="https://www.acwing.com/problem/content/description/798/">796. 子矩阵的和 - AcWing题库</a></p>
+<pre class="language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F;点看作格子
+&#x2F;&#x2F;格子当作放大无数倍的点,坐标对应的是一个框格,可以联系一维前缀和来想
+&#x2F;&#x2F;二维前缀和可以考虑成一个个的格子，结合一维前缀和来思考
+
+#include&lt;iostream&gt;
+using namespace std;
+const int N &#x3D; 1005;
+int a[N][N];
+
+int main() &#123;
+	int n, m, q;
+	scanf(&quot;%d%d%d&quot;, &amp;n, &amp;m, &amp;q);
+	for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+		for (int j &#x3D; 1; j &lt;&#x3D; m; j++) &#123;
+			scanf(&quot;%d&quot;, &amp;a[i][j]);
+		&#125;
+	&#125;
+	for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+		for (int j &#x3D; 1; j &lt;&#x3D; m; j++) &#123;
+			a[i][j] +&#x3D; a[i - 1][j] + a[i][j - 1] - a[i - 1][j - 1];
+		&#125;
+	&#125;
+	while (q--) &#123;
+		int x1, y1, x2, y2;
+		scanf(&quot;%d%d%d%d&quot;, &amp;x1, &amp;y1, &amp;x2, &amp;y2);
+		printf(&quot;%d\n&quot;, a[x2][y2] - a[x2][y1 - 1] - a[x1 - 1][y2] + a[x1 - 1][y1 - 1]);
+	&#125;
+	return 0;
+&#125;</code></pre>
+
+
+
+<h3 id="差分"><a href="#差分" class="headerlink" title="差分"></a>差分</h3><h4 id="一维差分"><a href="#一维差分" class="headerlink" title="一维差分"></a>一维差分</h4><p><a href="https://www.acwing.com/problem/content/799/">797. 差分 - AcWing题库</a></p>
+<pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+using namespace std;
+const int N &#x3D; 1e5 + 5;
+int a[N], b[N];
+
+void insert(int l, int r, int d) &#123;
+	b[l] +&#x3D; d;
+	b[r + 1] -&#x3D; d;
+&#125;
+
+int main() &#123;
+	int n, m;
+	scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+	for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+		scanf(&quot;%d&quot;, &amp;a[i]);
+	&#125;
+	for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+		insert(i, i, a[i]);
+	&#125;
+	while (m--) &#123;
+		int l, r, c;
+		scanf(&quot;%d%d%d&quot;, &amp;l, &amp;r, &amp;c);
+		insert(l, r, c);
+	&#125;
+	for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+		b[i] +&#x3D; b[i - 1];
+	&#125;
+	for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+		printf(&quot;%d &quot;, b[i]);
+	&#125;
+	return 0;
+&#125;</code></pre>
+
+
+
+<h4 id="二维差分"><a href="#二维差分" class="headerlink" title="二维差分"></a>二维差分</h4><h3 id="单调栈"><a href="#单调栈" class="headerlink" title="单调栈"></a>单调栈</h3><p><a href="https://www.luogu.com.cn/problem/P5788">P5788 【模板】单调栈 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p>
 <pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
 
 using namespace std;
@@ -1166,37 +1465,6 @@ int main() &#123;
 
 
 
-<h2 id="数论"><a href="#数论" class="headerlink" title="数论"></a>数论</h2><h3 id="扩展欧几里得算法"><a href="#扩展欧几里得算法" class="headerlink" title="扩展欧几里得算法"></a>扩展欧几里得算法</h3><pre class="language-java" data-language="java"><code class="language-java">如果a，b是整数<span class="token punctuation">,</span>那么一定存在整数x<span class="token punctuation">,</span>y使得ax<span class="token operator">+</span>by<span class="token operator">=</span><span class="token function">gcd</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span>
-扩展欧几里得算法即是为了求出x<span class="token punctuation">,</span>y
-扩展欧几里得算法可以求同余方程以及逆元
-本例通过递归加以实现
-    根据欧几里得原理有 <span class="token function">gcd</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token operator">=</span><span class="token function">gcd</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span>a<span class="token operator">%</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	即ax1 <span class="token operator">+</span> by1 <span class="token operator">=</span> bx2 <span class="token operator">+</span> <span class="token punctuation">(</span>a <span class="token operator">%</span> b<span class="token punctuation">)</span>y2<span class="token punctuation">;</span>
-	又因为a <span class="token operator">%</span> b <span class="token operator">=</span> a <span class="token operator">-</span> <span class="token punctuation">(</span>a <span class="token operator">/</span> b<span class="token punctuation">)</span> <span class="token operator">*</span> b<span class="token punctuation">;</span>
-	<span class="token operator">-></span> ax1 <span class="token operator">+</span> by1 <span class="token operator">=</span> ay2 <span class="token operator">+</span> <span class="token function">b</span><span class="token punctuation">(</span>x2 <span class="token operator">-</span> <span class="token punctuation">(</span>a <span class="token operator">/</span> b<span class="token punctuation">)</span><span class="token operator">*</span>y2<span class="token punctuation">;</span>
-    <span class="token operator">-></span> x1 <span class="token operator">=</span> y2<span class="token punctuation">;</span>
-       y1 <span class="token operator">=</span> x2 <span class="token operator">-</span> <span class="token punctuation">(</span>a <span class="token operator">/</span> b<span class="token punctuation">)</span><span class="token operator">*</span>y2<span class="token punctuation">;</span></code></pre>
-
-
-
-<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">static</span> <span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token keyword">static</span> <span class="token keyword">int</span> y <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-
-<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">ex_gcd</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span><span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>b <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-            x <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-            y <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span> a<span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token keyword">int</span> r <span class="token operator">=</span> <span class="token function">ex_gcd</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span>a<span class="token operator">%</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> temp <span class="token operator">=</span> x<span class="token punctuation">;</span>
-        x <span class="token operator">=</span> y<span class="token punctuation">;</span>                  <span class="token comment">//通过公式推导本层与下层之间的关系</span>
-        y <span class="token operator">=</span> temp <span class="token operator">-</span> a <span class="token operator">/</span> b <span class="token operator">*</span> y<span class="token punctuation">;</span>
-        <span class="token keyword">return</span> r<span class="token punctuation">;</span>               <span class="token comment">//返回gcd</span>
-    <span class="token punctuation">&#125;</span></code></pre>
-
-
-
 <h2 id="树图"><a href="#树图" class="headerlink" title="树图"></a>树图</h2><h3 id="链式前向星"><a href="#链式前向星" class="headerlink" title="链式前向星"></a>链式前向星</h3><p><a href="https://www.bilibili.com/video/BV1mJ411S7BB">视频推荐,讲的很好的up主</a></p>
 <pre class="language-Java" data-language="Java"><code class="language-Java">&#x2F;&#x2F;数组模拟链表
 static Node[] Edge &#x3D; new Node[10005];
@@ -1853,7 +2121,40 @@ int main() &#123;
 
 
 
-<h2 id="数学"><a href="#数学" class="headerlink" title="数学"></a>数学</h2><h3 id="博弈论"><a href="#博弈论" class="headerlink" title="博弈论"></a>博弈论</h3><h4 id="Nim游戏"><a href="#Nim游戏" class="headerlink" title="Nim游戏"></a>Nim游戏</h4><p><a href="https://www.acwing.com/problem/content/893/">891. Nim游戏 - AcWing题库</a></p>
+<h2 id="数学"><a href="#数学" class="headerlink" title="数学"></a>数学</h2><h3 id="扩展欧几里得算法"><a href="#扩展欧几里得算法" class="headerlink" title="扩展欧几里得算法"></a>扩展欧几里得算法</h3><pre class="language-java" data-language="java"><code class="language-java">如果a，b是整数<span class="token punctuation">,</span>那么一定存在整数x<span class="token punctuation">,</span>y使得ax<span class="token operator">+</span>by<span class="token operator">=</span><span class="token function">gcd</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span>
+扩展欧几里得算法即是为了求出x<span class="token punctuation">,</span>y
+扩展欧几里得算法可以求同余方程以及逆元
+本例通过递归加以实现
+    根据欧几里得原理有 <span class="token function">gcd</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token operator">=</span><span class="token function">gcd</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span>a<span class="token operator">%</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	即ax1 <span class="token operator">+</span> by1 <span class="token operator">=</span> bx2 <span class="token operator">+</span> <span class="token punctuation">(</span>a <span class="token operator">%</span> b<span class="token punctuation">)</span>y2<span class="token punctuation">;</span>
+	又因为a <span class="token operator">%</span> b <span class="token operator">=</span> a <span class="token operator">-</span> <span class="token punctuation">(</span>a <span class="token operator">/</span> b<span class="token punctuation">)</span> <span class="token operator">*</span> b<span class="token punctuation">;</span>
+	<span class="token operator">-></span> ax1 <span class="token operator">+</span> by1 <span class="token operator">=</span> ay2 <span class="token operator">+</span> <span class="token function">b</span><span class="token punctuation">(</span>x2 <span class="token operator">-</span> <span class="token punctuation">(</span>a <span class="token operator">/</span> b<span class="token punctuation">)</span><span class="token operator">*</span>y2<span class="token punctuation">;</span>
+    <span class="token operator">-></span> x1 <span class="token operator">=</span> y2<span class="token punctuation">;</span>
+       y1 <span class="token operator">=</span> x2 <span class="token operator">-</span> <span class="token punctuation">(</span>a <span class="token operator">/</span> b<span class="token punctuation">)</span><span class="token operator">*</span>y2<span class="token punctuation">;</span></code></pre>
+
+
+
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">static</span> <span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">static</span> <span class="token keyword">int</span> y <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">ex_gcd</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span><span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>b <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            x <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            y <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> a<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">int</span> r <span class="token operator">=</span> <span class="token function">ex_gcd</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span>a<span class="token operator">%</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> temp <span class="token operator">=</span> x<span class="token punctuation">;</span>
+        x <span class="token operator">=</span> y<span class="token punctuation">;</span>                  <span class="token comment">//通过公式推导本层与下层之间的关系</span>
+        y <span class="token operator">=</span> temp <span class="token operator">-</span> a <span class="token operator">/</span> b <span class="token operator">*</span> y<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> r<span class="token punctuation">;</span>               <span class="token comment">//返回gcd</span>
+    <span class="token punctuation">&#125;</span></code></pre>
+
+
+
+
+
+<h3 id="博弈论"><a href="#博弈论" class="headerlink" title="博弈论"></a>博弈论</h3><h4 id="Nim游戏"><a href="#Nim游戏" class="headerlink" title="Nim游戏"></a>Nim游戏</h4><p><a href="https://www.acwing.com/problem/content/893/">891. Nim游戏 - AcWing题库</a></p>
 <pre class="language-c++" data-language="c++"><code class="language-c++">先手制造一个相同的局面，让后手先动手，先手跟着他必胜
     
 先手必胜状态：可以走到某一个后手必败的状态
