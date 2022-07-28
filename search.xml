@@ -2910,7 +2910,7 @@ int main() &#123;
 using namespace std;
 
 const int N &#x3D; 1e5 + 5;
-int que[N], tt;
+int stack[N], tt;
 
 int main() &#123;
 	int n;
@@ -2918,17 +2918,17 @@ int main() &#123;
 	while (n--) &#123;
 		int x;
 		scanf(&quot;%d&quot;, &amp;x);
-        &#x2F;&#x2F;栈中有元素且栈顶元素的值比x大,栈顶指针tt--
-		while (tt &amp;&amp; que[tt] &gt;&#x3D; x) &#123;
+		&#x2F;&#x2F;栈中有元素且栈顶元素的值比x大,栈顶指针tt--
+		while (tt &amp;&amp; stack[tt] &gt;&#x3D; x) &#123;
 			tt--;
 		&#125;
 		if (tt) &#123;
-			cout &lt;&lt; que[tt] &lt;&lt; &quot; &quot;;
+			cout &lt;&lt; stack[tt] &lt;&lt; &quot; &quot;;
 		&#125;
 		else &#123;
 			cout &lt;&lt; -1 &lt;&lt; &quot; &quot;;
 		&#125;
-		que[++tt] &#x3D; x;
+		stack[++tt] &#x3D; x;
 	&#125;
 	return 0;
 &#125;</code></pre>
@@ -3119,6 +3119,39 @@ int main() &#123;
 	&#125;
 &#125;</code></pre>
 
+<p>使用字符串哈希</p>
+<pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+using namespace std;
+typedef unsigned long long ll;
+const int N &#x3D; 1e5 + 5, M &#x3D; 1e6 + 5, P &#x3D; 131;
+ll p[M], h[M];
+char a[N], b[M];
+
+ll search(int l, int r) &#123;
+	return h[r] - h[l - 1] * p[r - l + 1];
+&#125;
+
+int main() &#123;
+	int n, m;
+	scanf(&quot;%d%s%d%s&quot;, &amp;n, a + 1, &amp;m, b + 1);
+	p[0] &#x3D; 1;
+	ll sum &#x3D; 0;
+    &#x2F;&#x2F;算出模板串的哈希值
+	for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+		sum &#x3D; sum * P + a[i];
+	&#125;
+	for (int i &#x3D; 1; i &lt;&#x3D; m; i++) &#123;
+		p[i] &#x3D; p[i - 1] * P;
+		h[i] &#x3D; h[i - 1] * P + b[i];
+	&#125;
+	for (int i &#x3D; 1, j &#x3D; n; j &lt;&#x3D; m; i++, j++) &#123;
+		if (search(i, j) &#x3D;&#x3D; sum) &#123;
+			printf(&quot;%d &quot;, i - 1);
+		&#125;
+	&#125;
+	return 0;
+&#125;</code></pre>
+
 
 
 <h3 id="Tire"><a href="#Tire" class="headerlink" title="Tire"></a>Tire</h3><p><a href="https://www.acwing.com/problem/content/837/">835. Trie字符串统计 - AcWing题库</a></p>
@@ -3130,7 +3163,7 @@ int son[N][26], cnt[N], tot;
 char s[N];
 
 void insert(char str[]) &#123;
-    &#x2F;&#x2F;p相当于是第几个结点,son[p][u]相当于是第p个结点到达u的结点下标
+    &#x2F;&#x2F;p相当于是第几个结点,son[p][u]相当于是编号为p的结点到达u的结点的下标(值表示目标结点的下标)
 	int p &#x3D; 0;
 	for(int i&#x3D;0; str[i];i++)&#123;
 		int u &#x3D; str[i] - &#39;a&#39;;
@@ -3174,7 +3207,10 @@ int main() &#123;
 
 <p><a href="https://www.acwing.com/problem/content/description/145/">143. 最大异或对 - AcWing题库</a></p>
 <p>最大异或对</p>
-<pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+<pre class="language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F;异或的话与当前位不同能让异或值更大
+&#x2F;&#x2F;例如：若当前位是1，则选择0对应的结点，异或值能更大
+&#x2F;&#x2F;时间复杂度O(31*n)
+#include&lt;iostream&gt;
 using namespace std;
 
 const int N &#x3D; 1e5 + 5, M &#x3D; 31 * N;
@@ -3196,10 +3232,12 @@ int query(int x) &#123;
 	int res &#x3D; 0;
 	for (int i &#x3D; 30; i &gt;&#x3D; 0; i--) &#123;
 		int u &#x3D; x &gt;&gt; i &amp; 1;
+        &#x2F;&#x2F;与u相反的结点若存在,选在该结点
 		if (son[p][!u]) &#123;
 			p &#x3D; son[p][!u];
 			res &#x3D; (res &lt;&lt; 1) + !u;
 		&#125;
+        &#x2F;&#x2F;否则走与u相同的结点
 		else &#123;
 			p &#x3D; son[p][u];
 			res &#x3D; (res &lt;&lt; 1) + u;
@@ -3459,6 +3497,7 @@ int main() &#123;
 	cout.tie(0);
 	int n, m;
 	cin &gt;&gt; n &gt;&gt; m;
+    &#x2F;&#x2F;1~n为朋友,n+1~2n为敌人
 	for (int i &#x3D; 1; i &lt;&#x3D; 2 * n; i++) &#123;
 		f[i] &#x3D; i;
 	&#125;
@@ -3470,6 +3509,7 @@ int main() &#123;
 		int a &#x3D; node[i].a;
 		int b &#x3D; node[i].b;
 		int c &#x3D; node[i].c;
+        &#x2F;&#x2F;当a,b两个朋友是敌人的时候，说明此时就是答案
 		if (find(a) &#x3D;&#x3D; find(b)) &#123;
 			cout &lt;&lt; c;
 			break;
@@ -3484,6 +3524,282 @@ int main() &#123;
 &#125;</code></pre>
 
 
+
+<h3 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h3><p><a href="https://www.acwing.com/problem/content/description/840/">838. 堆排序 - AcWing题库</a></p>
+<pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+using namespace std;
+const int N &#x3D; 1e5 + 5;
+int h[N], siz;
+
+void down(int x) &#123;
+    &#x2F;&#x2F;t表示3个点中最小值的编号
+	int t &#x3D; x;
+	&#x2F;&#x2F;左儿子更小,t等于左儿子
+	if (2 * x &lt;&#x3D; siz &amp;&amp; h[2 * x] &lt; h[t]) t &#x3D; 2 * x;
+	&#x2F;&#x2F;右儿子更小,t等于右儿子
+	if (2 * x + 1 &lt;&#x3D; siz &amp;&amp; h[2 * x + 1] &lt; h[t]) t &#x3D; 2 * x + 1;
+	if (t !&#x3D; x) &#123;
+		swap(h[x], h[t]);
+		down(t);
+	&#125;
+&#125;
+
+void up(int x) &#123;
+	while (x &#x2F; 2 &amp;&amp; h[x &#x2F; 2] &gt; h[x]) &#123;
+		swap(h[x &#x2F; 2], h[x]);
+		x &#x2F;&#x3D; 2;
+	&#125;
+&#125;
+
+int main() &#123;
+	cin.tie(0);
+	cout.tie(0);
+	int n, m;
+	scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+	for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+		scanf(&quot;%d&quot;, &amp;h[i]);
+	&#125;
+	siz &#x3D; n;
+	&#x2F;&#x2F;从非叶子结点的最后一个开始进行堆调整,时间复杂度O(n)
+	for (int i &#x3D; n &#x2F; 2; i &gt;&#x3D; 1; i--) &#123;
+		down(i);
+	&#125;
+	while (m--) &#123;
+		cout &lt;&lt; h[1] &lt;&lt; &quot; &quot;;
+        &#x2F;&#x2F;根结点等于最后一个结点的值
+		h[1] &#x3D; h[siz--];
+        &#x2F;&#x2F;从第一个结点开始堆调整
+		down(1);
+	&#125;
+	return 0;
+&#125;</code></pre>
+
+<p><a href="https://www.acwing.com/problem/content/description/841/">839. 模拟堆 - AcWing题库</a></p>
+<pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+using namespace std;
+const int N &#x3D; 1e5 + 5;
+&#x2F;&#x2F;ph[x]数组表示插入的第x个数对应堆的下标
+&#x2F;&#x2F;hp[x]数组表示堆的下标为x的点对应插入的第几个数
+int h[N], ph[N], hp[N], tot;
+
+&#x2F;&#x2F;接受两个数在h数组中的下标
+void heap_swap(int a, int b) &#123;
+	swap(ph[hp[a]], ph[hp[b]]);
+	swap(hp[a], hp[b]);
+	swap(h[a], h[b]);
+&#125;
+
+void up(int u) &#123;
+	while (u &#x2F; 2 &amp;&amp; h[u &#x2F; 2] &gt; h[u]) &#123;
+		heap_swap(u &#x2F; 2, u);
+		u &#x2F;&#x3D; 2;
+	&#125;
+&#125;
+
+void down(int u) &#123;
+	int t &#x3D; u;
+	if (u * 2 &lt;&#x3D; tot &amp;&amp; h[u * 2] &lt; h[t]) t &#x3D; u * 2;
+	if (u * 2 + 1 &lt;&#x3D; tot &amp;&amp; h[u * 2 + 1] &lt; h[t]) t &#x3D; u * 2 + 1;
+	if (u !&#x3D; t) &#123;
+		heap_swap(u, t);
+		down(t);
+	&#125;
+&#125;
+
+int main() &#123;
+	&#x2F;&#x2F;m拿来记作第几个数
+	int n, m &#x3D; 0;
+	scanf(&quot;%d&quot;, &amp;n);
+	while (n--) &#123;
+		char op[5];
+		int k, x;
+		scanf(&quot;%s&quot;, op);
+		if (!strcmp(op, &quot;I&quot;)) &#123;
+			scanf(&quot;%d&quot;, &amp;x);
+			m++;
+			h[++tot] &#x3D; x;
+			ph[m] &#x3D; tot, hp[tot] &#x3D; m;
+			up(tot);
+		&#125;
+		else if (!strcmp(op, &quot;PM&quot;)) &#123;
+			printf(&quot;%d\n&quot;, h[1]);
+		&#125;
+		else if (!strcmp(op, &quot;DM&quot;)) &#123;
+			heap_swap(1, tot--);
+			down(1);
+		&#125;
+		else if (!strcmp(op, &quot;D&quot;)) &#123;
+			scanf(&quot;%d&quot;, &amp;k);
+			k &#x3D; ph[k];
+			heap_swap(k, tot--);
+			up(k);
+			down(k);
+		&#125;
+		else &#123;
+			scanf(&quot;%d%d&quot;, &amp;k, &amp;x);
+			k &#x3D; ph[k];
+			h[k] &#x3D; x;
+			up(k);
+			down(k);
+		&#125;
+	&#125;
+	return 0;
+&#125;</code></pre>
+
+
+
+<h3 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h3><p><a href="https://www.acwing.com/problem/content/description/842/">840. 模拟散列表 - AcWing题库</a></p>
+<p>拉链法(链地址法)</p>
+<pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+using namespace std;
+const int N &#x3D; 100003;
+
+int head[N], e[N], ne[N], tot;
+
+void insert(int x) &#123;
+	int k &#x3D; ((x % N) + N) % N;
+	e[tot] &#x3D; x;
+	ne[tot] &#x3D; head[k];
+	head[k] &#x3D; tot++;
+&#125;
+
+bool find(int x) &#123;
+	int k &#x3D; ((x % N) + N) % N;
+	for (int i &#x3D; head[k]; ~i; i &#x3D; ne[i]) &#123;
+		if (e[i] &#x3D;&#x3D; x) &#123;
+			return true;
+		&#125;
+	&#125;
+	return false;
+&#125;
+
+int main() &#123;
+	int n;
+	scanf(&quot;%d&quot;, &amp;n);
+	memset(head, -1, sizeof head);
+	while (n--) &#123;
+		char op[2];
+		int x;
+		scanf(&quot;%s%d&quot;, op, &amp;x);
+		if (*op &#x3D;&#x3D; &#39;I&#39;) &#123;
+			insert(x);
+		&#125;
+		else &#123;
+			if (find(x)) &#123;
+				printf(&quot;Yes\n&quot;);
+			&#125;
+			else &#123;
+				printf(&quot;No\n&quot;);
+			&#125;
+		&#125;
+	&#125;
+	return 0;
+&#125;</code></pre>
+
+<p>开放寻址法</p>
+<pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+using namespace std;
+&#x2F;&#x2F;定义null无穷大，说明此处没人
+const int N &#x3D; 200003, null &#x3D; 0x3f3f3f3f;
+int h[N];
+
+int find(int x) &#123;
+	int t &#x3D; ((x % N) + N) % N;
+	while (h[t] !&#x3D; null &amp;&amp; h[t] !&#x3D; x) &#123;
+		t++;
+		&#x2F;&#x2F;t等于N时，循环从0开始找
+		if (t &#x3D;&#x3D; N) &#123;
+			t &#x3D; 0;
+		&#125;
+	&#125;
+	return t;
+&#125;
+
+int main() &#123;
+	memset(h, 0x3f, sizeof h);
+	int n;
+	scanf(&quot;%d&quot;, &amp;n);
+	while (n--) &#123;
+		char op[2];
+		int x;
+		scanf(&quot;%s %d&quot;, op, &amp;x);
+		int t &#x3D; find(x);
+		if (op[0] &#x3D;&#x3D; &#39;I&#39;) &#123;
+			h[t] &#x3D; x;
+		&#125;
+		else &#123;
+			if (h[t] !&#x3D; null) &#123;
+				printf(&quot;Yes\n&quot;);
+			&#125;
+			else &#123;
+				printf(&quot;No\n&quot;);
+			&#125;
+		&#125;
+	&#125;
+	return 0;
+&#125;</code></pre>
+
+<p>字符串哈希</p>
+<pre class="language-c++" data-language="c++"><code class="language-c++">快速判断两个字符串是不是相等的时候
+本质思想就是确保每个字符串的哈希是不一样的,避免哈希冲突,每个字符串对应唯一一个哈希值</code></pre>
+
+<p><a href="https://www.acwing.com/problem/content/843/">841. 字符串哈希 - AcWing题库</a></p>
+<pre class="language-c++" data-language="c++"><code class="language-c++">假定人品足够好，不存在哈希冲突，每个字符串对应唯一一个哈希值
+一般情况&#123;
+    P&#x3D;131 或 13331
+    Q&#x3D;2^64
+&#125;
+
+全称字符串前缀哈希法，把字符串变成一个p进制数字（哈希值），实现不同的字符串映射到不同的数字。
+对形如 X1X2X3⋯Xn−1XnX1X2X3⋯Xn−1Xn 的字符串,采用字符的ascii 码乘上 P 的次方来计算哈希值。
+
+映射公式 (X1×Pn−1 + X2×Pn−2 +⋯+ Xn−1×P1 + Xn×P0) mod Q
+
+求一个字符串的哈希值就相当于求前缀和，求一个字符串的子串哈希值就相当于求部分和。
+
+前缀和公式 h[i+1] &#x3D; h[i]×P+s[i] i∈[0,n−1]i∈[0,n−1] h为前缀和数组，s为字符串数组
+区间和公式 h[l,r] &#x3D; h[r] − h[l − 1] × P ^ (r−l+1)
+区间和公式的理解: ABCDE 与 ABC 的前三个字符值是一样，只差两位，
+乘上 P² 把 ABC 变为 ABC00，再用 ABCDE - ABC00 得到 DE 的哈希值。</code></pre>
+
+<pre class="language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+using namespace std;
+
+typedef unsigned long long ll;
+const int N &#x3D; 1e5 + 5, P &#x3D; 131;
+
+char s[N];
+ll h[N], p[N];
+
+&#x2F;&#x2F;朴素做法可以把从l到r进行累加求哈希，但为了简化运算，使用了前缀和，使查询时候的复杂度为O(1)
+ll search(int l, int r) &#123;
+	return h[r] - h[l - 1] * p[r - l + 1];
+&#125;
+
+int main() &#123;
+	int n, m;
+	scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+	scanf(&quot;%s&quot;, s + 1);
+	p[0] &#x3D; 1;
+	for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+		h[i] &#x3D; h[i - 1] * P + s[i];
+		p[i] &#x3D; p[i - 1] * P;
+	&#125;
+	while (m--) &#123;
+		int l1, r1, l2, r2;
+		scanf(&quot;%d%d%d%d&quot;, &amp;l1, &amp;r1, &amp;l2, &amp;r2);
+		if (search(l1, r1) &#x3D;&#x3D; search(l2, r2)) &#123;
+			printf(&quot;Yes\n&quot;);
+		&#125;
+		else &#123;
+			printf(&quot;No\n&quot;);
+		&#125;
+	&#125;
+	return 0;
+&#125;</code></pre>
 
 
 
