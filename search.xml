@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>C语言的一些理解</title>
+    <url>/2021/09/30/c%E8%AF%AD%E8%A8%80/</url>
+    <content><![CDATA[<h2 id="对c语言scanf函数的一些理解"><a href="#对c语言scanf函数的一些理解" class="headerlink" title="对c语言scanf函数的一些理解"></a>对c语言scanf函数的一些理解</h2><p>空白符包括：空格，制表符，回车符，换行符，换页符</p>
+<p>scanf双引号括起来的即为格式化字符串，输入时应该严格执行格式 </p>
+<p>scanf函数中空白字符会使scanf()函数在读操作中略去输入中的一个或多个空白字符，空白符可以是space,tab,newline等等，直到第一个非空白符出现为止。(如果要输入空格，scanf函数中格式化说明符中间不能有空格)</p>
+<pre class="language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token keyword">int</span> a<span class="token punctuation">;</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"input the data\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>	<span class="token comment">//这里多了一个回车符\n</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+
+<p>需要输入两个数程序才结束</p>
+<p>because:用空白符结尾时，scanf会跳过空白符去读下一个字符，所以必须再输入一个数</p>
+<p>使用</p>
+<pre class="language-c" data-language="c"><code class="language-c"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d "</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>    也会出现同样问题</code></pre>
+
+]]></content>
+  </entry>
+  <entry>
     <title>Python</title>
     <url>/2021/11/27/Python/</url>
     <content><![CDATA[<blockquote>
@@ -84,47 +106,6 @@ bob<span class="token punctuation">.</span>fd<span class="token punctuation">(</
 ]]></content>
   </entry>
   <entry>
-    <title>C语言的一些理解</title>
-    <url>/2021/09/30/c%E8%AF%AD%E8%A8%80/</url>
-    <content><![CDATA[<h2 id="对c语言scanf函数的一些理解"><a href="#对c语言scanf函数的一些理解" class="headerlink" title="对c语言scanf函数的一些理解"></a>对c语言scanf函数的一些理解</h2><p>空白符包括：空格，制表符，回车符，换行符，换页符</p>
-<p>scanf双引号括起来的即为格式化字符串，输入时应该严格执行格式 </p>
-<p>scanf函数中空白字符会使scanf()函数在读操作中略去输入中的一个或多个空白字符，空白符可以是space,tab,newline等等，直到第一个非空白符出现为止。(如果要输入空格，scanf函数中格式化说明符中间不能有空格)</p>
-<pre class="language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
-<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#123;</span>
-	<span class="token keyword">int</span> a<span class="token punctuation">;</span>
-	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"input the data\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>	<span class="token comment">//这里多了一个回车符\n</span>
-	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span></code></pre>
-
-<p>需要输入两个数程序才结束</p>
-<p>because:用空白符结尾时，scanf会跳过空白符去读下一个字符，所以必须再输入一个数</p>
-<p>使用</p>
-<pre class="language-c" data-language="c"><code class="language-c"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d "</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>    也会出现同样问题</code></pre>
-
-]]></content>
-  </entry>
-  <entry>
-    <title>网页制作</title>
-    <url>/2021/09/22/%E7%BD%91%E9%A1%B5%E5%88%B6%E4%BD%9C/</url>
-    <content><![CDATA[<h1 id="网页制作"><a href="#网页制作" class="headerlink" title="网页制作"></a>网页制作</h1><h2 id="第一章-网页设计基础知识"><a href="#第一章-网页设计基础知识" class="headerlink" title="第一章 网页设计基础知识"></a>第一章 网页设计基础知识</h2><ul>
-<li><p>第一项:网页相关知识简介  </p>
-<ul>
-<li><p>互联网、因特网和万维网<br>互联网指的是由<u>若干计算机网络相互连接而成的网络</u>，进一步说，凡是能彼此通信的设备组成的网络就叫互联网。  因特网是目前全球最大的一个电子计算机互联网，由美国ARPA网（军事网络）发展而来  </p>
-</li>
-<li><p>网站和网页<br>网站是多个网页的结合，网页是一HTML语言为基础编写的，能够通过网络传输，比如传送门 <a href="http://www.tiantanpark.com/">北京天坛</a>   </p>
-</li>
-<li><p>网页与HTML<br>HTML(超文本标记语言)</p>
-</li>
-<li><p>静态网页和动态网页<br>两者的区别在所采用的技术上，动态网页是运行于服务器端口的代码，它可实现的功能较多，如:用户注册、登录、在线调查(也可认为是与服务器后端进行交互)，且其通常有一个标志性”?”符号。</p>
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
     <title>学习记录</title>
     <url>/2021/09/22/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h2 id="学习笔记篇——HTML"><a href="#学习笔记篇——HTML" class="headerlink" title="学习笔记篇——HTML"></a>学习笔记篇——HTML</h2><h3 id="一-HTTP大概"><a href="#一-HTTP大概" class="headerlink" title="(一)HTTP大概"></a>(一)HTTP大概</h3><ol>
@@ -173,6 +154,25 @@ bob<span class="token punctuation">.</span>fd<span class="token punctuation">(</
 &lt;&#x2F;html&gt;  </code></pre>
 6 . 头部信息放在<head></head>之间，这部分内容包括<title>,<base>,<link>,<style>,<script>,<meta>。设置网页定时跳转：<u><meta http-equiv="refresh" content="秒 "url="资源途径"/></u><br>7 . HTML图形是通过<img>定义,如<code loading="lazy">&lt;img loading=&quot;lazy&quot; src=&quot;/images/;ogo.png&quot; width=&quot;258&quot; height=&quot;39&quot;&gt;</code><br>8 . 注释的表达<code>&lt;!-- 这是一个注释 ---&gt;</code>  ,换行是<br /> , 水平线是<hr /><br>9 . <b>标记含义是加粗(感觉和<strong>也没什么区别),<i>标记意思是斜体(感觉和<em>也没什么区别)<br>10 . <small>标记将旁注呈现为小型文本，免责声明，注意事项均属于这<br>12 . 上标为<sup>，下标为<sub><br>13 . CSS背景色属性为(background-color),字体(font-family),颜色(color),字体大小(font-size)文字(text-align)<br>14 . </li>
 </ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>网页制作</title>
+    <url>/2021/09/22/%E7%BD%91%E9%A1%B5%E5%88%B6%E4%BD%9C/</url>
+    <content><![CDATA[<h1 id="网页制作"><a href="#网页制作" class="headerlink" title="网页制作"></a>网页制作</h1><h2 id="第一章-网页设计基础知识"><a href="#第一章-网页设计基础知识" class="headerlink" title="第一章 网页设计基础知识"></a>第一章 网页设计基础知识</h2><ul>
+<li><p>第一项:网页相关知识简介  </p>
+<ul>
+<li><p>互联网、因特网和万维网<br>互联网指的是由<u>若干计算机网络相互连接而成的网络</u>，进一步说，凡是能彼此通信的设备组成的网络就叫互联网。  因特网是目前全球最大的一个电子计算机互联网，由美国ARPA网（军事网络）发展而来  </p>
+</li>
+<li><p>网站和网页<br>网站是多个网页的结合，网页是一HTML语言为基础编写的，能够通过网络传输，比如传送门 <a href="http://www.tiantanpark.com/">北京天坛</a>   </p>
+</li>
+<li><p>网页与HTML<br>HTML(超文本标记语言)</p>
+</li>
+<li><p>静态网页和动态网页<br>两者的区别在所采用的技术上，动态网页是运行于服务器端口的代码，它可实现的功能较多，如:用户注册、登录、在线调查(也可认为是与服务器后端进行交互)，且其通常有一个标志性”?”符号。</p>
+</li>
+</ul>
+</li>
+</ul>
 ]]></content>
   </entry>
   <entry>
@@ -3159,6 +3159,8 @@ int main() &#123;
 using namespace std;
 const int N &#x3D; 1e5 + 5;
 &#x2F;&#x2F;son数组中的N不是代表数的深度,是代表结点
+&#x2F;&#x2F;son[x][y]代表第x个结点到达y字符对应的结点的编号
+&#x2F;&#x2F;tot保证了所有结点的唯一性
 int son[N][26], cnt[N], tot;
 char s[N];
 
@@ -3769,6 +3771,7 @@ int main() &#123;
 using namespace std;
 
 typedef unsigned long long ll;
+&#x2F;&#x2F;表示P进制的数
 const int N &#x3D; 1e5 + 5, P &#x3D; 131;
 
 char s[N];
