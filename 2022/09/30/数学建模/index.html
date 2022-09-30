@@ -1,0 +1,293 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="chenwenyu"><meta name="copyright" content="chenwenyu"><meta name="generator" content="Hexo 5.4.0"><meta name="theme" content="hexo-theme-yun"><title>数学建模 | WYsWeb</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.1.25/dist/yun/yun-markdown.min.css"><script src="//at.alicdn.com/t/font_1140697_dxory92pb0h.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>document.addEventListener("DOMContentLoaded", () => {
+  [".post-card",".post-content img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+});
+</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@latest/themes/prism.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@latest/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="icon" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#0078E7"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+    const Yun = window.Yun || {};
+    window.CONFIG = {"hostname":"avereed.github.io","root":"/","title":"文宇的小站","version":"1.6.2","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms"},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><meta name="description" content="关于我的建模之路评价类模型一.层次分析法(AHP)1.分析系统中各因素之间的关系，建立系统的递阶层次结构，画出层次结构图 2.对于同一层次的各元素关于上一层次中某一准则的重要性进行两两比较，构造两两比较矩阵(判断矩阵) 3.由判断矩阵计算被比较元素对于该准则的相对权重，并进行一致性检验(检验通过权重才能用) 	1.计算一致性指标CI 	2.查找n对应的平均随机一致性指标RI 	3.计算一致性比例C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数学建模">
+<meta property="og:url" content="https://avereed.github.io/2022/09/30/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/index.html">
+<meta property="og:site_name" content="WYsWeb">
+<meta property="og:description" content="关于我的建模之路评价类模型一.层次分析法(AHP)1.分析系统中各因素之间的关系，建立系统的递阶层次结构，画出层次结构图 2.对于同一层次的各元素关于上一层次中某一准则的重要性进行两两比较，构造两两比较矩阵(判断矩阵) 3.由判断矩阵计算被比较元素对于该准则的相对权重，并进行一致性检验(检验通过权重才能用) 	1.计算一致性指标CI 	2.查找n对应的平均随机一致性指标RI 	3.计算一致性比例C">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://wx1.sinaimg.cn/mw2000/0085Lngngy1h6ekbbsbbrj30s60f9agf.jpg">
+<meta property="article:published_time" content="2022-09-30T09:21:47.657Z">
+<meta property="article:modified_time" content="2022-09-30T05:24:58.408Z">
+<meta property="article:author" content="chenwenyu">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wx1.sinaimg.cn/mw2000/0085Lngngy1h6ekbbsbbrj30s60f9agf.jpg"><script src="/js/ui/mode.js"></script></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="Table of Contents"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="Overview"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="chenwenyu"><img width="96" loading="lazy" src="https://tse2-mm.cn.bing.net/th/id/OIP-C.7WA8Rz88PzA_2T7nZ834uwAAAA?w=171&amp;h=180&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.5&amp;pid=1.7" alt="chenwenyu"><span class="site-author-status" title="编程yyds">😊</span></a><div class="site-author-name"><a href="/about/">chenwenyu</a></div><span class="site-name">WYsWeb</span><sub class="site-subtitle"></sub><div class="site-desciption"></div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="Home"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/" title="Archives"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">7</span></a></div><div class="site-state-item"><a href="/categories/" title="Categories"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">0</span></a></div><div class="site-state-item"><a href="/tags/" title="Tags"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">0</span></a></div><a class="site-state-item hty-icon-button" target="_blank" rel="noopener" href="https://yun.yunyoujun.cn" title="文档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-settings-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="mailto:2216944468@qq.com" title="E-mail" target="_blank" style="color:#8E71C1"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-mail-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://weibo.com/u/7414235179/home" target="_blank" style="color:#E6162D"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-weibo-line"></use></svg></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="我的小伙伴们" style="color:dodgerblue"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-genderless-line"></use></svg></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-contrast-2-line"></use></svg></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%B9%8B%E8%B7%AF"><span class="toc-number">1.</span> <span class="toc-text">关于我的建模之路</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%84%E4%BB%B7%E7%B1%BB%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.1.</span> <span class="toc-text">评价类模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95-AHP"><span class="toc-number">1.1.1.</span> <span class="toc-text">一.层次分析法(AHP)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-%E7%86%B5%E6%9D%83%E6%B3%95Topsis"><span class="toc-number">1.1.2.</span> <span class="toc-text">二.熵权法Topsis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-%E6%A8%A1%E7%B3%8A%E7%BB%BC%E5%90%88%E8%AF%84%E4%BB%B7"><span class="toc-number">1.1.3.</span> <span class="toc-text">三.模糊综合评价</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-%E7%81%B0%E8%89%B2%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90"><span class="toc-number">1.1.4.</span> <span class="toc-text">四.灰色关联分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E5%80%BC%E6%B3%95"><span class="toc-number">1.2.</span> <span class="toc-text">插值法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%9F%E5%90%88%E7%AE%97%E6%B3%95"><span class="toc-number">1.3.</span> <span class="toc-text">拟合算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0"><span class="toc-number">1.4.</span> <span class="toc-text">相关系数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92"><span class="toc-number">1.5.</span> <span class="toc-text">多元线性回归</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lasso%E5%9B%9E%E5%BD%92"><span class="toc-number">1.6.</span> <span class="toc-text">lasso回归</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.7.</span> <span class="toc-text">分类模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%81%9A%E7%B1%BB%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.8.</span> <span class="toc-text">聚类模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%88%86%E6%9E%90"><span class="toc-number">1.9.</span> <span class="toc-text">时间序列分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARCH%E5%92%8CGARCH"><span class="toc-number">1.10.</span> <span class="toc-text">ARCH和GARCH</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.11.</span> <span class="toc-text">预测模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.12.</span> <span class="toc-text">数据分析模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%9C%E5%9B%BE"><span class="toc-number">1.13.</span> <span class="toc-text">作图</span></a></li></ol></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article"><link itemprop="mainEntityOfPage" href="https://avereed.github.io/2022/09/30/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="chenwenyu"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="WYsWeb"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">数学建模</h1><div class="post-meta"><div class="post-time" style="display:inline-block"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="Created: 2022-09-30 17:21:47" itemprop="dateCreated datePublished" datetime="2022-09-30T17:21:47+08:00">2022-09-30</time></div><div class="post-classify"></div><div class="post-author"><span class="author-name">wenyu</span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body" style="--smc-primary:#0078E7;"><h1 id="关于我的建模之路"><a href="#关于我的建模之路" class="headerlink" title="关于我的建模之路"></a>关于我的建模之路</h1><h2 id="评价类模型"><a href="#评价类模型" class="headerlink" title="评价类模型"></a>评价类模型</h2><h3 id="一-层次分析法-AHP"><a href="#一-层次分析法-AHP" class="headerlink" title="一.层次分析法(AHP)"></a>一.层次分析法(AHP)</h3><pre class="language-matlab" data-language="matlab"><code class="language-matlab"><span class="token number">1.</span>分析系统中各因素之间的关系，建立系统的递阶层次结构，画出层次结构图
+<span class="token number">2.</span>对于同一层次的各元素关于上一层次中某一准则的重要性进行两两比较，构造两两比较矩阵<span class="token punctuation">(</span>判断矩阵<span class="token punctuation">)</span>
+<span class="token number">3.</span>由判断矩阵计算被比较元素对于该准则的相对权重，并进行一致性检验<span class="token punctuation">(</span>检验通过权重才能用<span class="token punctuation">)</span>
+	<span class="token number">1.</span>计算一致性指标CI
+	<span class="token number">2.</span>查找n对应的平均随机一致性指标RI
+	<span class="token number">3.</span>计算一致性比例CR
+		CR<span class="token operator">&lt;</span><span class="token number">0.1</span>才认为一致性可以接受
+<span class="token number">4.</span>根据权重计算得分</code></pre>
+
+
+
+<h3 id="二-熵权法Topsis"><a href="#二-熵权法Topsis" class="headerlink" title="二.熵权法Topsis"></a>二.熵权法Topsis</h3><p><img src="https://wx1.sinaimg.cn/mw2000/0085Lngngy1h6ekbbsbbrj30s60f9agf.jpg" alt="权重" loading="lazy"></p>
+<pre class="language-matlab" data-language="matlab"><code class="language-matlab"><span class="token number">1.</span>原始矩阵正向化
+<span class="token number">2.</span>正向化矩阵标准化<span class="token punctuation">(</span>如果存在负数<span class="token punctuation">,</span>则使用另一种标准化<span class="token punctuation">)</span>
+<span class="token number">3.</span>熵权法确定指标之间的权重
+<span class="token number">4.</span>计算与最大值的距离和最小值的距离，并算出得分</code></pre>
+
+
+
+<h3 id="三-模糊综合评价"><a href="#三-模糊综合评价" class="headerlink" title="三.模糊综合评价"></a>三.模糊综合评价</h3><pre class="language-matlab" data-language="matlab"><code class="language-matlab"><span class="token number">1.</span>取因素集 U<span class="token operator">=</span><span class="token punctuation">&#123;</span>u1<span class="token punctuation">,</span>u···un<span class="token punctuation">&#125;</span>
+<span class="token number">2.</span>取评语集 V<span class="token operator">=</span><span class="token punctuation">&#123;</span>v1<span class="token punctuation">,</span>v2···vm<span class="token punctuation">&#125;</span>
+<span class="token number">3.</span>确定各因素的权重 A<span class="token operator">=</span><span class="token punctuation">&#123;</span>w1<span class="token punctuation">,</span>w2···wn<span class="token punctuation">&#125;</span>
+<span class="token number">4.</span>确定模糊综合评判矩阵，对每个因素ui做出评价<span class="token punctuation">(</span>隶属度<span class="token punctuation">)</span>
+	以Ri为第<span class="token number">i</span>行构成评价矩阵
+<span class="token number">5.</span>模糊综合评判，进行矩阵的合成运算
+B <span class="token operator">=</span> A · R
+取B中数值<span class="token punctuation">(</span>隶属度<span class="token punctuation">)</span>最大的评语作为综合评判的结果
+
+步骤根据例<span class="token number">14.2</span></code></pre>
+
+
+
+<h3 id="四-灰色关联分析"><a href="#四-灰色关联分析" class="headerlink" title="四.灰色关联分析"></a>四.灰色关联分析</h3><pre class="language-matlab" data-language="matlab"><code class="language-matlab"><span class="token number">1.</span>画统计图
+<span class="token number">2.</span>确定分析数列
+	<span class="token number">1.</span>母序列：反映系统行为特征的数据序列，类似因变量
+	<span class="token number">2.</span>子序列：影响系统行为的因素组成的数据序列，类似自变量
+<span class="token number">3.</span>对变量进行预处理<span class="token punctuation">(</span>去量纲，缩小变量范围<span class="token punctuation">)</span>：先求出每个指标的均值，再用该指标中的每个元素都除以其均值
+<span class="token number">4.</span>计算子序列中每个指标与母序列的关联系数
+<span class="token number">5.</span>定义<span class="token number">4</span>中每一列求出的均值为x0和xi的灰色关联系数</code></pre>
+
+
+
+<h2 id="插值法"><a href="#插值法" class="headerlink" title="插值法"></a>插值法</h2><pre class="language-matlab" data-language="matlab"><code class="language-matlab">模拟产生新的但又比较靠谱的数据，插值函数曲线一定经过所有原来点
+
+分段三次埃尔米特插值：pchip函数
+<span class="token operator">*</span><span class="token punctuation">(</span>推荐<span class="token punctuation">)</span>三次样条插值：spline函数</code></pre>
+
+
+
+<h2 id="拟合算法"><a href="#拟合算法" class="headerlink" title="拟合算法"></a>拟合算法</h2><pre class="language-matlab" data-language="matlab"><code class="language-matlab">拟合不需要曲线一点经过给定的点，拟合的目标是寻求一个函数，使得该曲线在某种准则下与所有的数据点最为接近，即曲线拟合的最好<span class="token punctuation">(</span>最小化损失函数<span class="token punctuation">)</span>
+
+匿名函数
+最小二乘法
+fplot函数：画出匿名函数在自变量范围内的图像
+线性函数：线性于参数，这时可直接看R²
+其他的就看SSE，SSE越小，拟合越好</code></pre>
+
+
+
+<h2 id="相关系数"><a href="#相关系数" class="headerlink" title="相关系数"></a>相关系数</h2><pre class="language-matlab" data-language="matlab"><code class="language-matlab"><span class="token number">1.</span>Pearson相关系数
+	先画出散点图，观察是否线性相关，当两个变量本身就是线性的关系，那么皮尔逊相关系数绝对值大的就是相关性强，小的就是相关性弱。 
+	tcdf：累计密度函数，返回的是概率值
+	tinv：累计密度函数的反函数，返回的是对应的x值
+	tpdf：x的值对应的y值
+	计算皮尔逊相关系数，并做出相关系数表。
+	进行正态分布的假设检验：
+		<span class="token number">1.</span>样本数n<span class="token operator">></span><span class="token number">30</span>：JB检验
+		<span class="token number">2.</span>样本数<span class="token number">3</span><span class="token operator">&lt;=</span>n<span class="token operator">&lt;=</span><span class="token number">50</span>：Shapiro<span class="token operator">-</span>wilk检验
+		<span class="token number">3.</span>数据量特别大：Q<span class="token operator">-</span>Q图
+	对皮尔逊相关系数进行假设检验
+<span class="token number">2.</span>Spearman相关系数
+	被定义为等级之间的皮尔逊相关系数
+	计算斯皮尔曼相关系数
+	斯皮尔曼相关系数的假设检验
+		<span class="token number">1.</span>样本数n<span class="token operator">&lt;=</span><span class="token number">30</span>，直接查临界表，相关系数必须大于等于表中的临界值，才能得出显著的结论
+		<span class="token number">2.</span>样本数为大样本，计算检验值，使用normcdf计算的值与<span class="token number">0.05</span>比较
+	注意：
+		<span class="token number">1.</span>连续数据，正态分布，线性关系，用皮尔逊
+		<span class="token number">2.</span>上面条件有个不满足，就用斯皮尔曼
+		<span class="token number">3.</span>两个定序之间用斯皮尔曼，定序：仅仅反映观测对象等级，顺序关系的数据</code></pre>
+
+
+
+<h2 id="多元线性回归"><a href="#多元线性回归" class="headerlink" title="多元线性回归"></a>多元线性回归</h2><pre class="language-matlab" data-language="matlab"><code class="language-matlab">回归分析的任务：通过研究自变量x和因变量y的相关关系，尝试去解释y的形成机制，进而达到通过x去预测y的目的
+回归分析的三个使命：
+	<span class="token number">1.</span>识别重要变量，可使用逐步回归
+	<span class="token number">2.</span>判断相关性的方向
+	<span class="token number">3.</span>回归系数
+无内生性，实际应用中，保证核心解释变量与u不相关
+
+取对数：
+	<span class="token number">1.</span>与市场价值相关：价格，营销额
+	<span class="token number">2.</span>以年度量的变量
+	<span class="token number">3.</span>比例变量：失业率，参与率
+	<span class="token number">4</span>。变量取值必须非负数，如果包含<span class="token number">0</span>，则可以对y取对数<span class="token function">ln</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">+</span>y<span class="token punctuation">)</span>
+创建虚拟变量
+stata回归的语句：regress y x1 x2 ··· xk，默认使用<span class="token function">OLS</span><span class="token punctuation">(</span>最小二乘法<span class="token punctuation">)</span>
+联合显著性检验，判断回归系数是不是都等于<span class="token number">0</span>
+判断回归系数是不是显著异于<span class="token number">0</span>
+标准化回归系数
+扰动项：u<span class="token operator">~</span><span class="token function">N</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>σ²<span class="token punctuation">)</span>
+异方差这里出现的信息可以理解为对于模型的稳定程度所做的贡献，异方差是指各个扰动项的方差不相同，那么方差较大的扰动项破坏模型稳定性的程度就较大，我们就说它包含的信息量减少。
+异方差检验：bp检验，怀特检验
+解决异方差：OLS<span class="token operator">+</span>稳健的标志误
+多重共线性检验：说明计算得出的回归系数结果不可靠，不显著，可通过方差膨胀因子分析
+注意检验异方差和多重共线性
+逐步回归：
+	<span class="token number">1.</span>向前逐步回归
+	<span class="token number">2.</span>向后逐步回归
+标准化回归系数比较绝对值</code></pre>
+
+
+
+<h2 id="lasso回归"><a href="#lasso回归" class="headerlink" title="lasso回归"></a>lasso回归</h2><pre class="language-matlab" data-language="matlab"><code class="language-matlab">使用一般的OLS对数据进行回归，计算方差膨胀因子VIF，如果VIF<span class="token operator">></span><span class="token number">10</span>说明存在多重共线性，可讲lasso回归视为进阶版的逐步回归，lasso回归可以帮我们筛选出不重要的变量，lasso回归只起到变量筛选的目的，将筛选出的变量进行正常的回归即可</code></pre>
+
+
+
+<h2 id="分类模型"><a href="#分类模型" class="headerlink" title="分类模型"></a>分类模型</h2><pre class="language-matlab" data-language="matlab"><code class="language-matlab">分类是已知类别的
+数据预处理：生成虚拟变量
+逻辑回归
+出现过拟合现象时可把数据分为训练组和测试组，用训练组的数据估计出模型，再用测试组的数据进行测试
+二分类：
+	<span class="token number">1.</span>logistic回归：Sigmoid函数
+	<span class="token number">2.</span>Fisher判别
+多分类：
+	<span class="token number">1.</span>logistic回归：Softmax函数
+	<span class="token number">2.</span>Fisher判别</code></pre>
+
+
+
+<h2 id="聚类模型"><a href="#聚类模型" class="headerlink" title="聚类模型"></a>聚类模型</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/401173177">聚类算法的评估指标及实现 - 知乎 (zhihu.com)</a></p>
+<pre class="language-matlab" data-language="matlab"><code class="language-matlab">聚类是未知类别的
+样本和样本之间一般是基于欧式距离的：每个指标下两个样本间的距离平方和
+类和类之间的常用距离：
+	<span class="token number">1.</span>最短距离法
+	<span class="token number">2.</span>最长距离法
+	<span class="token number">3.</span>组间平均连接法
+	<span class="token number">4.</span>组内平均连接法
+	<span class="token number">5.</span>重心法
+	
+K<span class="token operator">-</span>means聚类
+量纲不一样的话要进行标准化
+
+层次聚类
+肘部图
+聚合系数折线图
+
+DBSCAN算法：基于密度的聚类方法
+
+轮廓系数：结合了聚类的凝聚度和分离度，用于评估聚类的效果。该值处于<span class="token operator">-</span><span class="token number">1</span><span class="token operator">~</span><span class="token number">1</span>之间，值越大，表示聚类效果越好。计算方法如下：
+	<span class="token number">1.</span>对于每个样本点<span class="token number">i</span>，计算点<span class="token number">i</span>与其同一个簇内的所有其他元素距离的平均值，记作<span class="token function">a</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">)</span>，用于量化簇内的凝聚度。
+	<span class="token number">2.</span>选取<span class="token number">i</span>外的一个簇b，计算<span class="token number">i</span>与b中所有点的平均距离，遍历所有其他簇，找到最近的这个平均距离<span class="token punctuation">,</span>记作<span class="token function">b</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">)</span>，即为<span class="token number">i</span>的邻居类，用于量化簇之间分离度。
+	<span class="token number">3.</span>对于样本点<span class="token number">i</span>，轮廓系数<span class="token function">s</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token function">b</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">)</span>–<span class="token function">a</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token function">a</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">b</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>计算所有<span class="token number">i</span>的轮廓系数，求出平均值即为当前聚类的整体轮廓系数，度量数据聚类的紧密程度。
+	
+轮廓系数可视化图：matlab中的silhouette函数
+	clust <span class="token operator">=</span> <span class="token function">kmeans</span><span class="token punctuation">(</span>X<span class="token punctuation">,</span>k<span class="token punctuation">)</span>				<span class="token comment">%返回k均值聚类后的序号</span>
+	<span class="token punctuation">[</span>s<span class="token punctuation">,</span>h<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">silhouette</span><span class="token punctuation">(</span>X<span class="token punctuation">,</span>clust<span class="token punctuation">)</span>		<span class="token comment">%默认使用平方欧式距离</span></code></pre>
+
+
+
+<h2 id="时间序列分析"><a href="#时间序列分析" class="headerlink" title="时间序列分析"></a>时间序列分析</h2><pre class="language-matlab" data-language="matlab"><code class="language-matlab">时间序列组成要素：
+	<span class="token number">1.</span>时间要素
+	<span class="token number">2.</span>数值要素
+时期序列中，数值要素反映现象在一定时期内的发展的结果
+时点序列中，数值要素反映现象在一定时点上的瞬间水平
+时间序列数值变化规律：
+	<span class="token number">1.</span>长期趋势：T
+	<span class="token number">2.</span>季节趋势：S
+	<span class="token number">3.</span>循环变动：C
+	<span class="token number">4.</span>不规则变动：I
+叠加模型和乘积模型：数据具有年内的周期性才能使用时间序列分解
+
+具体步骤：
+	<span class="token number">1.</span>做时间序列图
+	<span class="token number">2.</span>判断时间序列包含的变动成分
+	<span class="token number">3.</span>时间序列分解<span class="token punctuation">(</span>有周期性且包含长期趋势、季节变动或循环变动<span class="token punctuation">)</span>
+	<span class="token number">4.</span>建立时间序列分析模型
+	<span class="token number">5.</span>预测未来的指标数值
+	
+平稳时间序列：
+	<span class="token number">1.</span><span class="token function">E</span><span class="token punctuation">(</span>Xt<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">E</span><span class="token punctuation">(</span>Xt<span class="token operator">-</span>s<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">(</span>均值为固定常数<span class="token punctuation">)</span>
+	<span class="token number">2.</span><span class="token function">Var</span><span class="token punctuation">(</span>Xt<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">Var</span><span class="token punctuation">(</span>Xt<span class="token operator">-</span>s<span class="token punctuation">)</span> <span class="token operator">=</span> σ² <span class="token punctuation">(</span>方差存在且为常数<span class="token punctuation">)</span>
+	<span class="token number">2.</span><span class="token function">Cov</span><span class="token punctuation">(</span>Xt<span class="token punctuation">,</span>Xt<span class="token operator">-</span>s<span class="token punctuation">)</span> <span class="token operator">=</span> γ<span class="token function">s</span> <span class="token punctuation">(</span>协方差只和间距s有关，与t无关<span class="token punctuation">)</span>
+白噪声序列：
+	<span class="token number">1.</span><span class="token function">E</span><span class="token punctuation">(</span>Xt<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">E</span><span class="token punctuation">(</span>Xt<span class="token operator">-</span>s<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">(</span>均值为<span class="token number">0</span><span class="token punctuation">)</span>
+	<span class="token number">2.</span><span class="token function">Var</span><span class="token punctuation">(</span>Xt<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">Var</span><span class="token punctuation">(</span>Xt<span class="token operator">-</span>s<span class="token punctuation">)</span> <span class="token operator">=</span> σ² <span class="token punctuation">(</span>方差存在且为常数<span class="token punctuation">)</span>
+	<span class="token number">2.</span><span class="token function">Cov</span><span class="token punctuation">(</span>Xt<span class="token punctuation">,</span>Xt<span class="token operator">-</span>s<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">(</span>s <span class="token punctuation">!</span><span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span>
+
+评价指标：平稳的R²越大越好，标准化BIC越小越好
+
+白噪声进行残差检验：残差ACF和残差PACF，残差进行Q检验
+
+滞后算子L
+
+不同之间周期内的季节趋势S都是一样的，呈现规律性</code></pre>
+
+
+
+<h2 id="ARCH和GARCH"><a href="#ARCH和GARCH" class="headerlink" title="ARCH和GARCH"></a>ARCH和GARCH</h2><pre class="language-stata" data-language="stata"><code class="language-stata">一般应用于股票这种高频数据
+predict residess, residuals  &#x2F;&#x2F;保存残差，以变量residess接受最后的结果
+hist residess,norm freq
+norm freq 表示加上标准正态分布的概率密度函数</code></pre>
+
+
+
+<h2 id="预测模型"><a href="#预测模型" class="headerlink" title="预测模型"></a>预测模型</h2><pre class="language-none"><code class="language-none">注意GM(1,1)原理的介绍P4~P14
+误差平方和SSE来进行比较模型好坏，SSE越小说明模型越好
+灰色系统：系统的部分信息已知，部分信息未知
+灰色预测：什么时候用
+	1.数据周期较短的非负时间序列
+	2.数据经过准指数规律的检验，除前两期外，后面至少90%的期数的光滑比低于0.5
+	3.数据的期数较短且和其他的数据之间的关联性不强
+	
+题目的小套路：
+	1.画出时间序列图并简单分析下趋势
+	2.将数据分为训练组和测试组，并利用测试组的数据判断哪种模型的预测效果最好
+	3.选择上一部中得到的预测误差最小的模型，并使用全部数据进行重新建模，并对未来数据进行预测
+	4.画出预测后的数据和原来数据的时序图，看看预测的未来趋势是否合理
+	
+累加数据，紧邻均值生成序列是累加序列相邻累加数据求平均
+
+灰色微分方程转化为白色方程</code></pre>
+
+
+
+<h2 id="数据分析模型"><a href="#数据分析模型" class="headerlink" title="数据分析模型"></a>数据分析模型</h2><p><a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/884872?spm=a2c6h.13262185.profile.97.488f410dEp9571">数据分析八大模型：详解PEST模型-阿里云开发者社区 </a></p>
+<pre class="language-matlab" data-language="matlab"><code class="language-matlab">PEST模型：行业分析的业务模型
+OGSM模型：企业管理方法论
+人货场模型：销售分析的最常用模型，人货场指影响销售的三个重要因素<span class="token punctuation">(</span>不是三个指标<span class="token punctuation">)</span>
+RFM模型：衡量客户 价值和客户创利能力的重要工具和手段
+同期群模型：找出优势群体，用于商品分析<span class="token punctuation">(</span>商品LTV模型<span class="token punctuation">)</span>，用户分析<span class="token punctuation">(</span>用户留存率模型，用	 户LTV模型<span class="token punctuation">)</span>，渠道分析<span class="token punctuation">(</span>渠道质量分析模型<span class="token punctuation">)</span>
+漏斗模型：当业务流程变长的时候，用户会流失。这样把整个流程串起来看，就好像一个“漏斗”一样。用数据描述这个流程，是为漏斗模型。</code></pre>
+
+
+
+<h2 id="作图"><a href="#作图" class="headerlink" title="作图"></a>作图</h2><pre class="language-matlab" data-language="matlab"><code class="language-matlab"><span class="token number">1.</span>饼图
+<span class="token number">2.</span>柱形图
+<span class="token number">3.</span>条形图<span class="token punctuation">(</span>横过来的柱状图<span class="token punctuation">)</span>
+<span class="token number">4.</span>双向条形图：数字绝对值的代码#<span class="token punctuation">,</span>##<span class="token number">0.00</span>_<span class="token punctuation">)</span><span class="token punctuation">;</span>#<span class="token punctuation">,</span>##<span class="token number">0.00</span>
+<span class="token number">5.</span>直方图
+<span class="token number">6.</span>折线图
+<span class="token number">7.</span>柱形图顶端的折线图
+<span class="token number">8.</span>散点图
+<span class="token number">9.</span>箱线图
+<span class="token number">10.</span>小提琴图
+<span class="token number">11.</span>具有分布拟合的直方图：matlab中的histfit函数，返回的是绘图的句柄，<span class="token function">h</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>是直方图的句柄，<span class="token function">h</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>是密度曲线的句柄</code></pre>
+
+
+
+
+
+<p>物价水平:CPI</p>
+</div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>wenyu</li><li class="post-copyright-link"><strong>Post link: </strong><a href="https://avereed.github.io/2022/09/30/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" title="数学建模">https://avereed.github.io/2022/09/30/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"></div><div class="post-nav-item"><a class="post-nav-next" href="/2022/03/13/%E7%AE%97%E6%B3%95/" rel="next" title="算法"><span class="post-nav-text">算法</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div class="hty-card" id="comment"><div class="comment-tooltip text-center"><span>要不要和我说些什么？</span><br></div></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2021 – 2022 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> chenwenyu</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.4.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.6.2</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
+  setTimeout(blog_live_time, 1000);
+  const start = new Date('2021-09-19T00:00:00');
+  const now = new Date();
+  const timeDiff = (now.getTime() - start.getTime());
+  const msPerMinute = 60 * 1000;
+  const msPerHour = 60 * msPerMinute;
+  const msPerDay = 24 * msPerHour;
+  const passDay = Math.floor(timeDiff / msPerDay);
+  const passHour = Math.floor((timeDiff % msPerDay) / 60 / 60 / 1000);
+  const passMinute = Math.floor((timeDiff % msPerHour) / 60 / 1000);
+  const passSecond = Math.floor((timeDiff % msPerMinute) / 1000);
+  display_live_time.innerHTML = " " + passDay + " 天 " + passHour + " 小时 " + passMinute + " 分 " + passSecond + " 秒";
+}
+blog_live_time();
+</script></div></footer><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a><script>const date = new Date();
+const today = (date.getMonth() + 1) + "-" + date.getDate()
+const mourn_days = ["4-4"]
+if (mourn_days.includes(today)) {
+  document.documentElement.style.filter = "grayscale(1)";
+}</script></div></body></html>
